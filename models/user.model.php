@@ -5,7 +5,7 @@ class UserModel {
     private $db;
 
     public function __construct() {
-        $this->db = new PDO('mysql:host=localhost;dbname=bibiblioteca_virtual;charset=utf8', 'root', '');
+        $this->db = new PDO('mysql:host=localhost;db=bibiblioteca_virtual&table=usuario;charset=utf8', 'root', '');
     }
 
     /**

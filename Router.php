@@ -1,5 +1,5 @@
 <?php
-
+//aca te dice como van a ser las url, y ponele que las traduce
 class Route {
     private $url;
     private $verb;
