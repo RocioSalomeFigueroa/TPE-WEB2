@@ -1,56 +1,14 @@
 <html>
-<head></head>
+    <head></head>
 <body>
 <?php
 
-//tengo comentados los de login porque queria ver si me llamaba  a la base de datos, todavia sigo intentando
-    require_once('controllers/libro.controller.php');
- //   require_once('controllers/login.controller.php');
-    require_once('Router.php');
+require_once "controller/librosController.php" ;
 
-    // CONSTANTES PARA RUTEO
-    define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
-   // define("LOGIN", BASE_URL . 'login');
-    define("VER", BASE_URL . 'ver');
-
-  $r = new Router();
-
-      // rutas
-/*       $r->addRoute("login", "GET", "LoginController", "showLogin");
-      $r->addRoute("verify", "POST", "LoginController", "verifyUser");
-      $r->addRoute("logout", "GET", "LoginController", "logout"); */
-      $r->addRoute("ver", "GET", "LibroController", "showLibro");
-      $r->addRoute("libro/:ID", "GET",  "LibroController", "showLibro");
-
-      $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']);
+$controller = new librosController();
+$partesURL = explode('/', $_GET['action']);
 
 
-
-//    require_once('controllers/task.controller.php');
-//    require_once('controllers/login.controller.php');
-//    require_once('Router.php');
-
-
-/*     // CONSTANTES PARA RUTEO
-    define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
-    define("LOGIN", BASE_URL . 'login');
-    define("VER", BASE_URL . 'ver');
-
-    $r = new Router();
-
-    // rutas
-    $r->addRoute("login", "GET", "LoginController", "showLogin");
-    $r->addRoute("verify", "POST", "LoginController", "verifyUser");
-    $r->addRoute("logout", "GET", "LoginController", "logout");
-    $r->addRoute("ver", "GET", "TaskController", "showTasks");
-    $r->addRoute("tarea/:ID", "GET", "TaskController", "showTask");
-    $r->addRoute("eliminar/:ID", "GET", "TaskController", "deleteTask");
-    $r->addRoute("finalizar/:ID", "GET", "TaskController", "endTask");
-    $r->addRoute("nueva", "POST", "TaskController", "addTask");
-
-    //Ruta por defecto.
-    $r->setDefaultRoute("TaskController", "showTasks");
-
-    //run
-    $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']);
- --> */
+if($partesURL[0]==''){
+    $controller->Home();
+}
