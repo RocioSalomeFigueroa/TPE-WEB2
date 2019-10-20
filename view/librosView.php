@@ -7,17 +7,18 @@ class librosView{
 
 
     function __construct(){
-      //  $this->smarty =new smarty();
+        $this->smarty =new smarty();
         
     }
 
     function Mostrar($titulo, $Libros){
-        $this->smarty =new smarty();
+        var_dump($Libros);
 
+/*      
         $this->smarty->assing('titulo', $titulo);
-        $this->smarty->assing('libros', $Libros);
+        $this->smarty->assing('Libros', $Libros);
 
-        $this->smarty->display('template/libros.tpl');
+        $this->smarty->display('templates/libros.tpl'); */
 
     }
 }
