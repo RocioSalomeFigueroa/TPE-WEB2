@@ -16,6 +16,20 @@ class librosModel{
         return $libros;
         
     }
+    function addLibros(){
+
+    }
+
+    function deleteLibro($id){
+        $sentencia = $this->db->prepare("DELETE FROM libro WHERE id=?");
+        $sentencia->execute(array($id));
+
+    }
+
+    function changeLibro($id){
+
+    }
+    
 
 }
 

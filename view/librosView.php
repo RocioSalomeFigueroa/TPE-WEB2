@@ -12,13 +12,13 @@ class librosView{
     }
 
     function Mostrar($titulo, $Libros){
-        var_dump($Libros);
+       // var_dump($Libros);
 
-/*      
-        $this->smarty->assing('titulo', $titulo);
-        $this->smarty->assing('Libros', $Libros);
+     
+        $this->smarty->assign('titulo', $titulo); //es assiGn, primero la g, sorry soy re boluda
+        $this->smarty->assign('Libros', $Libros);
 
-        $this->smarty->display('templates/libros.tpl'); */
+        $this->smarty->display('templates/libros.tpl');
 
     }
 }

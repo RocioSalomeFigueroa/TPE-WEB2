@@ -2,8 +2,15 @@
 
 {$titulo}
 
-        {foreach from=$Libros item=item}
-        <p>{$item.titulo}</p>
-        {/foreach}
+       <table>
+	{foreach from=$Libros item=libro}
+		<tr>
+			{foreach from=$libro item=caracteristica}
+				<td>{$caracteristica}</td>
+			{/foreach}
+</tr>
+{/foreach}
+</table>
+
         
 {include file="footer.tpl"}
