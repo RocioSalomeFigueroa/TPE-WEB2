@@ -5,7 +5,6 @@ class librosView{
 
     private $smarty;
 
-
     function __construct(){
         $this->smarty =new smarty();
         

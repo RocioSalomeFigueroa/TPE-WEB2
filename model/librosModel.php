@@ -16,14 +16,17 @@ class librosModel{
         return $libros;
         
     }
-    function addLibros(){
+    function agregar($titulo,$autor,$genero){
 
+        $sentencia=$this->db->prepare('INSERT INTO libro(titulo, autor, genero) values(???)');
+        $sentencia->execute([$titulo, $autor, $genero]);
+        
+        return $this->db->lastInsertId();
     }
 
-    function deleteLibro($id){
+    function eliminarLibro($id){
         $sentencia = $this->db->prepare("DELETE FROM libro WHERE id=?");
         $sentencia->execute(array($id));
-
     }
 
     function changeLibro($id){
