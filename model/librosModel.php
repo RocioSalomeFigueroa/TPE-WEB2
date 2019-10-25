@@ -29,11 +29,13 @@ class librosModel{
         $sentencia->execute(array($id));
     }
 
-    function changeLibro($id){
+    function changeLibro($id,$titulo,$autor,$genero, $anio, $valoracion, $resenia){//no termine todavia de hacer esta funcion 
+
+        $sentencia = $this->db->prepare('UPDATE `libro` SET `titulo` = ?, `año` = ?, `genero` = ?, `reseña` = ?, `valoracion` = ? WHERE `libro`.`id_libro` = ? AND `libro`.`id_autor` = ?;');
+        $sentencia->execute([$id,$titulo,$autor,$genero, $anio, $valoracion, $resenia]);
 
     }
     
-
 }
 
 
