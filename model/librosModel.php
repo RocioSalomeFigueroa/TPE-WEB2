@@ -13,13 +13,12 @@ class librosModel{
         $sentencia->execute();
         $libros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 
-        return $libros;
-        
+        return $libros;  
     }
-    function agregar($titulo,$autor,$genero){
+    function agregar($titulo,$autor,$genero, $anio, $valoracion, $resenia){
 
-        $sentencia=$this->db->prepare('INSERT INTO libro(titulo, autor, genero) values(???)');
-        $sentencia->execute([$titulo, $autor, $genero]);
+        $sentencia=$this->db->prepare('INSERT INTO libro(titulo, autor, genero, año, valoracion, reseña) values(??????)');
+        $sentencia->execute([$titulo,$autor,$genero, $anio, $valoracion, $resenia]);
         
         return $this->db->lastInsertId();
     }
@@ -34,6 +33,13 @@ class librosModel{
         $sentencia = $this->db->prepare('UPDATE `libro` SET `titulo` = ?, `año` = ?, `genero` = ?, `reseña` = ?, `valoracion` = ? WHERE `libro`.`id_libro` = ? AND `libro`.`id_autor` = ?;');
         $sentencia->execute([$id,$titulo,$autor,$genero, $anio, $valoracion, $resenia]);
 
+    }
+    function getLibro($id){
+        $query = $this->db->prepare('SELECT * FROM libro WHERE id_libro = ?');
+        $query->execute([$id]);
+
+        return $query->fetch(PDO::FETCH_OBJ);
+ 
     }
     
 }
