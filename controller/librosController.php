@@ -44,14 +44,13 @@ class librosController{
         }
     }
 
-    function deleteLibro(){
-        $id = $params[':ID'];
+    function deleteLibro($id){
         $this->model->eliminarLibro($id);
         header("Location: " . VER);
     }
 
-    function cambiarLibro(){
-        $id = $params[':ID'];
+    function cambiarLibro($id){//tengo que terminar este
+
         $titulo = $_POST['titulo'];
         $autor = $_POST[''];//aca hay que ver si poner por id o el apellido/nombre
         $genero = $_POST['genero'];
