@@ -20,9 +20,6 @@ class librosView{
 
     function MostrarLibro($libro){
 
-        //es assiGn, primero la g, sorry soy re boluda
-        $this->smarty->assign('libro', $libro);
-
-        $this->smarty->display('templates/libro.tpl');
+        var_dump($libro);
     }
 }

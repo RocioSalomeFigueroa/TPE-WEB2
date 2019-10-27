@@ -11,7 +11,7 @@ class autoresView{
         
     }
 
-    function Mostrar($titulo, $autores){  //ni intente hacer el smarty con haberlo traido de l bbdd estoy
+    function MostrarAutores($titulo, $autores){  //ni intente hacer el smarty con haberlo traido de l bbdd estoy
         
        // var_dump($autores);
 

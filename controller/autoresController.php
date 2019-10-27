@@ -16,6 +16,6 @@ class autoresController{
 
     function Autores(){
         $autores = $this->model->getAutores();
-        $this->view->Mostrar($this->titulo,$autores);
+        $this->view->MostrarAutores($this->titulo,$autores);
     }
 }

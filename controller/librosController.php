@@ -22,8 +22,8 @@ class librosController{
         $Libros = $this->model->getLibros();
         $this->view->Mostrar($this->titulo,$Libros);
     }
-    function traerLibro($params = null){
-        $id= $params[':ID'];
+    function traerLibro($id){
+        
         $Libro = $this->model->getLibro($id);
         $this->view->MostrarLibro($Libro);
     }
