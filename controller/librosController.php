@@ -14,10 +14,6 @@ class librosController{
         $this->titulo = "Lista de libros";
     }
 
-    function Home(){
-        $Libros = $this->model->getLibros();
-        $this->view->Mostrar($this->titulo,$Libros);
-    }
     function traerLibros(){
         $Libros = $this->model->getLibros();
         $this->view->Mostrar($this->titulo,$Libros);

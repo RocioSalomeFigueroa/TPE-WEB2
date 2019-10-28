@@ -15,7 +15,7 @@ class librosModel{
 
         return $libros;  
     }
-    function agregar($titulo,$autor,$genero, $anio, $valoracion, $resenia){
+    function agregar($titulo,$autor,$genero, $anio, $valoracion, $resenia){//tengo que tereminar este
 
         $sentencia=$this->db->prepare('INSERT INTO libro(titulo, autor, genero, año, valoracion, reseña) values(??????)');
         $sentencia->execute([$titulo,$autor,$genero, $anio, $valoracion, $resenia]);
@@ -23,8 +23,8 @@ class librosModel{
         return $this->db->lastInsertId();
     }
 
-    function eliminarLibro($id){//No se el codigo de sql para borrar, en teoria este no anda, todavia
-        $sentencia = $this->db->prepare("DELETE FROM libro WHERE id=?");
+    function eliminarLibro($id){
+        $sentencia = $this->db->prepare("DELETE FROM `libro` WHERE `libro`.`id_libro` = ?");
         $sentencia->execute(array($id));
     }
 

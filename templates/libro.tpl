@@ -19,7 +19,7 @@
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">Autor</label>
+            <label class="input-group-text" name="autor" for="inputGroupSelect01">Autor</label>
         </div>
         <select class="custom-select" id="inputGroupSelect01">
             <option selected>Choose...</option>
