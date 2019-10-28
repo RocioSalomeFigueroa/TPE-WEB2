@@ -20,6 +20,10 @@ class librosView{
 
     function MostrarLibro($libro){
 
-        var_dump($libro);
+       // var_dump($libro);
+
+        $this->smarty->assign('Libro', $libro);
+
+        $this->smarty->display('templates/libro.tpl');
     }
 }

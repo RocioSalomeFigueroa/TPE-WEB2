@@ -37,7 +37,7 @@ class librosController{
 
         if(!empty($titulo)&&!empty($autor)&&!empty($genero)){
             $this->model->agregar($titulo,$autor,$genero, $anio, $valoracion, $resenia);
-            header("location: " . VER);
+            header("Location: " . BASE_URL);
         }
         else {
             $this->view->showError('completar campos obligatorios');
@@ -46,7 +46,7 @@ class librosController{
 
     function deleteLibro($id){
         $this->model->eliminarLibro($id);
-        header("Location: " . VER);
+        header("Location: " . BASE_URL);
     }
 
     function cambiarLibro($id){//tengo que terminar este
@@ -59,6 +59,6 @@ class librosController{
         $resenia = $_POST['resenia'];
 
         $this->model->changeLibro($titulo,$autor,$genero, $anio, $valoracion, $resenia);
-        header("location: " . VER);
+        header("Location: " . BASE_URL);
     }
 }
