@@ -53,14 +53,19 @@ if($action == ''){
             $controllerAut->deleteAutor($partesURL[1]);
         }
         elseif($partesURL[0] == "login") {
-           
-            $controllerUser->Login();
+            $controllerUser->showLogin();
+
         }elseif($partesURL[0] == "iniciarSesion") {
-           
-            $controllerUser->IniciarSesion();
+            $controllerUser->showLogin();
+
         }elseif($partesURL[0] == "logout") {
             
             $controllerUser->Logout();
         }
+        elseif($partesURL[0] == "verify") {
+            $controllerUser->verifyUser();
+
+        }
+        
     }
 }

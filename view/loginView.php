@@ -9,10 +9,11 @@ class loginView {
         $this->smarty = new Smarty();
     }
 
-    public function DisplayLogin(){
+    public function showLogin($error = null){
 
-        $this->smarty->assign('titulo',"Login");
-        $this->smarty->assign('BASE_URL',BASE_URL);
+        $this->smarty->assign('titulo', 'Iniciar Sesión');
+        $this->smarty->assign('error', $error);
         $this->smarty->display('templates/login.tpl');
+
     }
 }

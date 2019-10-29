@@ -12,38 +12,36 @@ class loginController{
             $this->view = new loginView();
         }
         
-        public function IniciarSesion(){
-            $user = $_POST['user'];
-            $pass = $_POST['pass'];
-
-    
-           if(!empty($user)&&!empty($pass)){
-               $user = $this->model->GetPassword($user);
-
-               if(!empty($user)&&password_verify($pass, $user->password)){
-                   session_start();
-
-                   $_SESSION['ID_USER'] =$user->id_usuario;
-                   $_SESSION['USERNAME'] =$user->mail;
-
-                   header("Location" .BASE_URL);
-               }else{
-                header("Location" .URL_login);
-               }
-           }else {
-            header("Location" .URL_login);
-           }
+        public function showLogin() {
+            $this->view->showLogin();
         }
     
-        public function Login(){
-            $this->view->DisplayLogin();
+        public function verifyUser() {
+
+            $username = $_POST['user'];
+            $password = $_POST['pass'];
+    
+            $user = $this->model->GetPassword($username);
+    
+            // encontró un user con el username que mandó, y tiene la misma contraseña
+            if (!empty($user) && password_verify($password, $user->password)) {
+                session_start();
+                $_SESSION['ID_USER'] = $user->id;
+                $_SESSION['USERNAME'] = $user->username;
+    
+                header('Location: ' . BASE_URL);
+            } else {
+                $this->view->showLogin("Login incorrecto");
+            }
         }
     
-        public function Logout(){
+        public function logout() {
             session_start();
             session_destroy();
-            header("Location: " . URL_login);
+
+            header('Location: ' . URL_login);
         }
+    
     
     }
     
