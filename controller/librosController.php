@@ -17,7 +17,7 @@ class librosController{
     public function checkLogIn(){
         session_start();
         
-        if(!isset($_SESSION['userId'])){
+        if(!isset($_SESSION['ID_USER'])){
             header("Location: " . URL_login);
             die();
         }

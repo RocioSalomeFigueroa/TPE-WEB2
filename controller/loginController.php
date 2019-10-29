@@ -13,18 +13,26 @@ class loginController{
         }
         
         public function IniciarSesion(){
-            $password = $_POST['pass'];
+            $user = $_POST['user'];
+            $pass = $_POST['pass'];
+
     
-            $usuario = $this->model->GetPassword($_POST['user']);
-    
-            if (isset($usuario) && $usuario != null && password_verify($password, $usuario->password)){
-                session_start();
-                $_SESSION['user'] = $usuario->email;
-                $_SESSION['userId'] = $usuario->id;
-                header("Location: " . BASE_URL);
-            }else{
-                header("Location: " . URL_login);
-            }
+           if(!empty($user)&&!empty($pass)){
+               $user = $this->model->GetPassword($user);
+
+               if(!empty($user)&&password_verify($pass, $user->password)){
+                   session_start();
+
+                   $_SESSION['ID_USER'] =$user->id_usuario;
+                   $_SESSION['USERNAME'] =$user->mail;
+
+                   header("Location" .BASE_URL);
+               }else{
+                header("Location" .URL_login);
+               }
+           }else {
+            header("Location" .URL_login);
+           }
         }
     
         public function Login(){
@@ -37,6 +45,5 @@ class loginController{
             header("Location: " . URL_login);
         }
     
-        
     }
     

@@ -13,6 +13,7 @@ define("URL_logout", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT
 
 $controller = new librosController();
 $controllerAut = new autoresController();
+$controllerUser = new loginController();
 
 
 if($action == ''){
@@ -52,13 +53,13 @@ if($action == ''){
             $controllerAut->deleteAutor($partesURL[1]);
         }
         elseif($partesURL[0] == "login") {
-            $controllerUser = new loginController();
+           
             $controllerUser->Login();
         }elseif($partesURL[0] == "iniciarSesion") {
-            $controllerUser = new loginController();
+           
             $controllerUser->IniciarSesion();
         }elseif($partesURL[0] == "logout") {
-            $controllerUser = new loginController();
+            
             $controllerUser->Logout();
         }
     }
