@@ -14,6 +14,21 @@ class autoresController{
         $this->titulo = "Lista de autores";
     }
 
+    public function checkLogIn(){
+        session_start();
+        
+        if(!isset($_SESSION['userId'])){
+            header("Location: " . URL_login);
+            die();
+        }
+
+        if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5000)) { 
+            header("Location: " . URL_logout);
+            die();
+        } 
+        $_SESSION['LAST_ACTIVITY'] = time();
+    }
+
     function Autores(){
         $autores = $this->model->getAutores();
         $this->view->MostrarAutores($this->titulo,$autores);
@@ -39,6 +54,7 @@ class autoresController{
     }
 
     function deleteAutor($id){
+        $this->checkLogIn();
         $this->model->eliminarAutor($id);
         header("Location: " . BASE_URL);
     }

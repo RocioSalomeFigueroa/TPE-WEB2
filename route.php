@@ -2,6 +2,7 @@
 
 require_once 'controller/librosController.php' ;
 require_once 'controller/autoresController.php' ;
+require_once 'controller/loginController.php' ;
 
 $action = $_GET["action"];
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
@@ -49,6 +50,16 @@ if($action == ''){
         }
         elseif($partesURL[0] == "borrarAutor"){
             $controllerAut->deleteAutor($partesURL[1]);
+        }
+        elseif($partesURL[0] == "login") {
+            $controllerUser = new loginController();
+            $controllerUser->Login();
+        }elseif($partesURL[0] == "iniciarSesion") {
+            $controllerUser = new loginController();
+            $controllerUser->IniciarSesion();
+        }elseif($partesURL[0] == "logout") {
+            $controllerUser = new loginController();
+            $controllerUser->Logout();
         }
     }
 }

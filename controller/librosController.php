@@ -14,6 +14,21 @@ class librosController{
         $this->titulo = "Lista de libros";
     }
 
+    public function checkLogIn(){
+        session_start();
+        
+        if(!isset($_SESSION['userId'])){
+            header("Location: " . URL_login);
+            die();
+        }
+
+        if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5000)) { 
+            header("Location: " . URL_logout);
+            die();
+        } 
+        $_SESSION['LAST_ACTIVITY'] = time();
+    }
+
     function traerLibros(){
         $Libros = $this->model->getLibros();
         $this->view->Mostrar($this->titulo,$Libros);
@@ -41,6 +56,7 @@ class librosController{
     }
 
     function deleteLibro($id){
+        $this->checkLogIn();
         $this->model->eliminarLibro($id);
         header("Location: " . BASE_URL);
     }

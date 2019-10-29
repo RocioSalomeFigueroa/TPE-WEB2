@@ -2,14 +2,14 @@
 require_once './view/loginView.php';
 require_once "./model/userModel.php";
 
-class loginController(){
+class loginController{
 
         private $model;
         private $view;
     
         function __construct(){
             $this->model = new UserModel();
-            $this->view = new UserView();
+            $this->view = new loginView();
         }
         
         public function IniciarSesion(){

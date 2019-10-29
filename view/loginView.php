@@ -1,24 +1,18 @@
 <?php
 require_once('./libs/Smarty.class.php');
 
-class loginView{
+class loginView {
 
     private $smarty;
 
-
     function __construct(){
-        $this->smarty =new smarty();
-        
+        $this->smarty = new Smarty();
     }
 
-    function mostrarLogin(){
-       // var_dump();
+    public function DisplayLogin(){
 
-     
-        $this->smarty->assign('titulo', 'login'); //es assiGn, primero la g, sorry soy re boluda
-        
-
+        $this->smarty->assign('titulo',"Login");
+        $this->smarty->assign('BASE_URL',BASE_URL);
         $this->smarty->display('templates/login.tpl');
-
     }
 }
