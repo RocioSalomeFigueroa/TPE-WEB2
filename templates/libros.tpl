@@ -20,6 +20,7 @@
 		{/foreach}
 	</div>
 
+<h3>Agregar</h3>
 	<form class="formulario" action="insertar" method="post">
     <div class="input-group mb-3">
         <div class="input-group-prepend">

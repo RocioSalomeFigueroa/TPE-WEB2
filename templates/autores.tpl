@@ -1,16 +1,20 @@
 {include file="header.tpl"}
 
 {$titulo}
-
-       <table>
+<div class="card-group">
 	{foreach from=$autores item=autor}
-		<tr>
-			{foreach from=$autor item=caracteristica}
-				<td>{$caracteristica}</td>
-			{/foreach}
-</tr>
-{/foreach}
-</table>
+		<div class="card">
+				
+					<div class="card-body">
+						<h5 class="card-title" href="autors/{$autor.id_autor}">Apellido: {$autor.apellido}</h5>
+						<p class="card-text">Nombre: {$autor.nombre}</p>
+						<p class="card-text">Fecha: {$autor.fecha}</p>
+						<p class="card-text">Biografia: {$autor.biografia}</p>
+						<small><a href="borrarAutor/{$autor.id_autor}">ELIMINAR</a></li></small>
+					</div>
+			</div>
+	{/foreach}
+</div>
 
 <h4>Agregar Autor</h4>
 <form class="formulario" action="agregarAutor" method="post">

@@ -5,6 +5,10 @@ require_once 'controller/autoresController.php' ;
 
 $action = $_GET["action"];
 define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
+define("URL_libros", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/libros');
+define("URL_autores", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/autores');
+define("URL_login", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
+define("URL_logout", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
 
 $controller = new librosController();
 $controllerAut = new autoresController();
@@ -42,6 +46,9 @@ if($action == ''){
         }
         elseif($partesURL[0] == "agregarAutor"){
             $controllerAut->addAutor();
+        }
+        elseif($partesURL[0] == "borrarAutor"){
+            $controllerAut->deleteAutor($partesURL[1]);
         }
     }
 }
