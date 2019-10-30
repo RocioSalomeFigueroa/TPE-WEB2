@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.33, created on 2019-10-30 01:07:11
+  from 'C:\xampp\htdocs\proyectos\tpe web\templates\header.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5db8d42f3bd173_68518397',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'b83ab1c33802b84242143d354bfd37eb2c99f3d1' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\proyectos\\tpe web\\templates\\header.tpl',
+      1 => 1572391160,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5db8d42f3bd173_68518397 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,7 +47,10 @@
         <a class="nav-link" href="autores">Autores</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Login</a>
+        <a class="nav-link" href="login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="categorias">categorias</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -32,4 +58,5 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
-</nav>
+</nav><?php }
+}
