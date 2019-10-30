@@ -38,9 +38,6 @@ if($action == ''){
         elseif($partesURL[0] == "insertar"){
             $controller->addLibro();
         }
-        elseif($partesURL[0]== "categorias"){
-            $controller->showCategorias();
-        }
         elseif($partesURL[0]=='autores'){  //queria probar de ver si andaba esto 
             $controllerAut->Autores();
         }

@@ -1,27 +1,4 @@
-<?php
-/* Smarty version 3.1.33, created on 2019-10-30 14:46:59
-  from 'C:\xampp\htdocs\proyectos\tpe web\templates\header.tpl' */
-
-/* @var Smarty_Internal_Template $_smarty_tpl */
-if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
-  'version' => '3.1.33',
-  'unifunc' => 'content_5db9945315f663_61602219',
-  'has_nocache_code' => false,
-  'file_dependency' => 
-  array (
-    'b83ab1c33802b84242143d354bfd37eb2c99f3d1' => 
-    array (
-      0 => 'C:\\xampp\\htdocs\\proyectos\\tpe web\\templates\\header.tpl',
-      1 => 1572443130,
-      2 => 'file',
-    ),
-  ),
-  'includes' => 
-  array (
-  ),
-),false)) {
-function content_5db9945315f663_61602219 (Smarty_Internal_Template $_smarty_tpl) {
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -55,5 +32,4 @@ function content_5db9945315f663_61602219 (Smarty_Internal_Template $_smarty_tpl)
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
-</nav><?php }
-}
+</nav>

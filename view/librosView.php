@@ -26,13 +26,4 @@ class librosView{
 
         $this->smarty->display('templates/libro.tpl');
     }
-
-    function mostrarCategorias($libros){
-        //var_dump($libros);
-
-        $this->smarty->assign($libros);
-
-        $this->smarty->display('templates/categorias.tpl');
-
-    }
 }

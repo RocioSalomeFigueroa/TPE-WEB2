@@ -42,7 +42,7 @@ class librosController{
         $titulo = $_POST['titulo'];
         $autor = $_POST[''];//aca hay que ver si poner por id o el apellido/nombre
         $genero = $_POST['genero'];
-        $anio = $_POST['anio'];
+        $anio = $_POST['año'];
         $valoracion = $_POST['valoracion'];
         $resenia = $_POST['resenia'];
 
@@ -72,9 +72,5 @@ class librosController{
 
         $this->model->changeLibro($titulo,$autor,$genero, $anio, $valoracion, $resenia);
         header("Location: " . BASE_URL);
-    }
-    function showCategorias(){
-        $Libros = $this->model->categorias();
-        $this->view->mostrarCategorias($Libros);
     }
 }

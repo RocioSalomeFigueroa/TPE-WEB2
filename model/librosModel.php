@@ -40,14 +40,6 @@ class librosModel{
         $libro = $query->fetch(PDO::FETCH_OBJ);
         return json_decode(json_encode($libro), True);
     }
-
-    function categorias(){
-        $query = $this->db->prepare('SELECT lib.*, aut.* FROM libro lib INNER JOIN autor aut ON lib.id_autor = aut.id_autor');
-        $query->execute();
-        $libros = $query->fetchAll(PDO::FETCH_ASSOC);
-
-        return $libros; 
-    }
     
 }
 
