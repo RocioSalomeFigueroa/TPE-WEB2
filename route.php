@@ -59,8 +59,8 @@ if($action == ''){
             $controllerUser->showLogin();
 
         }elseif($partesURL[0] == "logout") {
-            
-            $controllerUser->Logout();
+    
+            $controllerUser->logout();
         }
         elseif($partesURL[0] == "verify") {
             $controllerUser->verifyUser();

@@ -19,8 +19,9 @@ class autoresController{
         
         if(!isset($_SESSION['ID_USER'])){
             header("Location: " . URL_login);
-            
+    
         }
+
     }
 
     function Autores(){
