@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-30 14:46:59
+/* Smarty version 3.1.33, created on 2019-10-30 22:09:46
   from 'C:\xampp\htdocs\proyectos\tpe web\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5db9945315f663_61602219',
+  'unifunc' => 'content_5db9fc1a75c558_51984090',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b83ab1c33802b84242143d354bfd37eb2c99f3d1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\tpe web\\templates\\header.tpl',
-      1 => 1572443130,
+      1 => 1572469773,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5db9945315f663_61602219 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5db9fc1a75c558_51984090 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +33,7 @@ function content_5db9945315f663_61602219 (Smarty_Internal_Template $_smarty_tpl)
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href=" ">Biblioteca Virtual</a>
+  <a class="navbar-brand" href="libros">Biblioteca Virtual</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -47,13 +47,9 @@ function content_5db9945315f663_61602219 (Smarty_Internal_Template $_smarty_tpl)
         <a class="nav-link" href="autores">Autores</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Login</a>
+        <a class="nav-link" href="login">Login</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav><?php }
 }

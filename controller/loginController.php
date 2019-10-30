@@ -23,14 +23,17 @@ class loginController{
     
             $user = $this->model->GetPassword($username);
     
-            // encontró un user con el username que mandó, y tiene la misma contraseña
             if (!empty($user) && password_verify($password, $user->password)) {
+                
                 session_start();
+
                 $_SESSION['ID_USER'] = $user->id;
                 $_SESSION['USERNAME'] = $user->username;
-    
-                header('Location: ' . BASE_URL);
+                
+               header('Location: ' . BASE_URL);
+            // $this->view->showLogin("inicio sesion");
             } else {
+                
                 $this->view->showLogin("Login incorrecto");
             }
         }

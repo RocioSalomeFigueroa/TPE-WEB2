@@ -19,14 +19,9 @@ class librosController{
         
         if(!isset($_SESSION['ID_USER'])){
             header("Location: " . URL_login);
-            die();
+    
         }
 
-        if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 5000)) { 
-            header("Location: " . URL_logout);
-            die();
-        } 
-        $_SESSION['LAST_ACTIVITY'] = time();
     }
 
     function traerLibros(){

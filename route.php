@@ -64,7 +64,6 @@ if($action == ''){
         }
         elseif($partesURL[0] == "verify") {
             $controllerUser->verifyUser();
-
         }
         
     }
