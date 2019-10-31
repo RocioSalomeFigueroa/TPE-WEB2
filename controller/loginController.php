@@ -40,10 +40,17 @@ class loginController{
     
         public function logout() {
             session_start();
-            session_destroy();
+            // Unset all of the session variables.
+            unset($_SESSION['USERNAME']);
+            // Finally, destroy the session.    
+            session_destroy();       
 
-            header('Location: ' . URL_login);
-            $this->view->showLogin("se cerro la sesion");
+            echo 'You are in!' . session_status();
+
+             exit;
+
+            /* header('Location: ' . URL_login);
+            $this->view->showLogin("se cerro la sesion"); */
         }
     
     

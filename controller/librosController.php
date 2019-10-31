@@ -18,7 +18,8 @@ class librosController{
         session_start();
         
         if(!isset($_SESSION['ID_USER'])){
-            header("Location: " . URL_login);
+            
+            header("Location: " . URL_libros);
     
         }
 

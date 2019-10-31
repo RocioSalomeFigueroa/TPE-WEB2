@@ -18,8 +18,9 @@ class autoresController{
         session_start();
         
         if(!isset($_SESSION['ID_USER'])){
-            header("Location: " . URL_login);
-    
+          //  header("Location: " . URL_autores);
+         //  echo 'You are in! en checklogin' . session_status(); 
+         return true;
         }
 
     }
@@ -49,9 +50,17 @@ class autoresController{
     }
 
     function deleteAutor($id){
-        $this->checkLogIn();
-        $this->model->eliminarAutor($id);
-        header("Location: " . BASE_URL);
+        if($this->checkLogIn()) {
+           
+        //   echo 'You are in!' . session_status();
+
+            $this->model->eliminarAutor($id);
+            header("Location: " . URL_autores); 
+          } else {
+        //    echo 'no entra al if';
+        header("Location: " . URL_login);
+              exit;
+          }
     }
 
     function cambiarAutor($id){//tengo que terminar este
