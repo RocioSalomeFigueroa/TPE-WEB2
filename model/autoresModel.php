@@ -9,7 +9,7 @@ class autoresModel{
     }
 
     function getAutores(){
-        $sentencia = $this->db->prepare("select * from autor");
+        $sentencia = $this->db->prepare("select * from autores");
         $sentencia->execute();
         $autores = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 
@@ -19,14 +19,14 @@ class autoresModel{
 
     function agregarAutor($nombre, $apellido, $fecha, $biografia){//tengo que tereminar este
 
-        $sentencia=$this->db->prepare('INSERT INTO `autor` (`id_autor`, `nombre`, `apellido`, `fecha`, `biografia`) VALUES (?????)');
+        $sentencia=$this->db->prepare('INSERT INTO `autores` (`id_autor`, `nombre`, `apellido`, `fecha`, `biografia`) VALUES (?????)');
         $sentencia->execute([$nombre, $apellido, $fecha, $biografia]);
         
         return $this->db->lastInsertId();
     }
 
     function eliminarAutor($id){
-        $sentencia = $this->db->prepare("DELETE FROM `autor` WHERE `autor`.`id_autor` = ?");
+        $sentencia = $this->db->prepare("DELETE FROM `autores` WHERE `autor`.`id_autor` = ?");
         $sentencia->execute(array($id));
     }
 
@@ -37,7 +37,7 @@ class autoresModel{
 
     }
     function getAutor($id){
-        $query = $this->db->prepare('SELECT * FROM autor WHERE id_Autor = ?');
+        $query = $this->db->prepare('SELECT * FROM autores WHERE id_Autor = ?');
         $query->execute([$id]);
         $Autor = $query->fetch(PDO::FETCH_OBJ);
         return json_decode(json_encode($Autor), True);

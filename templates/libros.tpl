@@ -1,26 +1,28 @@
 {include file="header.tpl"}
 
-	{$titulo}
+    <div class="datos-bbdd">
+        {$titulo}
 
-	<div class="card-group">
+        <div class="card-group">
+                    
+          {foreach from=$Libros item=libro}
+                                                        
+                <div class = "dato">
+                  <h5 class="card-title" href="libros/{$libro.id_libro}">Titulo: {$libro.titulo}</h5>
+                  <p class="card-text">Autor: {$libro.apellido}, {$libro.nombre}</p>
+                  <p class="card-text">Genero: {$libro.genero}</p>
+                  <p class="card-text"><small class="text-muted">valoracion: {$libro.valoracion}</small></p>
+                  <small><a href="borrar/{$libro.id_libro}">ELIMINAR</a></li></small>
+                </div>          
+          {/foreach}
+        </div>
+      </div>
+      <div class="buttons">
+        <a href="agregar" class="btn btn-success">Agregar</a>
+      </div>
+  </div>
 
-		{foreach from=$Libros item=libro}
-
-			<div class="card">
-				
-					<div class="card-body">
-						<h5 class="card-title" href="libros/{$libro.id_libro}">Titulo: {$libro.titulo}</h5>
-						<p class="card-text">Autor: {$libro.apellido}, {$libro.nombre}</p>
-						<p class="card-text">Genero: {$libro.genero}</p>
-						<p class="card-text"><small class="text-muted">valoracion: {$libro.valoracion}</small></p>
-						<small><a href="borrar/{$libro.id_libro}">ELIMINAR</a></li></small>
-					</div>
-			</div>
-
-		{/foreach}
-	</div>
-
-<h3>Agregar</h3>
+{* <h3>Agregar</h3>
 	<form class="formulario" action="insertar" method="post">
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -53,7 +55,7 @@
     <input type="number" name="valoracion" placeholder="Valoracion" max="5" min="0">
     
     <input type="submit" value="Insertar">
-</form>
+</form> *}
 
         
 {include file="footer.tpl"}

@@ -10,9 +10,10 @@ class librosView{
         
     }
 
-    function Mostrar($titulo, $Libros){
-       // var_dump($Libros);
-        $this->smarty->assign('titulo', $titulo); //es assiGn, primero la g, sorry soy re boluda
+    function Mostrar($titulo, $Libros){ 
+    //    echo count($Libros);
+    //    var_dump($Libros);
+         $this->smarty->assign('titulo', $titulo); //es assiGn, primero la g, sorry soy re boluda
         $this->smarty->assign('Libros', $Libros);
 
         $this->smarty->display('templates/libros.tpl');

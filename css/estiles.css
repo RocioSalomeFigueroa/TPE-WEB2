@@ -1,0 +1,42 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.3fr 2.3fr 0.4fr;
+    grid-template-areas: "nav nav nav nav" "body body body body" "footer footer footer footer";
+  }
+  
+  .nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: ;
+    grid-template-areas: ".";
+    grid-area: nav;
+  }
+  
+  .footer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: ".";
+    grid-area: footer;
+  }
+  
+  .body {
+    display: grid;
+    grid-template-columns: 0.3fr 2.3fr 0.4fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: ". datos-bbdd buttons";
+    grid-area: body;
+  }
+  
+  .datos-bbdd { grid-area: datos-bbdd; }
+  
+  .buttons { grid-area: buttons; }
+
+  .dato{
+    width: 23%;
+    height: 33%;
+    border: dotted;
+    border-color: rgb(205, 241, 223);
+    background-color: rgb(226, 243, 243);
+  }

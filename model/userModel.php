@@ -9,7 +9,7 @@ class userModel{
     }
 
     public function GetPassword($user){
-        $query = $this->db->prepare('SELECT * FROM usuario WHERE id_usuario = ?');
+        $query = $this->db->prepare('SELECT * FROM usuarios WHERE id_usuario = ?');
         $query->execute([$user]);
 
         return $query->fetch(PDO::FETCH_OBJ);

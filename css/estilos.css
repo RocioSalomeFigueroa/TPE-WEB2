@@ -1,4 +1,45 @@
-.formulario{
-    margin: 5%;
-    width: 50%;
-}
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.6fr 1.4fr 1fr;
+    grid-template-areas: "titulo titulo titulo titulo" "visitante visitante fom-login fom-login" "visitante visitante fom-login fom-login";
+  }
+  
+  .titulo {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.7fr 2fr;
+    grid-template-areas: ". . ." ". encabezado .";
+    grid-area: titulo;
+  }
+  
+  .encabezado { grid-area: encabezado; }
+  
+  .visitante {
+    display: grid;
+    grid-template-columns: 0.3fr 2.4fr 0.3fr;
+    grid-template-rows: 0.3fr 2.9fr 0.4fr 0.4fr;
+    grid-template-areas: ". . ." ". imagenes ." ". btn ." ". . .";
+    grid-area: visitante;
+  }
+  
+  .imagenes { grid-area: imagenes; }
+  
+  .btn { grid-area: btn; }
+  
+  .fom-login {
+    display: grid;
+    grid-template-columns: 0.4fr 2.2fr 0.4fr;
+    grid-template-rows: 0.2fr 2.4fr 0.4fr;
+    grid-template-areas: ". . ." ". area-form ." ". . .";
+    grid-area: fom-login;
+  }
+  
+  .area-form { grid-area: area-form; }
+
+  .titulo{
+      font-size: xx-large;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+ 

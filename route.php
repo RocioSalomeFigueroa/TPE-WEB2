@@ -17,7 +17,7 @@ $controllerUser = new loginController();
 
 
 if($action == ''){
-    $controller->traerLibros();
+    $controllerUser->home();
 }else{
     if (isset($action)){
         $partesURL = explode("/", $action);

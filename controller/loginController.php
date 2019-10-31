@@ -15,6 +15,9 @@ class loginController{
         public function showLogin() {
             $this->view->showLogin();
         }
+        public function home() {
+            $this->view->homeView();
+        }
     
         public function verifyUser() {
 
@@ -30,7 +33,7 @@ class loginController{
                 $_SESSION['ID_USER'] = $user->id;
                 $_SESSION['USERNAME'] = $user->username;
                 
-               header('Location: ' . BASE_URL);
+               header('Location: ' . URL_libros);
             // $this->view->showLogin("inicio sesion");
             } else {
                 
@@ -43,14 +46,14 @@ class loginController{
             // Unset all of the session variables.
             unset($_SESSION['USERNAME']);
             // Finally, destroy the session.    
-            session_destroy();       
+            session_destroy();  
+            
+            header('Location: ' . URL_login);
+            $this->view->showLogin("se cerro la sesion");
 
-            echo 'You are in!' . session_status();
+           // echo 'You are in!' . session_status();
 
-             exit;
-
-            /* header('Location: ' . URL_login);
-            $this->view->showLogin("se cerro la sesion"); */
+            // exit;
         }
     
     

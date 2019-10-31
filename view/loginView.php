@@ -16,4 +16,10 @@ class loginView {
         $this->smarty->display('templates/login.tpl');
 
     }
+    function homeView($error = null){
+        $this->smarty->assign('titulo', 'Iniciar Sesión');
+        $this->smarty->assign('error', $error);
+        $this->smarty->display('templates/index.tpl');
+
+    }
 }
