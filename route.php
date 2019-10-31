@@ -35,7 +35,7 @@ if($action == ''){
                 $controller->deleteLibro($partesURL[1]);
             }
         }
-        elseif($partesURL[0] == "insertar"){
+        elseif($partesURL[0] == "agregarLibro"){
             $controller->addLibro();
         }
         elseif($partesURL[0]=='autores'){  //queria probar de ver si andaba esto 
@@ -47,6 +47,9 @@ if($action == ''){
             }
         }
         elseif($partesURL[0] == "agregarAutor"){
+            $controllerAut->agregarAutor();
+        }
+        elseif($partesURL[0] == "insertar"){
             $controllerAut->addAutor();
         }
         elseif($partesURL[0] == "borrarAutor"){

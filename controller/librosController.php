@@ -36,15 +36,15 @@ class librosController{
     }
     function addLibro(){
         $titulo = $_POST['titulo'];
-        $autor = $_POST[''];//aca hay que ver si poner por id o el apellido/nombre
+        $autor = $_POST['autor'];
         $genero = $_POST['genero'];
-        $anio = $_POST['año'];
+        $anio = $_POST['anio'];
         $valoracion = $_POST['valoracion'];
         $resenia = $_POST['resenia'];
 
-        if(!empty($titulo)&&!empty($autor)&&!empty($genero)){
+        if(!empty($titulo) && !empty($autor)&& !empty($genero)){
             $this->model->agregar($titulo,$autor,$genero, $anio, $valoracion, $resenia);
-            header("Location: " . BASE_URL);
+            header("Location: " . URL_libros);
         }
         else {
             $this->view->showError('completar campos obligatorios');

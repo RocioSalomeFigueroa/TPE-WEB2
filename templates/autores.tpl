@@ -1,39 +1,29 @@
 {include file="header.tpl"}
 
-{$titulo}
-<div class="card-group">
-	{foreach from=$autores item=autor}
-		<div class="card">
-				
-					<div class="card-body">
-						<h5 class="card-title" href="autors/{$autor.id_autor}">Apellido: {$autor.apellido}</h5>
-						<p class="card-text">Nombre: {$autor.nombre}</p>
-						<p class="card-text">Fecha: {$autor.fecha}</p>
-						<p class="card-text">Biografia: {$autor.biografia}</p>
-						<small><a href="borrarAutor/{$autor.id_autor}">ELIMINAR</a></li></small>
-					</div>
-			</div>
-	{/foreach}
-</div>
+    <div class="datos-bbdd">
+        {$titulo}
 
-<h4>Agregar Autor</h4>
-<form class="formulario" action="agregarAutor" method="post">
-    	<div class="input-group">
-        	<div class="input-group-prepend">
-              <span class="input-group-text">Nombre / Apellido</span>
-            </div>
-            <input type="text"  name="nombre" aria-label="First name" class="form-control">
-            <input type="text" name="apellido" aria-label="Last name" class="form-control">
+        <div class="card-group">
+                    
+          {foreach from=$autores item=autor}
+                                                        
+                <div class = "dato">
+                 <a href="autor/{$autor.id_autor}"><h5 class="card-title">Nombre: {$autor.apellido}, {$autor.nombre}</h5></a>
+                  <p class="card-text">Fecha: {$autor.fecha}</p>
+                  <p class="card-text">Biografia: {$autor.biografia}</p>
+				  <a href="editar/{$autor.id_autor}" class="btn btn-success btn-sm">Editar</a>
+				  <a href="elimnar/{$autor.id_autor}" class="btn btn-danger btn-sm">Eliminar</a>
+                </div>          
+          {/foreach}
         </div>
-    
-    <input type="text" name="fecha" placeholder="Fecha">
-    <div class="form-group">
-    <label for="exampleFormControlTextarea1">Biografia</label>
-    <textarea class="form-control" name="biografia" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <div class="buttons">
+
+        <div class = "botonera">
+          <a href="agregarAutor" class="btn btn-success">Agregar</a>
+        </div>    
+      </div>
   </div>
-    
-    <input type="submit" value="agregarAutor">
-</form> 
 
         
 {include file="footer.tpl"}

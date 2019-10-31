@@ -34,6 +34,11 @@ class autoresController{
         $Autor = $this->model->getAutor($id);
         $this->view->MostrarAutor($Autor);
     }
+
+    function agregarAutor(){
+        $this->view->formAgregar();
+    }
+    
     function addAutor(){
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
@@ -43,9 +48,6 @@ class autoresController{
         if(!empty($nombre)&&!empty($apellido)&&!empty($fecha)){
             $this->model->agregarAutor($nombre, $apellido, $fecha, $biografia);
             header("Location: " . BASE_URL);
-        }
-        else {
-            $this->view->showError('completar campos obligatorios');
         }
     }
 
