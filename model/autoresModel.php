@@ -18,7 +18,7 @@ class autoresModel{
     }
 
     function agregarAutor($nombre, $apellido, $fecha, $biografia){//tengo que tereminar este
-
+        
         $sentencia=$this->db->prepare('INSERT INTO `autores` (`id_autor`, `nombre`, `apellido`, `fecha`, `biografia`) VALUES (?????)');
         $sentencia->execute([$nombre, $apellido, $fecha, $biografia]);
         
@@ -26,14 +26,14 @@ class autoresModel{
     }
 
     function eliminarAutor($id){
-        $sentencia = $this->db->prepare("DELETE FROM `autores` WHERE `autor`.`id_autor` = ?");
+        $sentencia = $this->db->prepare("DELETE FROM `autores` WHERE `id_autor` = ?");
         $sentencia->execute(array($id));
     }
 
-    function changeAutor($nombre, $apellido, $fecha, $biografia){
-            //no termine todavia de hacer esta funcion 
-        $sentencia = $this->db->prepare('UPDATE `Autor` SET `nombre` = ?, `apellido` = ?, `fecha` = ?, `biografia` = ?');
-        $sentencia->execute([$nombre, $apellido, $fecha, $biografia]);
+    function changeAutor($id_autor,$nombre, $apellido, $fecha, $biografia){
+        print_r($id_autor); 
+        $sentencia = $this->db->prepare("UPDATE `autores` SET `nombre`= '$nombre',`apellido`='$apellido',`fecha`='$fecha',`biografia`='$biografia' WHERE 'id_autor' = '$id_autor'");
+        $sentencia->execute([$id_autor,$nombre, $apellido, $fecha, $biografia]);
 
     }
     function getAutor($id){

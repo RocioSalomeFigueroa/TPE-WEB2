@@ -16,10 +16,8 @@ class librosModel{
         return $libros;  
     }
     function agregar($titulo,$autor,$genero, $anio, $valoracion, $resenia){//tengo que tereminar este
-
-        $sentencia=$this->db->prepare('INSERT INTO libros(titulo, autor, genero, año, valoracion, reseña) values(??????)');
+        $sentencia=$this->db->prepare("INSERT INTO `libros`(`autor`, `titulo`, `anio`, `genero`, `resenia`, `valoracion`) VALUES ('$autor', '$titulo', '$anio', '$genero', '$resenia', '$valoracion')");
         $sentencia->execute([$titulo,$autor,$genero, $anio, $valoracion, $resenia]);
-        
         return $this->db->lastInsertId();
     }
 
@@ -29,8 +27,7 @@ class librosModel{
     }
 
     function changeLibro($id,$titulo,$autor,$genero, $anio, $valoracion, $resenia){
-            //no termine todavia de hacer esta funcion 
-        $sentencia = $this->db->prepare('UPDATE `libros` SET `titulo` = ?, `año` = ?, `genero` = ?, `reseña` = ?, `valoracion` = ? WHERE `libro`.`id_libro` = ? AND `libro`.`id_autor` = ?;');
+        $sentencia = $this->db->prepare('UPDATE `libros` SET `titulo` = ?, `año` = ?, `genero` = ?, `reseña` = ?, `valoracion` = ? WHERE `libros`.`id_libro` = ? AND `libros`.`id_autor` = ?;');
         $sentencia->execute([$id,$titulo,$autor,$genero, $anio, $valoracion, $resenia]);
 
     }
@@ -39,6 +36,13 @@ class librosModel{
         $query->execute([$id]);
         $libro = $query->fetch(PDO::FETCH_OBJ);
         return json_decode(json_encode($libro), True);
+    }
+    function categorias(){
+        $query = $this->db->prepare('SELECT lib.*, aut.* FROM libros lib INNER JOIN autor aut ON lib.id_autor = aut.id_autor');
+        $query->execute();
+        $libros = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        return $libros; 
     }
     
 }

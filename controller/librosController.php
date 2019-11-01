@@ -18,9 +18,9 @@ class librosController{
         session_start();
         
         if(!isset($_SESSION['ID_USER'])){
-            
-            header("Location: " . URL_libros);
-    
+          header("Location: " . URL_autores);
+         //  echo 'You are in! en checklogin' . session_status(); 
+         return true;
         }
 
     }
@@ -44,7 +44,7 @@ class librosController{
 
         if(!empty($titulo) && !empty($autor)&& !empty($genero)){
             $this->model->agregar($titulo,$autor,$genero, $anio, $valoracion, $resenia);
-            header("Location: " . URL_libros);
+            header("Location: " . BASE_URL);
         }
         else {
             $this->view->showError('completar campos obligatorios');
@@ -52,21 +52,33 @@ class librosController{
     }
 
     function deleteLibro($id){
-        $this->checkLogIn();
-        $this->model->eliminarLibro($id);
-        header("Location: " . BASE_URL);
+        if($this->checkLogIn()) {
+           
+            //   echo 'You are in!' . session_status();
+    
+            $this->model->eliminarLibro($id);
+             header("Location: " . URL_libros); 
+     } else {
+            //    echo 'no entra al if';
+            header("Location: " . URL_login);
+                  exit;
+          }       
     }
 
-    function cambiarLibro($id){//tengo que terminar este
+    function cambiarLibro($id){
 
         $titulo = $_POST['titulo'];
-        $autor = $_POST[''];//aca hay que ver si poner por id o el apellido/nombre
+        $autor = $_POST['autor'];
         $genero = $_POST['genero'];
         $anio = $_POST['año'];
         $valoracion = $_POST['valoracion'];
         $resenia = $_POST['resenia'];
 
         $this->model->changeLibro($titulo,$autor,$genero, $anio, $valoracion, $resenia);
-        header("Location: " . BASE_URL);
+        header("Location: " . URL_libros);
+    }
+    function showCategorias(){
+        $Libros = $this->model->categorias();
+        $this->view->mostrarCategorias($Libros);
     }
 }

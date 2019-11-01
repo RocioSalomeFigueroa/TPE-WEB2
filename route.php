@@ -49,6 +49,11 @@ if($action == ''){
         elseif($partesURL[0] == "agregarAutor"){
             $controllerAut->agregarAutor();
         }
+        elseif($partesURL[0] == "editar"){
+            if(isset($partesURL[1])){
+                $controllerAut->cambiarAutor($partesURL[1]);
+            }
+        }
         elseif($partesURL[0] == "insertar"){
             $controllerAut->addAutor();
         }

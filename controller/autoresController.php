@@ -38,7 +38,6 @@ class autoresController{
     function agregarAutor(){
         $this->view->formAgregar();
     }
-    
     function addAutor(){
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
@@ -64,6 +63,8 @@ class autoresController{
               exit;
           }
     }
+
+
 
     function cambiarAutor($id){//tengo que terminar este
 

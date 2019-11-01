@@ -26,7 +26,10 @@
                                       <a class="nav-link" href="autores">Autores</a>
                                     </li>
                                     <li class="nav-item">
-                                      <a class="nav-link" href="login">Login</a>
+                                      <a class="nav-link" href="login">Entrar</a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link" href="logout">Cerrar Sesion</a>
                                     </li>
                                   </ul>
                                 </div>

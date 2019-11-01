@@ -28,8 +28,10 @@ class autoresView{
        $this->smarty->display('templates/autor.tpl');
     }
 
-    function formAgregar(){
-
-        $this->smarty->display('templates/agregar.tpl');
+    function formAgregar($id=null){
+       
+            $this->smarty->display('templates/agregar.tpl');
+       
+        
     }
 }

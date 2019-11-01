@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-10-31 23:26:12
+/* Smarty version 3.1.33, created on 2019-11-01 01:45:10
   from 'C:\xampp\htdocs\proyectos\tpe web\templates\libros.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dbb5f84146a42_17702164',
+  'unifunc' => 'content_5dbb8016ca3642_56795070',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ea48ede647d1afe032a086d41262fed8c1e44763' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\tpe web\\templates\\libros.tpl',
-      1 => 1572560708,
+      1 => 1572568986,
       2 => 'file',
     ),
   ),
@@ -22,9 +22,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5dbb5f84146a42_17702164 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dbb8016ca3642_56795070 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
+
 
     <div class="datos-bbdd">
         <?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
@@ -37,7 +38,7 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['libro']->value) {
 ?>
-                                                        
+                       <p>hola</p>                                 
                 <div class = "dato">
                   <a href="libro/<?php echo $_smarty_tpl->tpl_vars['libro']->value['id_libro'];?>
 "><h5 class="card-title">Titulo: <?php echo $_smarty_tpl->tpl_vars['libro']->value['titulo'];?>
@@ -51,7 +52,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['libro']->value) {
 </small></p>
                   <a href="editar/<?php echo $_smarty_tpl->tpl_vars['libro']->value['id_libro'];?>
 " class="btn btn-success btn-sm">Editar</a>
-				          <a href="elimnar/<?php echo $_smarty_tpl->tpl_vars['libro']->value['id_libro'];?>
+				          <a href="borrar/<?php echo $_smarty_tpl->tpl_vars['libro']->value['id_libro'];?>
 " class="btn btn-danger btn-sm">Eliminar</a>
                 </div>          
           <?php
