@@ -26,10 +26,9 @@ class librosModel{
         $sentencia->execute(array($id));
     }
 
-    function editarLibro($id,$titulo,$autor,$genero, $anio, $valoracion, $resenia){
-        
+    function editarLibro($id_libro,$titulo,$autor,$genero, $anio, $valoracion, $resenia){
         $sentencia = $this->db->prepare("UPDATE libros SET titulo=?, id_autor=?, genero=?, anio=?, valoracion=?, resenia=? WHERE id_libro=?");
-        $sentencia->execute(array($titulo,$autor,$genero, $anio, $valoracion, $resenia,$id));
+        $sentencia->execute(array($titulo, $autor, $genero, $anio, $valoracion, $resenia,$id_libro));
 
     }
     function getLibro($id){

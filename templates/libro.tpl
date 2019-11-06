@@ -20,7 +20,7 @@
                       <select  class="form-control" name="autor">
                         <option> Seleccione  </option>
                             {foreach from=$libros item=libro}
-                              <option value="{$libro.id_autor} "> {$libro.apellido} </option>
+                              <option value="{$libro.id_autor}"> {$libro.apellido} </option>
                             {/foreach}
                          </select>
                     </div>
