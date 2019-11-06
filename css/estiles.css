@@ -8,7 +8,7 @@
   .nav {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: ;
+    /* grid-template-rows: ;*/
     grid-template-areas: ".";
     grid-area: nav;
   }

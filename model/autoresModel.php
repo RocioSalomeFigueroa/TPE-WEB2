@@ -19,8 +19,8 @@ class autoresModel{
 
     function agregarAutor($nombre, $apellido, $fecha, $biografia){//tengo que tereminar este
         
-        $sentencia=$this->db->prepare('INSERT INTO `autores` (`id_autor`, `nombre`, `apellido`, `fecha`, `biografia`) VALUES (?????)');
-        $sentencia->execute([$nombre, $apellido, $fecha, $biografia]);
+        $sentencia=$this->db->prepare('INSERT INTO autores (nombre, apellido, fecha, biografia) VALUES (?,?,?,?)');
+        $sentencia->execute(array($nombre, $apellido, $fecha, $biografia));
         
         return $this->db->lastInsertId();
     }
@@ -30,14 +30,13 @@ class autoresModel{
         $sentencia->execute(array($id));
     }
 
-    function changeAutor($id_autor,$nombre, $apellido, $fecha, $biografia){
-        print_r($id_autor); 
-        $sentencia = $this->db->prepare("UPDATE `autores` SET `nombre`= '$nombre',`apellido`='$apellido',`fecha`='$fecha',`biografia`='$biografia' WHERE 'id_autor' = '$id_autor'");
-        $sentencia->execute([$id_autor,$nombre, $apellido, $fecha, $biografia]);
+    function editarAutor($nombre, $apellido, $fecha, $biografia, $id){
+        $sentencia = $this->db->prepare("UPDATE autores SET nombre=?, apellido=?, fecha=?, biografia=? WHERE id_autor=? ");
+        $sentencia->execute(array($nombre, $apellido, $fecha, $biografia, $id));
 
     }
     function getAutor($id){
-        $query = $this->db->prepare('SELECT * FROM autores WHERE id_Autor = ?');
+        $query = $this->db->prepare("SELECT * FROM autores WHERE id_Autor = ?");
         $query->execute([$id]);
         $Autor = $query->fetch(PDO::FETCH_OBJ);
         return json_decode(json_encode($Autor), True);
