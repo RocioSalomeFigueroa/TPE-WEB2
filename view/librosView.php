@@ -10,11 +10,11 @@ class librosView{
         
     }
 
-    function Mostrar($titulo, $Libros){ 
+    function Mostrar($titulo, $libros){ 
     //    echo count($Libros);
     //    var_dump($Libros);
          $this->smarty->assign('titulo', $titulo);
-        $this->smarty->assign('Libros', $Libros);
+        $this->smarty->assign('Libros', $libros);
 
         $this->smarty->display('templates/libros.tpl');
     }
@@ -22,8 +22,14 @@ class librosView{
     function MostrarLibro($libro){
 
 
-        $this->smarty->assign('Libro', $libro);
+        $this->smarty->assign('libro', $libro);
 
         $this->smarty->display('templates/libro.tpl');
+    }
+
+    function mostrarFormulario($libros){
+
+        $this->smarty->assign('libros', $libros);
+        $this->smarty->display('templates/agregarLibro.tpl');
     }
 }

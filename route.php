@@ -30,13 +30,21 @@ if($action == ''){
                 $controller->traerLibro($partesURL[1]);
             }
         }
-        elseif($partesURL[0] == "borrar"){
+        elseif($partesURL[0] == "borrarLibro"){
             if(isset($partesURL[1])){
                 $controller->deleteLibro($partesURL[1]);
             }
         }
         elseif($partesURL[0] == "agregarLibro"){
+            $controller->agregarLibro();
+        }
+        elseif($partesURL[0] == "addLibro"){
             $controller->addLibro();
+        }
+        elseif($partesURL[0] == "editarLibro"){
+            if(isset($partesURL[1])){
+                $controller-> mmmmm($partesURL[1]);//no se como verga hacer aca 
+            }
         }
         elseif($partesURL[0]=='autores'){  //queria probar de ver si andaba esto 
             $controllerAut->Autores();

@@ -26,13 +26,18 @@ class librosController{
     }
 
     function traerLibros(){
-        $Libros = $this->model->getLibros();
-        $this->view->Mostrar($this->titulo,$Libros);
+        $libros = $this->model->getLibros();
+        $this->view->Mostrar($this->titulo,$libros);
     }
     function traerLibro($id){
         
-        $Libro = $this->model->getLibro($id);
-        $this->view->MostrarLibro($Libro);
+        $libro = $this->model->getLibro($id);
+        $this->view->MostrarLibro($libro);
+    }
+
+    function agregarLibro(){ //si unificamos los controller lo tendria que traer con el id de autor
+        $libros = $this->model->getLibros();
+        $this->view->mostrarFormulario($libros);
     }
     function addLibro(){
         $titulo = $_POST['titulo'];
@@ -43,8 +48,8 @@ class librosController{
         $resenia = $_POST['resenia'];
 
         if(!empty($titulo) && !empty($autor)&& !empty($genero)){
-            $this->model->agregar($titulo,$autor,$genero, $anio, $valoracion, $resenia);
-            header("Location: " . BASE_URL);
+            $this->model->agregarLibro($titulo,$autor,$genero, $anio, $valoracion, $resenia);
+            header("Location: " . URL_libros);
         }
         else {
             $this->view->showError('completar campos obligatorios');
@@ -53,9 +58,7 @@ class librosController{
 
     function deleteLibro($id){
         if($this->checkLogIn()) {
-           
             //   echo 'You are in!' . session_status();
-    
             $this->model->eliminarLibro($id);
              header("Location: " . URL_libros); 
      } else {
@@ -66,17 +69,10 @@ class librosController{
     }
 
     function cambiarLibro($id){
-
-        $titulo = $_POST['titulo'];
-        $autor = $_POST['autor'];
-        $genero = $_POST['genero'];
-        $anio = $_POST['año'];
-        $valoracion = $_POST['valoracion'];
-        $resenia = $_POST['resenia'];
-
-        $this->model->changeLibro($titulo,$autor,$genero, $anio, $valoracion, $resenia);
+        $this->model->editarLibro($_POST['titulo'],$_POST['autor'],$_POST['genero'],$_POST['anio'],$_POST['valoracion'],$_POST['resenia'], $id);
         header("Location: " . URL_libros);
     }
+
     function showCategorias(){
         $Libros = $this->model->categorias();
         $this->view->mostrarCategorias($Libros);

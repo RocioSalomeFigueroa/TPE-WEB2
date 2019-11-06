@@ -7,14 +7,14 @@
         <div class="card-group">
                     
           {foreach from=$Libros item=libro}
-                       <p>hola</p>                                 
+                                                 
                 <div class = "dato">
                   <a href="libro/{$libro.id_libro}"><h5 class="card-title">Titulo: {$libro.titulo}</h5></a>
                   <p class="card-text">Autor: {$libro.apellido}, {$libro.nombre}</p>
                   <p class="card-text">Genero: {$libro.genero}</p>
                   <p class="card-text"><small class="text-muted">valoracion: {$libro.valoracion}</small></p>
-                  <a href="editar/{$libro.id_libro}" class="btn btn-success btn-sm">Editar</a>
-				          <a href="borrar/{$libro.id_libro}" class="btn btn-danger btn-sm">Eliminar</a>
+                  <a href="editarLibro/{$libro.id_libro}" class="btn btn-success btn-sm">Editar</a>
+				          <a href="borrarLibro/{$libro.id_libro}" class="btn btn-danger btn-sm">Eliminar</a>
                 </div>          
           {/foreach}
         </div>
