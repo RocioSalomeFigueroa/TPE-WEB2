@@ -100,7 +100,7 @@ class librosController{
 
         if(!empty($nombre)&&!empty($apellido)&&!empty($fecha)){
             $this->amodel->agregarAutor($nombre, $apellido, $fecha, $biografia);
-            header("Location: " . BASE_URL);
+            header("Location: " . URL_autores);
         }
     }
 
