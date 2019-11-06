@@ -25,21 +25,21 @@ class autoresModel{
         return $this->db->lastInsertId();
     }
 
-    function eliminarAutor($id){
+    function eliminarAutor($id_autor){
         $sentencia = $this->db->prepare("DELETE FROM `autores` WHERE `id_autor` = ?");
-        $sentencia->execute(array($id));
+        $sentencia->execute(array($id_autor));
     }
 
-    function editarAutor($nombre, $apellido, $fecha, $biografia, $id){
+    function editarAutor($id_autor, $nombre, $apellido, $fecha, $biografia){
         $sentencia = $this->db->prepare("UPDATE autores SET nombre=?, apellido=?, fecha=?, biografia=? WHERE id_autor=? ");
-        $sentencia->execute(array($nombre, $apellido, $fecha, $biografia, $id));
-
+        $sentencia->execute(array($nombre, $apellido, $fecha, $biografia, $id_autor));
     }
+
     function getAutor($id){
-        $query = $this->db->prepare("SELECT * FROM autores WHERE id_Autor = ?");
+        $query = $this->db->prepare("SELECT * FROM autores WHERE id_autor = ?");
         $query->execute([$id]);
-        $Autor = $query->fetch(PDO::FETCH_OBJ);
-        return json_decode(json_encode($Autor), True);
+        $autor = $query->fetch(PDO::FETCH_OBJ);
+        return json_decode(json_encode($autor), True);
     }
 
 }

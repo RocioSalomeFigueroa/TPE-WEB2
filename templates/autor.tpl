@@ -1,31 +1,33 @@
 {include file="header.tpl"}
   <div class="datos-bbdd">
-<h3>Autor:</h3>
+      <h3>Autor:</h3>
 
- <h5 class="card-title">Nombre: {$Autor.nombre}</h5>
-    <p class="card-text">Apellido: {$Autor.apellido}</p>
-    <p class="card-text">Fecha nac/def: {$Autor.fecha}</p>
-    <p class="card-text">Biografia: {$Autor.biografia}</p>
-    
+        <p class="card-text">Nombre: {$autor.nombre}</p>
+        <p class="card-text">Apellido: {$autor.apellido}</p>
+        <p class="card-text">Fecha: {$autor.fecha}</p>
+        <p class="card-text">Biografia: {$autor.biografia}</p>
 
-  
-        <form action="cambiarAutor/{$Autor.id_autor}" method="POST">
-        <fieldset>
-        <legend>Agregar Autor:</legend>
-        Nombre:<br>
-        <input type="text" name="nombre" value="Mickey">
-        <br>Apellido:<br>
-        <input type="text" name="apellido" value="Mouse">
-        <br><br>
-        Fecha:<br>
-        <input type="text" name="fecha" value="Mickey">
-        <br>biografia:<br>
-        <input type="text" name="biografia" value="Mouse">
-        <br><br>
-        <input type="submit" value="cambiarAutor/{$Autor.id_autor}">
-        </fieldset>
-    </form>
-    </div>
+            <form action="editar" method="post">
+                <div class="form-group">
+                    <label>Nombre:</label>
+                    <input value=" " name="nombre" type="text" class="form-control" placeholder="Nombre">
+                </div>
+                <div class="form-group">
+                    <label>Apellido:</label>
+                    <input value="" name="apellido" type="text" class="form-control" placeholder="Apellido">
+                </div>
+                <div class="form-group">
+                    <label> Fecha: </label>
+                    <input value="" name="fecha" type="text" class="form-control" placeholder="Fecha">
+                </div>
+                <div class="form-group">
+                    <label>Biografia:</label>
+                    <textarea value="" name="biografia" type="text"> </textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-outline-secondary">Editar</button>
+                </div>
+              </form>
 </div>
 
 {include file="footer.tpl"}

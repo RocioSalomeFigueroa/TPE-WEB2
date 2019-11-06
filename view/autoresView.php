@@ -22,8 +22,8 @@ class autoresView{
 
     }
 
-    function MostrarAutor($Autor){
-        $this->smarty->assign('Autor', $Autor);
+    function MostrarAutor($autor){
+        $this->smarty->assign('autor', $autor);
 
        $this->smarty->display('templates/autor.tpl');
     }

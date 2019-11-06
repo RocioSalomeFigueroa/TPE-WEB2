@@ -31,8 +31,8 @@ class autoresController{
     }
 
     function traerAutor($id){
-        $Autor = $this->model->getAutor($id);
-        $this->view->MostrarAutor($Autor);
+        $autor = $this->model->getAutor($id);
+        $this->view->MostrarAutor($autor);
     }
 
     function agregarAutor(){
