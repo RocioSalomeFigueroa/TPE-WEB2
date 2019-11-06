@@ -36,9 +36,9 @@ class librosController{
         $this->lview->Mostrar($this->titulo,$libros);
     }
     function traerLibro($id){
-        
+        $autores = $this->amodel->getAutores();
         $libro = $this->lmodel->getLibro($id);
-        $this->lview->MostrarLibro($libro);
+        $this->lview->MostrarLibro($libro, $autores);
     }
 
     function agregarLibro(){ //si unificamos los controller lo tendria que traer con el id de autor
@@ -75,7 +75,14 @@ class librosController{
     }
 
     function cambiarLibro($id){
-        $this->lmodel->editarLibro($_POST['titulo'],$_POST['autor'],$_POST['genero'],$_POST['anio'],$_POST['valoracion'],$_POST['resenia'], $id);
+        $titulo = $_POST['titulo'];
+        $autor = $_POST['autor'];
+        $genero = $_POST['genero'];
+        $anio = $_POST['anio'];
+        $valoracion = $_POST['valoracion'];
+        $resenia = $_POST['resenia'];
+
+        $this->lmodel->editarLibro( $id, $titulo, $autor, $genero, $anio, $valoracion, $resenia);
         header("Location: " . URL_libros);
     }
 
@@ -126,6 +133,6 @@ class librosController{
         $biografia = $_POST['biografia'];
 
         $this->amodel->editarAutor($id, $nombre, $apellido, $fecha, $biografia);
-        header("Location: " . BASE_URL);
+        header("Location: " . URL_autores);
     }
 }

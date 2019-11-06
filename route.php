@@ -44,10 +44,10 @@ if($action == ''){
         }
         elseif($partesURL[0] == "editarLibro"){
             if(isset($partesURL[1])){
-                $controller->cambiarLibro($partesURL[1]);//no se como verga hacer aca 
+                $controller->cambiarLibro($partesURL[1]);
             }
         }
-        elseif($partesURL[0]=='autores'){  //queria probar de ver si andaba esto 
+        elseif($partesURL[0]=='autores'){
             $controller->autores();
         }
         elseif($partesURL[0] == "autor"){
