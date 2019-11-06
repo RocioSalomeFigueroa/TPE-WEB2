@@ -43,7 +43,7 @@ if($action == ''){
         }
         elseif($partesURL[0] == "editarLibro"){
             if(isset($partesURL[1])){
-                $controller-> mmmmm($partesURL[1]);//no se como verga hacer aca 
+                $controller->cambiarLibro($partesURL[1]);//no se como verga hacer aca 
             }
         }
         elseif($partesURL[0]=='autores'){  //queria probar de ver si andaba esto 

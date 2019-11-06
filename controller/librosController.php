@@ -74,7 +74,7 @@ class librosController{
     }
 
     function showCategorias(){
-        $Libros = $this->model->categorias();
-        $this->view->mostrarCategorias($Libros);
+        $libros = $this->model->categorias();
+        $this->view->mostrarCategorias($libros);
     }
 }
