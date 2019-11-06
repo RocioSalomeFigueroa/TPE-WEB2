@@ -11,7 +11,7 @@
                   </div>
                   <div class="form-group">
                       <label for="inputState">Seleccione Autor:</label>
-                      <select  class="form-control" name="categoria">
+                      <select  class="form-control" name="autor">
                         <option> Seleccione  </option>
                             {foreach from=$autores item=autor}
                               <option value="{$autor.id_autor} ">{$autor.apellido}, {$autor.nombre} </option>

@@ -15,19 +15,19 @@
                       <label> Titulo: </label>
                       <input value=" " name="titulo" type="text" class="form-control" placeholder="Titulo">
                   </div>
-                  {* <div class="form-group">
+                  <div class="form-group">
                       <label for="inputState">Seleccione Autor:</label>
-                      <select  class="form-control" name="categoria">
+                      <select  class="form-control" name="autor">
                         <option> Seleccione  </option>
                             {foreach from=$libros item=libro}
                               <option value="{$libro.id_autor} "> {$libro.apellido} </option>
                             {/foreach}
                          </select>
-                    </div> *}
-                    <div class="form-group">
+                    </div>
+                    {* <div class="form-group">
                       <label> Autor: </label>
                       <input value=" " name="autor" type="text" class="form-control" placeholder="Genero">
-                    </div>
+                    </div> *}
                     <div class="form-group">
                       <label> Genero: </label>
                       <input value=" " name="genero" type="text" class="form-control" placeholder="Genero">

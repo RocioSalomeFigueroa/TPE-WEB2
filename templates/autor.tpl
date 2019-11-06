@@ -7,7 +7,7 @@
         <p class="card-text">Fecha: {$autor.fecha}</p>
         <p class="card-text">Biografia: {$autor.biografia}</p>
 
-            <form action="editar" method="post">
+            <form action="editar/{$autor.id_autor}" method="POST">
                 <div class="form-group">
                     <label>Nombre:</label>
                     <input value=" " name="nombre" type="text" class="form-control" placeholder="Nombre">

@@ -125,7 +125,7 @@ class librosController{
         $fecha = $_POST['fecha'];
         $biografia = $_POST['biografia'];
 
-        $this->amodel->changeAutor($nombre, $apellido, $fecha, $biografia);
+        $this->amodel->editarAutor($id, $nombre, $apellido, $fecha, $biografia);
         header("Location: " . BASE_URL);
     }
 }

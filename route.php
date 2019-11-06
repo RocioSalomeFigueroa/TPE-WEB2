@@ -19,6 +19,7 @@ $controllerUser = new loginController();
 if($action == ''){
     $controllerUser->home();
 }else{
+    
     if (isset($action)){
         $partesURL = explode("/", $action);
 
@@ -57,7 +58,7 @@ if($action == ''){
         elseif($partesURL[0] == "agregarAutor"){
             $controller->agregarAutor();
         }
-        elseif($partesURL[0] == "editar"){
+        elseif($partesURL[0] == "editar"){  
             if(isset($partesURL[1])){
                 $controller->cambiarAutor($partesURL[1]);
             }
