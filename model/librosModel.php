@@ -25,7 +25,7 @@ class librosModel{
         $sentencia = $this->db->prepare("DELETE FROM `libros` WHERE `libros`.`id_libro` = ?");
         $sentencia->execute(array($id));
     }
-
+    
     function editarLibro($id,$titulo,$autor,$genero, $anio, $valoracion, $resenia){
         $sentencia = $this->db->prepare("UPDATE libros SET titulo=?, id_autor=?, genero=?, anio=?, valoracion=?, resenia=? WHERE id_libro=?");
         $sentencia->execute(array($titulo,$autor,$genero, $anio, $valoracion, $resenia,$id));
