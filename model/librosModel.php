@@ -27,10 +27,10 @@ class librosModel{
     }
 
     function editarLibro($id,$titulo,$autor,$genero, $anio, $valoracion, $resenia){
-        
         $sentencia = $this->db->prepare("UPDATE libros SET titulo=?, id_autor=?, genero=?, anio=?, valoracion=?, resenia=? WHERE id_libro=?");
         $sentencia->execute(array($titulo,$autor,$genero, $anio, $valoracion, $resenia,$id));
-
+       // var_dump($id); die;
+        
     }
     function getLibro($id){
         $query = $this->db->prepare('SELECT lib.id_libro, lib.titulo, aut.apellido, aut.nombre, lib.genero, lib.anio, lib.resenia, lib.valoracion FROM libros lib INNER JOIN autores aut ON lib.id_autor = aut.id_autor WHERE id_libro = ?');
