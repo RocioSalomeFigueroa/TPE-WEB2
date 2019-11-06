@@ -27,9 +27,11 @@ class librosView{
         $this->smarty->display('templates/libro.tpl');
     }
 
-    function mostrarFormulario($libros){
+    function mostrarFormulario($autores){
+        
+      //  var_dump($autores);
 
-        $this->smarty->assign('libros', $libros);
+        $this->smarty->assign('autores', $autores);
         $this->smarty->display('templates/agregarLibro.tpl');
     }
 }
