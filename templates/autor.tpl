@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+{include file="header1.tpl"}
   <div class="datos-bbdd">
       <h3>Autor:</h3>
 

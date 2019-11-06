@@ -15,9 +15,9 @@ class librosModel{
 
         return $libros;  
     }
-    function agregar($titulo,$autor,$genero, $anio, $valoracion, $resenia){//tengo que tereminar este
-        $sentencia=$this->db->prepare("INSERT INTO `libros`(`autor`, `titulo`, `anio`, `genero`, `resenia`, `valoracion`) VALUES ('$autor', '$titulo', '$anio', '$genero', '$resenia', '$valoracion')");
-        $sentencia->execute([$titulo,$autor,$genero, $anio, $valoracion, $resenia]);
+    function agregarLibro($titulo,$autor,$genero, $anio, $valoracion, $resenia){//tengo que tereminar este
+        $sentencia=$this->db->prepare("INSERT INTO libros(titulo, id_autor, genero, anio, valoracion, resenia) VALUES(?,?,?,?,?,?)");
+        $sentencia->execute(array($titulo,$autor,$genero, $anio, $valoracion, $resenia));
         return $this->db->lastInsertId();
     }
 
@@ -26,9 +26,10 @@ class librosModel{
         $sentencia->execute(array($id));
     }
 
-    function changeLibro($id,$titulo,$autor,$genero, $anio, $valoracion, $resenia){
-        $sentencia = $this->db->prepare('UPDATE `libros` SET `titulo` = ?, `año` = ?, `genero` = ?, `reseña` = ?, `valoracion` = ? WHERE `libros`.`id_libro` = ? AND `libros`.`id_autor` = ?;');
-        $sentencia->execute([$id,$titulo,$autor,$genero, $anio, $valoracion, $resenia]);
+    function editarLibro($id,$titulo,$autor,$genero, $anio, $valoracion, $resenia){
+        
+        $sentencia = $this->db->prepare("UPDATE libros SET titulo=?, id_autor=?, genero=?, anio=?, valoracion=?, resenia=? WHERE id_libro=?");
+        $sentencia->execute(array($titulo,$autor,$genero, $anio, $valoracion, $resenia,$id));
 
     }
     function getLibro($id){

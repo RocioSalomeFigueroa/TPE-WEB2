@@ -30,35 +30,43 @@ if($action == ''){
                 $controller->traerLibro($partesURL[1]);
             }
         }
-        elseif($partesURL[0] == "borrar"){
+        elseif($partesURL[0] == "borrarLibro"){
             if(isset($partesURL[1])){
                 $controller->deleteLibro($partesURL[1]);
             }
         }
         elseif($partesURL[0] == "agregarLibro"){
+            $controller->agregarLibro();
+        }
+        elseif($partesURL[0] == "addLibro"){
             $controller->addLibro();
         }
+        elseif($partesURL[0] == "editarLibro"){
+            if(isset($partesURL[1])){
+                $controller->cambiarLibro($partesURL[1]);//no se como verga hacer aca 
+            }
+        }
         elseif($partesURL[0]=='autores'){  //queria probar de ver si andaba esto 
-            $controllerAut->Autores();
+            $controller->autores();
         }
         elseif($partesURL[0] == "autor"){
             if(isset($partesURL[1])){
-                $controllerAut->traerAutor($partesURL[1]);
+                $controller->traerAutor($partesURL[1]);
             }
         }
         elseif($partesURL[0] == "agregarAutor"){
-            $controllerAut->agregarAutor();
+            $controller->agregarAutor();
         }
         elseif($partesURL[0] == "editar"){
             if(isset($partesURL[1])){
-                $controllerAut->editAutor($partesURL[1]);
+                $controller->cambiarAutor($partesURL[1]);
             }
         }
         elseif($partesURL[0] == "insertar"){
-            $controllerAut->addAutor();
+            $controller->addAutor();
         }
         elseif($partesURL[0] == "borrarAutor"){
-            $controllerAut->deleteAutor($partesURL[1]);
+            $controller->deleteAutor($partesURL[1]);
         }
         elseif($partesURL[0] == "login") {
             $controllerUser->showLogin();
