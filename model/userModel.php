@@ -15,4 +15,9 @@ class userModel{
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
+    public function addUsuario(){
+    }
+
+
+
 }
