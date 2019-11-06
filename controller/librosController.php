@@ -100,7 +100,7 @@ class librosController{
 
         if(!empty($nombre)&&!empty($apellido)&&!empty($fecha)){
             $this->amodel->agregarAutor($nombre, $apellido, $fecha, $biografia);
-            header("Location: " . BASE_URL);
+            header("Location: " . URL_autores);
         }
     }
 
@@ -125,7 +125,7 @@ class librosController{
         $fecha = $_POST['fecha'];
         $biografia = $_POST['biografia'];
 
-        $this->amodel->changeAutor($nombre, $apellido, $fecha, $biografia);
+        $this->amodel->editarAutor($id, $nombre, $apellido, $fecha, $biografia);
         header("Location: " . BASE_URL);
     }
 }
