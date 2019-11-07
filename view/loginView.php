@@ -22,6 +22,7 @@ class loginView {
     }
 
     function registro($error = null){//consultar el error null
+        
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/registro.tpl');
     }

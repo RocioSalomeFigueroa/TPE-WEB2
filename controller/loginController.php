@@ -56,6 +56,29 @@ class loginController{
             // exit;
         }
 
+        function registro(){
+            $this->view->registro();
+        }
+
+        function nuevoUsuario(){
+            $nombre = $_POST['nombre'];
+            $fecha= $_POST['fecha'];
+            $mail= $_POST['email'];
+            $user= $_POST['user'];
+            $password= $_POST['pass'];
+
+            
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+
+            if(!empty($mail) && !empty($password)&& !empty($user)){
+                
+                /* $this->model->addUsuario($user, $hash, $nombre, $fecha, $mail);
+                header('Location: ' . URL_login); */
+            }
+            else {
+                $this->view->showLogin("No se pudo crear el usuario");
+            }
+        }
     
     
     }

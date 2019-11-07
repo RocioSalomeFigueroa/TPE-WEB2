@@ -82,6 +82,13 @@ if($action == ''){
         elseif($partesURL[0] == "verify") {
             $controllerUser->verifyUser();
         }
+        elseif($partesURL[0] == "registro") {
+    
+            $controllerUser->registro();
+        }
+        elseif($partesURL[0] == "nuevoUsuario") {
+            $controllerUser->nuevoUsuario();
+        }
         
     }
 }

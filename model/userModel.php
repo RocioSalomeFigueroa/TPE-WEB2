@@ -15,7 +15,13 @@ class userModel{
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
-    public function addUsuario(){
+    public function addUsuario($user, $hash, $nombre, $fecha, $mail){
+        $sentencia = $this->db->prepare("INSERT INTO usuarios(id_usuario, password, nombre, fecha, mail) VALUES (?,?,?,?,?)");
+        $sentencia->execute(array($user, $hash, $nombre, $fecha, $mail));
+
+
+        return $this->db->lastInsertId();
+
     }
 
 
