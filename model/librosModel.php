@@ -38,12 +38,13 @@ class librosModel{
         $libro = $query->fetch(PDO::FETCH_OBJ);
         return json_decode(json_encode($libro), True);
     }
-    function categorias(){
-        $query = $this->db->prepare('SELECT lib.*, aut.* FROM libros lib INNER JOIN autor aut ON lib.id_autor = aut.id_autor');
-        $query->execute();
-        $libros = $query->fetchAll(PDO::FETCH_ASSOC);
 
-        return $libros; 
+    function ordenar($id){
+        $sentencia = $this->db->prepare("SELECT * FROM libros WHERE id_autor = ?");
+        $sentencia->execute(array($id));
+        $orden = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+        return $orden;
     }
     
 }

@@ -2,11 +2,17 @@
   <div class="datos-bbdd">
       <h3>Autor:</h3>
 
-        <p class="card-text">Nombre: {$autor.nombre}</p>
-        <p class="card-text">Apellido: {$autor.apellido}</p>
+        <h4 class="card-text">Nombre: {$autor.nombre}</h4>
+        <h4 class="card-text">Apellido: {$autor.apellido}</h4>
         <p class="card-text">Fecha: {$autor.fecha}</p>
         <p class="card-text">Biografia: {$autor.biografia}</p>
 
+    <h5>Titulos:</h5>
+         <ul>
+            {foreach from=$libros item=item}
+                <li>{$item.titulo}</li>   
+            {/foreach}
+        <ul>
             <form action="editar/{$autor.id_autor}" method="POST">
                 <div class="form-group">
                     <label>Nombre:</label>

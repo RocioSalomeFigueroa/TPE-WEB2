@@ -22,16 +22,15 @@ class autoresView{
 
     }
 
-    function MostrarAutor($autor){
+    function MostrarAutor($autor, $libros){
         $this->smarty->assign('autor', $autor);
+    //    var_dump($libros);
+        $this->smarty->assign('libros', $libros);
 
-       $this->smarty->display('templates/autor.tpl');
+        $this->smarty->display('templates/autor.tpl');
     }
 
     function formAgregar($id=null){
-       
             $this->smarty->display('templates/agregar.tpl');
-       
-        
     }
 }

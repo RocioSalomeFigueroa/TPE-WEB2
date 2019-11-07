@@ -4,7 +4,7 @@ require_once("./model/librosModel.php");
 require_once './view/autoresView.php';
 require_once "./model/autoresModel.php";
 
-class librosController{
+class bibliotecaController{
     
     private $lview;
     private $lmodel;
@@ -25,7 +25,7 @@ class librosController{
         
         if(!isset($_SESSION['ID_USER'])){
           header("Location: " . URL_autores);
-         //  echo 'You are in! en checklogin' . session_status(); 
+           echo 'You are in! en checklogin' . session_status(); 
          return true;
         }
 
@@ -64,9 +64,9 @@ class librosController{
 
     function deleteLibro($id){
         if($this->checkLogIn()) {
-            //   echo 'You are in!' . session_status();
-            $this->lmodel->eliminarLibro($id);
-             header("Location: " . URL_libros); 
+              echo 'You are in!' . session_status();
+        //     $this->lmodel->eliminarLibro($id);
+         //     header("Location: " . URL_libros); 
      } else {
             //    echo 'no entra al if';
             header("Location: " . URL_login);
@@ -93,7 +93,8 @@ class librosController{
 
     function traerAutor($id){
         $autor = $this->amodel->getAutor($id);
-        $this->aview->MostrarAutor($autor);
+        $libros =$this->lmodel->ordenar($id);
+        $this->aview->MostrarAutor($autor, $libros);
     }
 
     function agregarAutor(){
@@ -134,5 +135,10 @@ class librosController{
 
         $this->amodel->editarAutor($id, $nombre, $apellido, $fecha, $biografia);
         header("Location: " . URL_autores);
+    }
+
+    function consulta(){
+        $orden = $this->amodel->ordenar();
+        $this->aview->listaOrdenada($orden);
     }
 }

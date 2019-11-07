@@ -1,7 +1,6 @@
 <?php
 
-require_once 'controller/librosController.php' ;
-require_once 'controller/autoresController.php' ;
+require_once 'controller/bibliotecaController.php' ;
 require_once 'controller/loginController.php' ;
 
 $action = $_GET["action"];
@@ -11,8 +10,7 @@ define("URL_autores", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_POR
 define("URL_login", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
 define("URL_logout", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
 
-$controller = new librosController();
-$controllerAut = new autoresController();
+$controller = new bibliotecaController();
 $controllerUser = new loginController();
 
 
