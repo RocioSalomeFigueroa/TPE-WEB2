@@ -1,6 +1,7 @@
 {include file="header.tpl"}
     <div class="datos-bbdd">
-        <form action="nuevoUsuario">
+        <form action="nuevoUsuario" method="POST">
+
             <div class="form-group" >
                 <label> Nombre: </label>
                  <input value=" " name="nombre" type="text" class="form-control" placeholder="Nombre">
@@ -15,7 +16,7 @@
             </div>
             <div class="form-group">
                 <label> Usuario: </label>
-                 <input value=" " name="user" type="text" class="form-control" placeholder="Usuario">
+                 <input value=" " type="text" name="user" class="form-control" placeholder="Usuario">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>

@@ -67,13 +67,13 @@ class loginController{
             $user= $_POST['user'];
             $password= $_POST['pass'];
 
-            
-            $hash = password_hash($password, PASSWORD_DEFAULT);
+            $pass = password_hash($password, PASSWORD_DEFAULT);
 
             if(!empty($mail) && !empty($password)&& !empty($user)){
+            //    var_dump($user, $hash, $nombre, $fecha, $mail);
                 
-                /* $this->model->addUsuario($user, $hash, $nombre, $fecha, $mail);
-                header('Location: ' . URL_login); */
+                $this->model->addUsuario($user, $pass, $nombre, $fecha, $mail);
+                header('Location: ' . BASE_URL); 
             }
             else {
                 $this->view->showLogin("No se pudo crear el usuario");
