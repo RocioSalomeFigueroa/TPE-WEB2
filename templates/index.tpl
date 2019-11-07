@@ -34,7 +34,7 @@
                               </div>
                   </div>
                   <div class="btn">
-                        <a href="libros" class="btn btn-success">Visitante</a>
+                        <a href="visitantesLibros" class="btn btn-success">Visitante</a>
                   </div>
                 </div>
                 <div class="fom-login">

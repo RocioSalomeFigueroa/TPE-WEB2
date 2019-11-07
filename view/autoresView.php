@@ -33,4 +33,9 @@ class autoresView{
     function formAgregar($id=null){
             $this->smarty->display('templates/agregar.tpl');
     }
+
+    function autoresVisit($autores){
+        $this->smarty->assign('autores', $autores);
+        $this->smarty->display('templates/autoresVisita.tpl');
+    }
 }

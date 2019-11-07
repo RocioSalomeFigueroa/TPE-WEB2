@@ -74,18 +74,22 @@ if($action == ''){
             $controllerUser->showLogin();
 
         }elseif($partesURL[0] == "logout") {
-    
             $controllerUser->logout();
         }
         elseif($partesURL[0] == "verify") {
             $controllerUser->verifyUser();
         }
         elseif($partesURL[0] == "registro") {
-    
             $controllerUser->registro();
         }
         elseif($partesURL[0] == "nuevoUsuario") {
             $controllerUser->nuevoUsuario();
+        }
+        elseif($partesURL[0] == "visitanteAutores"){
+            $controller->visitantesAutores();
+        }
+        elseif($partesURL[0] == "visitantesLibros"){
+            $controller->visitantesLibros();
         }
         
     }

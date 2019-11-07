@@ -1,8 +1,6 @@
 {include file="header.tpl"}
 
     <div class="datos-bbdd">
-
-
             <form id="formview" action="addLibro" method="post">
   
                   <div class="form-group">

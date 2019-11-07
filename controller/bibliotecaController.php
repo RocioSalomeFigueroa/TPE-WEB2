@@ -141,4 +141,14 @@ class bibliotecaController{
         $orden = $this->amodel->ordenar();
         $this->aview->listaOrdenada($orden);
     }
+
+    function visitantesAutores(){
+        $autores = $this->amodel->getAutores();
+        $this->aview->autoresVisit($autores);
+    }
+
+    function visitantesLibros(){
+        $libros = $this->lmodel->getLibros();
+        $this->lview->librosVisit($libros);
+    }
 }
