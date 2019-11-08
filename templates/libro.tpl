@@ -50,14 +50,5 @@
 
     </div>
 
-    <div class="buttons">
-        <div class = "botonera">
-          <a href="agregarLibro" class="btn btn-success">Agregar</a>
-          <a href="editarlibro/{$libro.id_libro}" class="btn btn-success btn-sm">Editar</a>
-		      <a href="borrarlibro/{$libro.id_libro}" class="btn btn-danger btn-sm">Eliminar</a>
-        </div>
-
-    </div>
-
 
 {include file="footer.tpl"}

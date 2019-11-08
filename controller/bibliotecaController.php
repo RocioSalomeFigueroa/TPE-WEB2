@@ -82,7 +82,7 @@ class bibliotecaController{
         $anio = $_POST['anio'];
         $valoracion = $_POST['valoracion'];
         $resenia = $_POST['resenia'];
-
+        print_r($autor);
         $this->lmodel->editarLibro( $id, $titulo, $autor, $genero, $anio, $valoracion, $resenia);
         header("Location: " . URL_libros);
     }
