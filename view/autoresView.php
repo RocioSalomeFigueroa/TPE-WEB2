@@ -11,7 +11,7 @@ class autoresView{
         
     }
 
-    function MostrarAutores($titulo, $autores){  //ni intente hacer el smarty con haberlo traido de l bbdd estoy
+    function mostrarAutores($titulo, $autores){  //ni intente hacer el smarty con haberlo traido de l bbdd estoy
         
        // var_dump($autores);
 
@@ -22,7 +22,7 @@ class autoresView{
 
     }
 
-    function MostrarAutor($autor, $libros){
+    function mostrarAutor($autor, $libros){
         $this->smarty->assign('autor', $autor);
     //    var_dump($libros);
         $this->smarty->assign('libros', $libros);
@@ -32,5 +32,17 @@ class autoresView{
 
     function formAgregar($id=null){
             $this->smarty->display('templates/agregar.tpl');
+    }
+
+    function autoresVisit($autores){
+        $this->smarty->assign('autores', $autores);
+        $this->smarty->display('templates/autoresVisita.tpl');
+    }
+
+    function autorVisitante($autor, $libros){
+        $this->smarty->assign('autor', $autor);
+        $this->smarty->assign('libros', $libros);
+
+        $this->smarty->display('templates/autorVisita.tpl');
     }
 }

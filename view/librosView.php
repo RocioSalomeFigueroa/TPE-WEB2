@@ -28,10 +28,20 @@ class librosView{
     }
 
     function mostrarFormulario($autores){
-        
       //  var_dump($autores);
-
         $this->smarty->assign('autores', $autores);
         $this->smarty->display('templates/agregarLibro.tpl');
+    }
+
+    function librosVisit($libros){
+    //    var_dump($libros);
+        $this->smarty->assign('libros', $libros);
+        $this->smarty->display('templates/librosVisita.tpl');
+    }
+    function libroVisitante($libro){
+
+        $this->smarty->assign('libro', $libro);
+
+        $this->smarty->display('templates/libroVisita.tpl');
     }
 }

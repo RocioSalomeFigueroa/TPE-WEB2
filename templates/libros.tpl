@@ -1,6 +1,5 @@
 {include file="header.tpl"}
 
-
     <div class="datos-bbdd">
         {$titulo}
 
