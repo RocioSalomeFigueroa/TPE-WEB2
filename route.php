@@ -70,9 +70,6 @@ if($action == ''){
         elseif($partesURL[0] == "login") {
             $controllerUser->showLogin();
 
-        }elseif($partesURL[0] == "iniciarSesion") {
-            $controllerUser->showLogin();
-
         }elseif($partesURL[0] == "logout") {
             $controllerUser->logout();
         }
@@ -90,6 +87,12 @@ if($action == ''){
         }
         elseif($partesURL[0] == "visitantesLibros"){
             $controller->visitantesLibros();
+        }
+        elseif($partesURL[0] == "libroVisita"){
+            $controller->traerLibroVisitante($partesURL[1]);
+        }
+        elseif($partesURL[0] == "autorVisita"){
+            $controller->traerAutorVisitante($partesURL[1]);
         }
         
     }

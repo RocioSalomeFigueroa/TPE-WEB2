@@ -38,4 +38,10 @@ class librosView{
         $this->smarty->assign('libros', $libros);
         $this->smarty->display('templates/librosVisita.tpl');
     }
+    function libroVisitante($libro){
+
+        $this->smarty->assign('libro', $libro);
+
+        $this->smarty->display('templates/libroVisita.tpl');
+    }
 }

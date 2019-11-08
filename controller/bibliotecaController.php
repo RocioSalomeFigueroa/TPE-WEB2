@@ -88,13 +88,13 @@ class bibliotecaController{
 
     function autores(){
         $autores = $this->amodel->getAutores();
-        $this->aview->MostrarAutores($this->titulo,$autores);
+        $this->aview->mostrarAutores($this->titulo,$autores);
     }
 
     function traerAutor($id){
         $autor = $this->amodel->getAutor($id);
         $libros =$this->lmodel->ordenar($id);
-        $this->aview->MostrarAutor($autor, $libros);
+        $this->aview->mostrarAutor($autor, $libros);
     }
 
     function agregarAutor(){
@@ -150,5 +150,17 @@ class bibliotecaController{
     function visitantesLibros(){
         $libros = $this->lmodel->getLibros();
         $this->lview->librosVisit($libros);
+    }
+
+    function traerLibroVisitante($id){
+        
+        $libro = $this->lmodel->getLibro($id);
+        $this->lview->libroVisitante($libro);
+    }
+
+    function traerAutorVisitante($id){
+        $autor = $this->amodel->getAutor($id);
+        $libros =$this->lmodel->ordenar($id);
+        $this->aview->autorVisitante($autor, $libros);
     }
 }
