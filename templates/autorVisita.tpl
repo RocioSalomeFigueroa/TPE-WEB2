@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/estiles.css">
+    <link rel="stylesheet" href="../css/estiles.css">
     <title>Biblioteca Virtual</title>
     <base href="{BASE_URL}">
 </head>
@@ -34,20 +34,22 @@
           </nav>
       </div>              
   <div class="body">
-    <div class="datos-bbdd">
-        <h2>Autores</h2>
+  <div class="datos-bbdd">
+      <h3>Autor:</h3>
 
-        <div class="card-group">
-                    
-          {foreach from=$autores item=autor}                               
-                <div class = "dato">
-                  <a href="autorVisita/{$autor.id_autor}"><h5 class="card-title">Nombre: {$autor.apellido}, {$autor.nombre}</h5></a>
-                  <p class="card-text">Fecha: {$autor.fecha}</p>
-                  <p class="card-text">Biografia: {$autor.biografia}</p>
-                </div>          
-          {/foreach}
-        </div>
-      </div>
+        <h4 class="card-text">Nombre: {$autor.nombre}</h4>
+        <h4 class="card-text">Apellido: {$autor.apellido}</h4>
+        <p class="card-text">Fecha: {$autor.fecha}</p>
+        <p class="card-text">Biografia: {$autor.biografia}</p>
+
+    <h5>Titulos:</h5>
+         <ul>
+            {foreach from=$libros item=item}
+                <li>{$item.titulo}</li>   
+            {/foreach}
+        <ul>
+</div>
+
     </div>
     
         <div class="footer">
