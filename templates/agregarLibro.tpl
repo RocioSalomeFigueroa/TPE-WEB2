@@ -1,6 +1,8 @@
 {include file="header.tpl"}
 
     <div class="datos-bbdd">
+
+        <h3>Agregar Libro</h3>
             <form id="formview" action="addLibro" method="post">
   
                   <div class="form-group">
@@ -16,10 +18,6 @@
                             {/foreach}
                          </select>
                     </div> 
-                    {* <div class="form-group">
-                      <label> Autor: </label>
-                      <input value=" " name="autor" type="text" class="form-control" placeholder="Genero">
-                    </div> *}
                     <div class="form-group">
                       <label> Genero: </label>
                       <input value=" " name="genero" type="text" class="form-control" placeholder="Genero">

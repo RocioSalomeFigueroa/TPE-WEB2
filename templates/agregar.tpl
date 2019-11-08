@@ -1,6 +1,7 @@
 {include file="header.tpl"}
 
     <div class="datos-bbdd">
+        <h3>Agregar Autor</h3>
 
       <form action="insertar" method="post">
                   <div class="form-group">

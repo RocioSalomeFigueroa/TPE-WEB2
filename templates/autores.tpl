@@ -1,7 +1,7 @@
 {include file="header.tpl"}
 
     <div class="datos-bbdd">
-        <h2>{$titulo}</h2>
+        <h3>{$titulo}</h3>
 
         <div class="card-group">
                     

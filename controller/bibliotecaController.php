@@ -42,11 +42,13 @@ class bibliotecaController{
         $this->lview->MostrarLibro($libro, $autores);
     }
 
-    function agregarLibro(){ //si unificamos los controller lo tendria que traer con el id de autor
+    function agregarLibro(){ //muestra el formulario
         $autores = $this->amodel->getAutores();
         $this->lview->mostrarFormulario($autores);
     }
-    function addLibro(){
+    function addLibro(){ //agrega a la base de datos
+        $this->checkLogIn();
+
         $titulo = $_POST['titulo'];
         $autor = $_POST['autor'];
         $genero = $_POST['genero'];
@@ -72,6 +74,8 @@ class bibliotecaController{
     }
 
     function cambiarLibro($id){
+        $this->checkLogIn();
+
         $titulo = $_POST['titulo'];
         $autor = $_POST['autor'];
         $genero = $_POST['genero'];
@@ -98,6 +102,8 @@ class bibliotecaController{
         $this->aview->formAgregar();
     }
     function addAutor(){
+        $this->checkLogIn();
+
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
         $fecha = $_POST['fecha'];
@@ -110,20 +116,15 @@ class bibliotecaController{
     }
 
     function deleteAutor($id){
-        if($this->checkLogIn()) {
-           
-        //   echo 'You are in!' . session_status();
+        $this->checkLogIn();
 
-            $this->amodel->eliminarAutor($id);
-            header("Location: " . URL_autores); 
-          } else {
-        //    echo 'no entra al if';
-        header("Location: " . URL_login);
-              exit;
-          }
+        $this->amodel->eliminarAutor($id);
+        header("Location: " . URL_autores); 
+         
     }
 
-    function cambiarAutor($id){//tengo que terminar este
+    function cambiarAutor($id){//edita
+        $this->checkLogIn();
 
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
