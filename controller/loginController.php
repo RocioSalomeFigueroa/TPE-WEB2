@@ -34,7 +34,6 @@ class loginController{
                 $_SESSION['USERNAME'] = $user->username;
                 
                header('Location: ' . URL_libros);
-            // $this->view->showLogin("inicio sesion");
             } else {
                 
                 $this->view->showLogin("Login incorrecto");

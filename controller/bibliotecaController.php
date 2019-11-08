@@ -22,6 +22,8 @@ class bibliotecaController{
 
     public function checkLogIn(){
         session_start();
+
+    
         
         if(!isset($_SESSION['ID_USER'])){
             header("Location: " . URL_login);
