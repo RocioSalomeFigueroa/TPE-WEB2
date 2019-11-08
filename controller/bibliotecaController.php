@@ -24,9 +24,8 @@ class bibliotecaController{
         session_start();
         
         if(!isset($_SESSION['ID_USER'])){
-          header("Location: " . URL_autores);
-           echo 'You are in! en checklogin' . session_status(); 
-         return true;
+            header("Location: " . URL_login);
+            die();
         }
 
     }
@@ -63,15 +62,11 @@ class bibliotecaController{
     }
 
     function deleteLibro($id){
-        if($this->checkLogIn()) {
-              echo 'You are in!' . session_status();
-        //     $this->lmodel->eliminarLibro($id);
-         //     header("Location: " . URL_libros); 
-     } else {
-            //    echo 'no entra al if';
-            header("Location: " . URL_login);
-                  exit;
-          }       
+        $this->checkLogIn();
+
+        $this->lmodel->eliminarLibro($id);
+        header("Location: " . URL_libros); 
+      
     }
 
     function cambiarLibro($id){
