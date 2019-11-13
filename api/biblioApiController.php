@@ -1,15 +1,18 @@
 <?php
 require_once "./model/autoresModel.php";
+require_once "./model/librosModel.php";
 require_once "./api/json.view.php";
 
 class biblioApiController{
     private $model;
+    private $lmodel;
     private $view;
 
     private $data;
 
     public function __construct() {
         $this->model = new autoresModel();
+        $this->lmodel = new librosModel();
         $this->view = new JSONView();
         $this->data = file_get_contents("php://input");
     }
@@ -19,9 +22,15 @@ class biblioApiController{
     }
 
     public function  getAutores($params = null) {
-        $tareas = $this->model->getAutores();
-        $this->view->response($tareas, 200);
+        $autores = $this->model->getAutores();
+        $this->view->response($autores, 200);
     }
+
+    public function  getLibros($params = null) {
+        $libros = $this->lmodel->getLibros();
+        $this->view->response($libros, 200);
+    }
+
 
 
 }
