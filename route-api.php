@@ -8,8 +8,7 @@ require_once('./api/biblioApiController.php');
  $router = new Router();
 
  // rutas
- $router->addRoute("/autores", "GET", "biblioApiController", "getAutores");
- $router->addRoute("/libros", "GET", "biblioApiController", "getLibros");
+ $router->addRoute("/comentarios", "GET", "biblioApiController", "getComentarios");
 
  //run
  $router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']); 
