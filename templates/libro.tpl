@@ -9,6 +9,9 @@
             <p class="card-text">Reseña: {$libro.resenia}</p>
         </div>
 
+
+        {include file="vue/comentarios.tpl"}
+
         <form id="formview" action="editarLibro/{$libro.id_libro}" method="post">
   
                   <div class="form-group">
