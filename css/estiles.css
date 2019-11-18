@@ -23,7 +23,7 @@
   
   .body {
     display: grid;
-    grid-template-columns: 0.3fr 2.3fr 0.4fr;
+    grid-template-columns: 0.4fr 2.4fr 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: ". datos-bbdd buttons";
     grid-area: body;
@@ -42,8 +42,22 @@
   }
 
   .botonera{
-    margin-top: 40%;
-    width: 15%;
+    margin-top: 15%;
   }
 
+  .form-popup {
+    max-height: 100%;
+    width: 35%;
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 1%;
+    border: 5px solid #f1f1f1;
+    z-index: 9;
+  }
 
+  .form-container {
+    width: 100%;
+    padding: 25px;
+    background-color: white;
+  }

@@ -1,4 +1,4 @@
-{include file="header1.tpl"}
+{include file="header.tpl"}
 
     <div class="datos-bbdd">
         <div>
@@ -9,9 +9,9 @@
             <p class="card-text">Reseña: {$libro.resenia}</p>
         </div>
 
-        <form id="formview" action="editarLibro/{$libro.id_libro}" method="post">
-  
-                  <div class="form-group">
+      <div class="form-popup" id="myForm">
+        <form action="editarLibro/{$libro.id_libro}" method="post" class="form-container">
+                 <div class="form-group">
                       <label> Titulo: </label>
                       <input value=" " name="titulo" type="text" class="form-control" placeholder="Titulo">
                   </div>
@@ -42,13 +42,19 @@
                       <textarea class="form-control" name="resenia" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
                     <div class="form-group">
-                      <button type="submit" class="btn btn-outline-secondary">Insertar</button>
+                      <button type="submit" class="btn btn-warning btn-sm">Editar</button>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="closeForm()">Close</button>
                     </div>
-              </form>
+          </form>
+      </div>
+  </div>
 
+      <div class="buttons">
 
-
-    </div>
-
+        <div class = "botonera">
+          <button class="btn btn-success" onclick="openForm()">Editar</button>
+          {* <button class="btn btn-success" id= "btnEdit">Editar</button> *}
+        </div>    
+      </div>
 
 {include file="footer.tpl"}

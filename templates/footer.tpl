@@ -7,5 +7,6 @@
 
         </div>
      </div>
+<script src="./js/comportamiento.js"></script>
 </body>
 </html>
