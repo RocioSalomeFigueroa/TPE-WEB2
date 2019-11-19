@@ -3,7 +3,6 @@
 $('.carousel').carousel({
     interval: 2000
   })
-
 /*  let edit = document.getElementById("btnEdit");
  edit.addEventListener("click",openForm); */
 
@@ -14,3 +13,5 @@ $('.carousel').carousel({
   function closeForm() {
     document.getElementById("myForm").style.display = "none";
   }
+
+

@@ -3,7 +3,7 @@
     <div class="datos-bbdd">
 
         <h3>Agregar Libro</h3>
-            <form id="formview" action="addLibro" method="post">
+            <form id="formview" action="addLibro" method="post" enctype="multipart/form-data">
   
                   <div class="form-group">
                       <label> Titulo: </label>
@@ -33,6 +33,10 @@
                     <div class="form-group">
                       <label for="exampleFormControlTextarea1">Reseña:</label>
                       <textarea class="form-control" name="resenia" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label> Imagen: </label>
+                      <input value=" " name="imagen" type="file" class="form-control" placeholder="Imagen">
                     </div>
                     <div class="form-group">
                       <button type="submit" class="btn btn-outline-secondary">Insertar</button>

@@ -7,8 +7,9 @@
             <p class="card-text">Genero: {$libro.genero}</p>
             <p class="card-text">Año: {$libro.anio}</p>
             <p class="card-text">Reseña: {$libro.resenia}</p>
+            <img class="card-text" src="{$libro.imagen}"/>
         </div>
-
+        
       <div class="form-popup" id="myForm">
         <form action="editarLibro/{$libro.id_libro}" method="post" class="form-container">
                  <div class="form-group">
@@ -40,6 +41,10 @@
                     <div class="form-group">
                       <label for="exampleFormControlTextarea1">Reseña:</label>
                       <textarea class="form-control" name="resenia" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label> Imagen: </label>
+                      <input value=" " name="imagen" type="file" class="form-control" placeholder="Imagen">
                     </div>
                     <div class="form-group">
                       <button type="submit" class="btn btn-warning btn-sm">Editar</button>
