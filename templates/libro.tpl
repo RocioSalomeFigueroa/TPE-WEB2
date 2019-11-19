@@ -7,9 +7,10 @@
             <p class="card-text">Genero: {$libro.genero}</p>
             <p class="card-text">Año: {$libro.anio}</p>
             <p class="card-text">Reseña: {$libro.resenia}</p>
+            <img class="card-text" src="{$libro.imagen}"/>
         </div>
 
-        <form id="formview" action="editarLibro/{$libro.id_libro}" method="post">
+        <form id="formview" action="editarLibro/{$libro.id_libro}" method="post" enctype="multipart/form-data">
   
                   <div class="form-group">
                       <label> Titulo: </label>

@@ -57,7 +57,13 @@ class bibliotecaController{
         $resenia = $_POST['resenia'];
 
         if(!empty($titulo) && !empty($autor)&& !empty($genero)){
-            $this->lmodel->agregarLibro($titulo,$autor,$genero, $anio, $valoracion, $resenia);
+
+            $img = $_FILES["imagen"];
+            $origen = $img["tmp_name"];
+            $destino = "images/" . uniqid() . $img["name"];
+            copy($origen, $destino);
+
+            $this->lmodel->agregarLibro($titulo,$autor,$genero, $anio, $valoracion, $reseni, $destino);
             header("Location: " . URL_libros);
         }
         else {

@@ -15,9 +15,11 @@ class librosModel{
 
         return $libros;  
     }
-    function agregarLibro($titulo,$autor,$genero, $anio, $valoracion, $resenia){//tengo que tereminar este
-        $sentencia=$this->db->prepare("INSERT INTO libros(titulo, id_autor, genero, anio, valoracion, resenia) VALUES(?,?,?,?,?,?)");
-        $sentencia->execute(array($titulo,$autor,$genero, $anio, $valoracion, $resenia));
+
+    function agregarLibro($titulo,$autor,$genero, $anio, $valoracion, $resenia, $imagen){
+        $sentencia=$this->db->prepare("INSERT INTO libros(titulo, id_autor, genero, anio, valoracion, resenia, imagen) 
+        VALUES(?,?,?,?,?,?,?)");
+        $sentencia->execute([$titulo,$autor,$genero, $anio, $valoracion, $resenia, $imagen]);
         return $this->db->lastInsertId();
     }
 
@@ -33,7 +35,7 @@ class librosModel{
 
     }
     function getLibro($id){
-        $query = $this->db->prepare('SELECT lib.id_libro, lib.titulo, aut.apellido, aut.nombre, lib.genero, lib.anio, lib.resenia, lib.valoracion FROM libros lib INNER JOIN autores aut ON lib.id_autor = aut.id_autor WHERE id_libro = ?');
+        $query = $this->db->prepare('SELECT lib.id_libro, lib.titulo, aut.apellido, aut.nombre, lib.genero, lib.anio, lib.resenia, lib.valoracion, lib.imagen FROM libros lib INNER JOIN autores aut ON lib.id_autor = aut.id_autor WHERE id_libro = ?');
         $query->execute([$id]);
         $libro = $query->fetch(PDO::FETCH_OBJ);
         return json_decode(json_encode($libro), True);
