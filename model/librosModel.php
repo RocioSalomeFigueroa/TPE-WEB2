@@ -28,9 +28,9 @@ class librosModel{
         $sentencia->execute(array($id));
     }
     
-    function editarLibro($id,$titulo,$autor,$genero, $anio, $valoracion, $resenia){
-        $sentencia = $this->db->prepare("UPDATE libros SET titulo=?, id_autor=?, genero=?, anio=?, valoracion=?, resenia=? WHERE id_libro=?");
-        $sentencia->execute(array($titulo,$autor,$genero, $anio, $valoracion, $resenia,$id));
+    function editarLibro($id,$titulo,$autor,$genero, $anio, $valoracion, $resenia,$imagen){
+        $sentencia = $this->db->prepare("UPDATE libros SET titulo=?, id_autor=?, genero=?, anio=?, valoracion=?, resenia=?, imagen=? WHERE id_libro=?");
+        $sentencia->execute(array($titulo,$autor,$genero, $anio, $valoracion, $resenia,$imagen,$id));
        // var_dump($id); die;
 
     }

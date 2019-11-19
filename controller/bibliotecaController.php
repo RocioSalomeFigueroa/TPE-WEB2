@@ -63,7 +63,7 @@ class bibliotecaController{
             $destino = "images/" . uniqid() . $img["name"];
             copy($origen, $destino);
 
-            $this->lmodel->agregarLibro($titulo,$autor,$genero, $anio, $valoracion, $reseni, $destino);
+            $this->lmodel->agregarLibro($titulo,$autor,$genero, $anio, $valoracion, $resenia, $destino);
             header("Location: " . URL_libros);
         }
         else {
@@ -88,8 +88,13 @@ class bibliotecaController{
         $anio = $_POST['anio'];
         $valoracion = $_POST['valoracion'];
         $resenia = $_POST['resenia'];
-        print_r($autor);
-        $this->lmodel->editarLibro( $id, $titulo, $autor, $genero, $anio, $valoracion, $resenia);
+        $img = $_FILES["imagen"];
+        $origen = $img["tmp_name"];
+        $destino = "images/" . uniqid() . $img["name"];
+            copy($origen, $destino);
+
+        
+        $this->lmodel->editarLibro( $id, $titulo, $autor, $genero, $anio, $valoracion, $resenia, $destino);
         header("Location: " . URL_libros);
     }
 

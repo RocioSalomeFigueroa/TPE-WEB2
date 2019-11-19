@@ -43,6 +43,10 @@
                       <textarea class="form-control" name="resenia" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
                     <div class="form-group">
+                      <label> Imagen: </label>
+                      <input value=" " name="imagen" type="file" class="form-control" placeholder="Imagen">
+                    </div>
+                    <div class="form-group">
                       <button type="submit" class="btn btn-outline-secondary">Insertar</button>
                     </div>
               </form>
