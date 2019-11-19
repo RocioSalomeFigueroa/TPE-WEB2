@@ -1,15 +1,19 @@
 {include file="header.tpl"}
 
     <div class="datos-bbdd">
-        <div>
+
+    
+        <div class="img">
+            <img class="card-img" src="{$libro.imagen}"/>
+          </div>
+          <div class="dato-biblioteca">
             <h4 class="card-title">Titulo: {$libro.titulo}</h4>
             <h5 class="card-text">Autor: {$libro.apellido}, {$libro.nombre}</h5>
             <p class="card-text">Genero: {$libro.genero}</p>
             <p class="card-text">Año: {$libro.anio}</p>
-            <p class="card-text">Reseña: {$libro.resenia}</p>
-            <img class="card-text" src="{$libro.imagen}"/>
+            <p class="card-text">Reseña: {$libro.resenia}</p>   
         </div>
-        
+
       <div class="form-popup" id="myForm">
         <form action="editarLibro/{$libro.id_libro}" method="post" class="form-container">
                  <div class="form-group">
