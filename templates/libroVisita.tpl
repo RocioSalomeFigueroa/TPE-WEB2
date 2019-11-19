@@ -42,6 +42,7 @@
             <p class="card-text">Genero: {$libro.genero}</p>
             <p class="card-text">Año: {$libro.anio}</p>
             <p class="card-text">Reseña: {$libro.resenia}</p>
+            <img class="card-text" src="{$libro.imagen}"/>
         </div>
 
 
