@@ -60,7 +60,7 @@ class bibliotecaController{
 
             $img = $_FILES["imagen"];
             $origen = $img["tmp_name"];
-            $destino = "images/" . uniqid() . $img["name"];
+            $destino = "images/libros/" . uniqid() . $img["name"];
             copy($origen, $destino);
 
             $this->lmodel->agregarLibro($titulo,$autor,$genero, $anio, $valoracion, $resenia, $destino);
@@ -90,7 +90,7 @@ class bibliotecaController{
         $resenia = $_POST['resenia'];
         $img = $_FILES["imagen"];
         $origen = $img["tmp_name"];
-        $destino = "images/" . uniqid() . $img["name"];
+        $destino = "images/libros/" . uniqid() . $img["name"];
             copy($origen, $destino);
 
         
@@ -121,7 +121,7 @@ class bibliotecaController{
         $biografia = $_POST['biografia'];
 
         if(!empty($nombre)&&!empty($apellido)&&!empty($fecha)){
-            
+
             $img = $_FILES["imagen"];
             $origen = $img["tmp_name"];
             $destino = "images/autor/" . uniqid() . $img["name"];
