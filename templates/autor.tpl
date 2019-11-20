@@ -2,18 +2,22 @@
   <div class="datos-bbdd">
       <h3>Autor:</h3>
 
+        <div class="img">
+            <img class="card-img" src="{$autor.imagen}"/>
+          </div>
+     <div class="dato-biblioteca">
         <h4 class="card-text">Nombre: {$autor.nombre}</h4>
         <h4 class="card-text">Apellido: {$autor.apellido}</h4>
         <p class="card-text">Fecha: {$autor.fecha}</p>
         <p class="card-text">Biografia: {$autor.biografia}</p>
-
+    </div>
     <h5>Titulos:</h5>
          <ul>
             {foreach from=$libros item=item}
                 <li>{$item.titulo}</li>   
             {/foreach}
         <ul>
-            <form action="editar/{$autor.id_autor}" method="POST">
+            <form action="editar/{$autor.id_autor}" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>Nombre:</label>
                     <input value=" " name="nombre" type="text" class="form-control" placeholder="Nombre">

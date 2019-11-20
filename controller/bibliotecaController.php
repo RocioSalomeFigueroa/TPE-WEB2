@@ -121,7 +121,12 @@ class bibliotecaController{
         $biografia = $_POST['biografia'];
 
         if(!empty($nombre)&&!empty($apellido)&&!empty($fecha)){
-            $this->amodel->agregarAutor($nombre, $apellido, $fecha, $biografia);
+            
+            $img = $_FILES["imagen"];
+            $origen = $img["tmp_name"];
+            $destino = "images/autor/" . uniqid() . $img["name"];
+            copy($origen, $destino);
+            $this->amodel->agregarAutor($nombre, $apellido, $fecha, $biografia, $destino);
             header("Location: " . URL_autores);
         }
     }
@@ -142,7 +147,12 @@ class bibliotecaController{
         $fecha = $_POST['fecha'];
         $biografia = $_POST['biografia'];
 
-        $this->amodel->editarAutor($id, $nombre, $apellido, $fecha, $biografia);
+        $img = $_FILES["imagen"];
+        $origen = $img["tmp_name"];
+        $destino = "images/autor/" . uniqid() . $img["name"];
+            copy($origen, $destino);
+
+        $this->amodel->editarAutor($id, $nombre, $apellido, $fecha, $biografia, $destino);
         header("Location: " . URL_autores);
     }
 

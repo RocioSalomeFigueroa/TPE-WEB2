@@ -2,7 +2,8 @@
 
     <div class="datos-bbdd">
 
-    
+       <h3>Libro:</h3>
+
         <div class="img">
             <img class="card-img" src="{$libro.imagen}"/>
           </div>
