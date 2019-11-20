@@ -27,6 +27,11 @@ class librosModel{
         $sentencia = $this->db->prepare("DELETE FROM `libros` WHERE `libros`.`id_libro` = ?");
         $sentencia->execute(array($id));
     }
+
+    function eliminarImagen($id, $imagen){//consultar 
+        $sentencia = $this->db->prepare("DELETE imagen FROM 'libros' WHERE 'libros'.'id_libro'=?");
+        $sentencia->execute([$id,$imagen]);
+    }
     
     function editarLibro($id,$titulo,$autor,$genero, $anio, $valoracion, $resenia,$imagen){
         $sentencia = $this->db->prepare("UPDATE libros SET titulo=?, id_autor=?, genero=?, anio=?, valoracion=?, resenia=?, imagen=? WHERE id_libro=?");

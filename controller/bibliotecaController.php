@@ -78,6 +78,11 @@ class bibliotecaController{
         header("Location: " . URL_libros); 
       
     }
+    function deleteImagen($id){
+         $this->checkLogIn();
+         $this->lmodel->eliminarImagen($id,$imagen);
+         header("Location: " . URL_libros);
+    }
 
     function cambiarLibro($id){
         $this->checkLogIn();
