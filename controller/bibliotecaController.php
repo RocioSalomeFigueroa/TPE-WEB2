@@ -31,6 +31,17 @@ class bibliotecaController{
         }
 
     }
+    public function checkAdmin(){
+        session_start();
+
+        
+        if(!isset($_SESSION['ID_USER']) || ($_SESSION['admin'] != 1) ){
+            header("Location: " . URL_login);
+            //var_dump($_SESSION);
+            die();
+        }
+
+    }
 
     function traerLibros(){
         $libros = $this->lmodel->getLibros();
@@ -43,11 +54,12 @@ class bibliotecaController{
     }
 
     function agregarLibro(){ //muestra el formulario
+        $this->checkAdmin();
         $autores = $this->amodel->getAutores();
         $this->lview->mostrarFormulario($autores);
     }
     function addLibro(){ //agrega a la base de datos
-        $this->checkLogIn();
+        
 
         $titulo = $_POST['titulo'];
         $autor = $_POST['autor'];
@@ -88,6 +100,7 @@ class bibliotecaController{
         $anio = $_POST['anio'];
         $valoracion = $_POST['valoracion'];
         $resenia = $_POST['resenia'];
+
         $img = $_FILES["imagen"];
         $origen = $img["tmp_name"];
         $destino = "images/" . uniqid() . $img["name"];

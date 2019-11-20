@@ -7,6 +7,9 @@
 
         </div>
      </div>
+
 <script src="./js/comportamiento.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="./js/comentariosFetch.js"></script>
 </body>
 </html>

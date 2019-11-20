@@ -32,6 +32,7 @@ class loginController{
 
                 $_SESSION['ID_USER'] = $user->id_usuario;
                 $_SESSION['USERNAME'] = $user->username;
+                $_SESSION['admin'] = $user->admin;
                 
                header('Location: ' . URL_libros);
             } else {

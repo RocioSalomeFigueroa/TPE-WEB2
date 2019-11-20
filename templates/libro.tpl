@@ -14,9 +14,11 @@
             <p class="card-text">Reseña: {$libro.resenia}</p>   
         </div>
 
+            {include file="vue/comentarios.tpl"}
+
       <div class="form-popup" id="myForm">
-        <form action="editarLibro/{$libro.id_libro}" method="post" class="form-container">
-                 <div class="form-group">
+        <form action="editarLibro/{$libro.id_libro}" method="post" class="form-container">  
+                  <div class="form-group">
                       <label> Titulo: </label>
                       <input value=" " name="titulo" type="text" class="form-control" placeholder="Titulo">
                   </div>
