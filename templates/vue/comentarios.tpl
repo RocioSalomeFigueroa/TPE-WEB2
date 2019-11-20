@@ -1,12 +1,12 @@
 {literal}
    <section id="template-vue-comentarios">
-    <h3> {{ subtitle }} </h3>
+    <h5> {{ subtitle }} </h5>
 
     <ul>
        <li v-for="comentario in comentarios"> 
-           <span>{{comentario.id_comentario}} </span>
+           <span>{{comentario.valoracion}} </span>
+           <span>{{comentario.comentario}} </span>
        </li> 
     </ul>
 </section>
-
 {/literal}

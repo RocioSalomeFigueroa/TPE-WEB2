@@ -3,7 +3,7 @@
 let app = new Vue({
     el: "#template-vue-comentarios",
     data: {
-        subtitle: "Estas tareas se renderizan desde el cliente usando Vue.js",
+        subtitle: "Comentarios sobre el Libro",
         comentarios: [],
         auth: true
     }
@@ -11,16 +11,12 @@ let app = new Vue({
 
 function getComentarios() {
     fetch("api/comentarios")
-    .then(function(r){
-        return r.json()
+    .then(response => response.json())
+    .then(comentarios => {
+        app.comentarios = comentarios;
+        console.log(comentarios); // similar a $this->smarty->assign("comentarios", $comentarios)
     })
-    .then(function(json) {
-        console.log(json);
-       // disenioCurricular = json.materias
-       // cargarDisenio();
-      })
     .catch(error => console.log(error));
 }
-
 
 getComentarios();
