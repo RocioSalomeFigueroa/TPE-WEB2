@@ -1,8 +1,8 @@
 "use strict"
 
-$('.carousel').carousel({
+/* $('.carousel').carousel({
     interval: 2000
-  })
+  }) */
 /*  let edit = document.getElementById("btnEdit");
  edit.addEventListener("click",openForm); */
 

@@ -9,6 +9,8 @@ require_once('./api/biblioApiController.php');
 
  // rutas
  $router->addRoute("/comentarios", "GET", "biblioApiController", "getComentarios");
+ $router->addRoute("/comentarios/:ID", "DELETE", "biblioApiController", "deleteComentario");
+ $router->addRoute("/comentarios", "POST", "biblioApiController", "agregarComentario");
 
  //run
  $router->route($_GET['resource'], $_SERVER['REQUEST_METHOD']); 

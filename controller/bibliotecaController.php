@@ -22,8 +22,6 @@ class bibliotecaController{
 
     public function checkLogIn(){
         session_start();
-
-    
         
         if(!isset($_SESSION['ID_USER'])){
             header("Location: " . URL_login);
@@ -34,7 +32,6 @@ class bibliotecaController{
     public function checkAdmin(){
         session_start();
 
-        
         if(!isset($_SESSION['ID_USER']) || ($_SESSION['admin'] != 1) ){
             header("Location: " . URL_login);
             //var_dump($_SESSION);
@@ -53,13 +50,13 @@ class bibliotecaController{
         $this->lview->MostrarLibro($libro, $autores);
     }
 
-    function agregarLibro(){ //muestra el formulario
+    function agregarLibro(){
         $this->checkAdmin();
+        
         $autores = $this->amodel->getAutores();
         $this->lview->mostrarFormulario($autores);
     }
-    function addLibro(){ //agrega a la base de datos
-        
+    function addLibro(){         
 
         $titulo = $_POST['titulo'];
         $autor = $_POST['autor'];
@@ -117,6 +114,7 @@ class bibliotecaController{
     }
 
     function traerAutor($id){
+        
         $autor = $this->amodel->getAutor($id);
         $libros =$this->lmodel->ordenar($id);
         $this->aview->mostrarAutor($autor, $libros);
