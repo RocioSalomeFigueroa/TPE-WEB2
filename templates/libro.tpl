@@ -76,7 +76,7 @@
                     </div>
                     <div class="form-group">
                       <button type="submit" class="btn btn-warning btn-sm">Editar</button>
-                      <button type="button" class="btn btn-danger btn-sm" onclick="closeForm()">Close</button>
+                      <button type="button" class="btn btn-danger btn-sm" id="btnClose">Close</button>
                     </div>
           </form>
       </div>
@@ -85,8 +85,8 @@
       <div class="buttons">
 
         <div class = "botonera">
-          <button class="btn btn-success" onclick="openForm()">Editar</button>
-          {* <button class="btn btn-success" id= "btnEdit">Editar</button> *}
+          <button class="btn btn-success" id="btnEdit">Editar</button>
+          {* <button class="btn btn-success" id="btnEdit">Editar</button> *}
         </div>    
       </div>
 

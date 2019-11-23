@@ -6,6 +6,10 @@
        <li v-for="comentario in comentarios"> 
            <span>{{comentario.valoracion}} </span>
            <span>{{comentario.comentario}} </span>
+
+        <span>
+        <button v-on:click="deleteComment(comentario.id_comentario)">Eliminar</button>
+        </span>
        </li> 
     </ul>
 

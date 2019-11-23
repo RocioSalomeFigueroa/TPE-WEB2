@@ -20,7 +20,7 @@ class librosView{
     }
 
     function MostrarLibro($libro, $autores){
-
+    
         $this->smarty->assign('autores', $autores);
         $this->smarty->assign('libro', $libro);
 

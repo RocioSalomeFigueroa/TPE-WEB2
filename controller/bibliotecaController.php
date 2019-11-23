@@ -27,8 +27,8 @@ class bibliotecaController{
             header("Location: " . URL_login);
             die();
         }
-
     }
+
     public function checkAdmin(){
         session_start();
 
@@ -37,7 +37,10 @@ class bibliotecaController{
             //var_dump($_SESSION);
             die();
         }
+    }
 
+    function getUser(){
+        
     }
 
     function traerLibros(){
@@ -52,7 +55,7 @@ class bibliotecaController{
 
     function agregarLibro(){
         $this->checkAdmin();
-        
+
         $autores = $this->amodel->getAutores();
         $this->lview->mostrarFormulario($autores);
     }

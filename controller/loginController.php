@@ -51,9 +51,6 @@ class loginController{
             header('Location: ' . URL_login);
             $this->view->showLogin("se cerro la sesion");
 
-           // echo 'You are in!' . session_status();
-
-            // exit;
         }
 
         function registro(){
