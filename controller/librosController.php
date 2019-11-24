@@ -3,7 +3,7 @@ require_once('./view/librosView.php');
 require_once("./model/librosModel.php");
 require_once "./model/autoresModel.php";
 
-class bibliotecaController{
+class librosController{
     
     private $view;
     private $model;
