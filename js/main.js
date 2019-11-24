@@ -5,21 +5,21 @@ document.addEventListener("DOMContentLoaded", global);
 
 function global(){
 
-    document.getElementById("btnEdit").addEventListener("click",openForm);
-    document.getElementById("btnClose").addEventListener("click",closeForm);
-  
-    function openForm() {
-      document.getElementById("myForm").style.display = "block";
+    function setIds(){
+        let container = document.getElementById("container");
+        let objId = container.dataset.objectid;
+        let usrId = container.dataset.userid;
+
+        let usrSpan = document.getElementById("usrId");
+        let objSpan = document.getElementById("objId");
+
+        usrSpan.innerText = usrId;
+        objSpan.innerText = objId;
+
+        getComentarios(objId);
     }
     
-    function closeForm() {
-      document.getElementById("myForm").style.display = "none";
-    }
-
-    document.getElementById('form-comment').addEventListener('submit', function(evt){
-        evt.preventDefault();
-        addComment();
-    });
+    setIds();
 
     let app = new Vue({
         el: "#template-vue-comentarios",
@@ -31,13 +31,20 @@ function global(){
             deleteComment: function(id) {
                 let url = "api/comentarios/" + id;
 
+                let container = document.getElementById("container");
+                let objId = container.dataset.objectid;
+
+                let objSpan = document.getElementById("objId");
+
+                objSpan.innerText = objId;
+
                 fetch(url,{
                     "method" : "DELETE",
                     "headers" : {
                         "Content-Type" : "application/json"
                     }
                 }).then(function(){
-                    getComentarios();
+                    getComentarios(objId);
                 }).catch(function(e){
                     console.log(e)
                 })
@@ -45,17 +52,15 @@ function global(){
         }
     });
 
-    function getComentarios() {
-        fetch("api/comentarios")
+    function getComentarios(objId) {
+        let url = "api/libro/" + objId + "/comentarios";
+        fetch(url)
         .then(response => response.json())
         .then(comentarios => {
             app.comentarios = comentarios;
-        //  console.log(comentarios); // similar a $this->smarty->assign("comentarios", $comentarios)
         })
         .catch(error => console.log(error));
     }
-
-getComentarios();
 
     function addComment(){
 
@@ -75,9 +80,25 @@ getComentarios();
         })
         .then(response => {
             console.log(data);
-            getComentarios();
+            getComentarios(data.id_libro);
         })
         .catch(error => console.log(error));
 
     }
+
+    document.getElementById("btnEdit").addEventListener("click",openForm);
+    document.getElementById("btnClose").addEventListener("click",closeForm);
+  
+    function openForm() {
+      document.getElementById("myForm").style.display = "block";
+    }
+    
+    function closeForm() {
+      document.getElementById("myForm").style.display = "none";
+    }
+
+    document.getElementById('form-comment').addEventListener('submit', function(evt){
+        evt.preventDefault();
+        addComment();
+    });
 }

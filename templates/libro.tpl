@@ -1,6 +1,11 @@
 {include file="header.tpl"}
 
     <div class="datos-bbdd">
+        <div 
+            id="container" data-objectId="{$libro.id_libro}" data-userId="{$user.id}">
+            <p>Objeto: <span id="objId"></span></p>
+            <p>Usuario: <span id="usrId"></span></p>
+        </div>
 
     
         <div class="img">
@@ -20,8 +25,8 @@
         <h6>Agregar comentario</h6>
         <form  method="POST" id="form-comment">
             <div class="form-group">
-                <input value="{$user.id} " name="usuario" type="hidden" class="form-control" placeholder="Usuario">
-                <input value="{$libro.id_libro} " name="libro" type="hidden" class="form-control" placeholder="Valoracion">
+                <input value="{$user.id}" name="usuario" type="hidden" class="form-control" placeholder="Usuario">
+                <input value="{$libro.id_libro}" name="libro" type="hidden" class="form-control" placeholder="Valoracion">
             </div>
             <div class="form-group">
                 <label> valoracion: </label>

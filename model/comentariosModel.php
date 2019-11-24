@@ -15,9 +15,9 @@ class comentariosModel{
         return $this->db->lastInsertId();
     }
 
-    function getComentarios(){
-        $sentencia = $this->db->prepare('SELECT * FROM comentarios');
-        $sentencia->execute();
+    function getComentarios($id){
+        $sentencia = $this->db->prepare('SELECT * FROM comentarios WHERE id_libro=?');
+        $sentencia->execute([$id]);
         $comentarios= $sentencia->fetchAll(PDO::FETCH_ASSOC);
         
         return $comentarios;

@@ -7,8 +7,9 @@ class biblioApiController extends ApiController{
     
 
     public function  getComentarios($params = null) {
+        $id = $params[':ID'];
         
-        $comentarios = $this->model->getComentarios();
+        $comentarios = $this->model->getComentarios($id);
         $this->view->response($comentarios, 200);
     }
 
@@ -16,11 +17,9 @@ class biblioApiController extends ApiController{
         $id = $params[':ID'];
 
         $comentarios = $this->model->deleteComentario($id);
-
     }
 
     public function agregarComentario($params = []){
-
         $comment = $this->getData(); // la obtengo del body
         
         // inserta la comment

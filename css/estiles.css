@@ -66,3 +66,7 @@
     width: 15%;
     height: 20%;
   } 
+
+  #container{
+    display: none;
+  }
