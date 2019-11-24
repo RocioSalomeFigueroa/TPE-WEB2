@@ -3,6 +3,7 @@ require_once('./view/librosView.php');
 require_once("./model/librosModel.php");
 require_once './view/autoresView.php';
 require_once "./model/autoresModel.php";
+require_once "./model/userModel.php";
 
 class bibliotecaController{
     
@@ -10,6 +11,7 @@ class bibliotecaController{
     private $lmodel;
     private $aview;
     private $amodel;
+    private $umodel;
     private $titulo;
 
     function __construct(){
@@ -17,6 +19,7 @@ class bibliotecaController{
         $this->lmodel = new librosModel();
         $this->aview = new autoresView();
         $this->amodel = new autoresModel();
+        $this->umodel = new userModel();
         $this->titulo = "Biblioteca Virtual";
     }
 
@@ -40,7 +43,21 @@ class bibliotecaController{
     }
 
     function getUser(){
-        
+        session_start();
+
+        if(!isset($_SESSION['ID_USER']) || ($_SESSION['admin'] != 1) ){
+            header("Location: " . URL_login);
+            //var_dump($_SESSION);
+            die();
+        }
+        else{
+            $user = [
+                "id" => $_SESSION['ID_USER'],
+                "name" => $_SESSION['USERNAME'],
+                "admin" =>  $_SESSION['admin'],
+            ];
+        }
+        return $user;
     }
 
     function traerLibros(){
@@ -48,9 +65,11 @@ class bibliotecaController{
         $this->lview->Mostrar($this->titulo,$libros);
     }
     function traerLibro($id){
+        $user = $this->getUser();
+       // var_dump($user); die;
         $autores = $this->amodel->getAutores();
         $libro = $this->lmodel->getLibro($id);
-        $this->lview->MostrarLibro($libro, $autores);
+        $this->lview->MostrarLibro($libro, $autores, $user);
     }
 
     function agregarLibro(){
