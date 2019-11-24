@@ -21,28 +21,6 @@
 
             {include file="vue/comentarios.tpl"}
 
-      <div>
-        <h6>Agregar comentario</h6>
-        <form  method="POST" id="form-comment">
-            <div class="form-group">
-                <input value="{$user.id}" name="usuario" type="hidden" class="form-control" placeholder="Usuario">
-                <input value="{$libro.id_libro}" name="libro" type="hidden" class="form-control" placeholder="Valoracion">
-            </div>
-            <div class="form-group">
-                <label> valoracion: </label>
-                <input value=" " name="valoracion" type="text" class="form-control" placeholder="Valoracion">
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">comentario:</label>
-              <textarea class="form-control" name="comentario" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-success">Agregar comentario</button>
-            </div>
-        </form>
-    </div>
-
-
       <div class="form-popup" id="myForm">
         <form action="editarLibro/{$libro.id_libro}" method="post" class="form-container">  
                   <div class="form-group">
@@ -92,6 +70,8 @@
         <div class = "botonera">
           <button class="btn btn-success" id="btnEdit">Editar</button>
           {* <button class="btn btn-success" id="btnEdit">Editar</button> *}
+          <a href="borrarLibro/{$libro.id_libro}" class="btn btn-danger btn-sm">Eliminar</a>
+  
         </div>    
       </div>
 

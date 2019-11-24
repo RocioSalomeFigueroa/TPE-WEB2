@@ -2,10 +2,9 @@
 
 document.addEventListener("DOMContentLoaded", global);
 
-
 function global(){
 
-    function setIds(){
+ //   function setIds(){
         let container = document.getElementById("container");
         let objId = container.dataset.objectid;
         let usrId = container.dataset.userid;
@@ -17,9 +16,9 @@ function global(){
         objSpan.innerText = objId;
 
         getComentarios(objId);
-    }
+//    }
     
-    setIds();
+//    setIds();
 
     let app = new Vue({
         el: "#template-vue-comentarios",
@@ -31,13 +30,6 @@ function global(){
             deleteComment: function(id) {
                 let url = "api/comentarios/" + id;
 
-                let container = document.getElementById("container");
-                let objId = container.dataset.objectid;
-
-                let objSpan = document.getElementById("objId");
-
-                objSpan.innerText = objId;
-
                 fetch(url,{
                     "method" : "DELETE",
                     "headers" : {
@@ -48,6 +40,25 @@ function global(){
                 }).catch(function(e){
                     console.log(e)
                 })
+            },
+            addComment : function(){
+                let data = {
+                    id_usuario:  usrId,
+                    id_libro:  objId,
+                    valoracion:  document.querySelector("input[name=valoracion]").value,
+                    comentario:  document.querySelector("textarea[name=comentario]").value
+                }
+                
+                fetch('api/comentarios', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},       
+                    body: JSON.stringify(data)
+                })
+                .then(response => {
+                    console.log(data);
+                    getComentarios(objId);
+                })
+                .catch(error => console.log(error));
             }
         }
     });
@@ -62,30 +73,6 @@ function global(){
         .catch(error => console.log(error));
     }
 
-    function addComment(){
-
-        console.log("entra");
-        
-        let data = {
-            id_usuario:  document.querySelector("input[name=usuario]").value,
-            id_libro:  document.querySelector("input[name=libro]").value,
-            valoracion:  document.querySelector("input[name=valoracion]").value,
-            comentario:  document.querySelector("textarea[name=comentario]").value
-        }
-        
-        fetch('api/comentarios', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},       
-            body: JSON.stringify(data)
-        })
-        .then(response => {
-            console.log(data);
-            getComentarios(data.id_libro);
-        })
-        .catch(error => console.log(error));
-
-    }
-
     document.getElementById("btnEdit").addEventListener("click",openForm);
     document.getElementById("btnClose").addEventListener("click",closeForm);
   
@@ -97,8 +84,4 @@ function global(){
       document.getElementById("myForm").style.display = "none";
     }
 
-    document.getElementById('form-comment').addEventListener('submit', function(evt){
-        evt.preventDefault();
-        addComment();
-    });
 }
