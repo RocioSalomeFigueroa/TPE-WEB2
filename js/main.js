@@ -4,21 +4,20 @@ document.addEventListener("DOMContentLoaded", global);
 
 function global(){
 
- //   function setIds(){
         let container = document.getElementById("container");
         let objId = container.dataset.objectid;
         let usrId = container.dataset.userid;
+        let usrAdm = container.dataset.useradmin;
 
         let usrSpan = document.getElementById("usrId");
         let objSpan = document.getElementById("objId");
+        let usrAdmSpan = document.getElementById("usrAdm");
 
         usrSpan.innerText = usrId;
         objSpan.innerText = objId;
+        usrAdmSpan.innerText = usrAdm;
 
         getComentarios(objId);
-//    }
-    
-//    setIds();
 
     let app = new Vue({
         el: "#template-vue-comentarios",
