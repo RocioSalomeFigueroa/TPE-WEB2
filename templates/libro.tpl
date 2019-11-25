@@ -2,11 +2,12 @@
 
     <div class="datos-bbdd">
 
-       <h3>Libro:</h3>
-
+    
         <div class="img">
-            <img class="card-img" src="{$libro.imagen}"/>
-            <a href="borrarImagen/{$libro.imagen}" class="btn btn-danger btn-sm">Eliminar</a>
+        {foreach from=$libro.imagenes item=imagen}
+          <img src="{$imagen.ruta}">
+          <a href="borrarImagen/{$imagen.id_imagen}" class="btn btn-danger btn-sm">Eliminar</a>
+        {/foreach}
           </div>
           <div class="dato-biblioteca">
             <h4 class="card-title">Titulo: {$libro.titulo}</h4>
@@ -17,7 +18,7 @@
         </div>
 
       <div class="form-popup" id="myForm">
-        <form action="editarLibro/{$libro.id_libro}" method="post" class="form-container" enctype="multipart/form-data">
+        <form action="editarLibro/{$libro.id_libro}" method="post" class="form-container">
                  <div class="form-group">
                       <label> Titulo: </label>
                       <input value=" " name="titulo" type="text" class="form-control" placeholder="Titulo">

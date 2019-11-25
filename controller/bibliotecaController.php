@@ -23,8 +23,6 @@ class bibliotecaController{
     public function checkLogIn(){
         session_start();
 
-    
-        
         if(!isset($_SESSION['ID_USER'])){
             header("Location: " . URL_login);
             die();
@@ -40,6 +38,15 @@ class bibliotecaController{
         $autores = $this->amodel->getAutores();
         $libro = $this->lmodel->getLibro($id);
         $this->lview->MostrarLibro($libro, $autores);
+    }
+
+    private function sonJPG($imagenesTipos){
+        foreach ($imagenesTipos as $tipo) {
+          if($tipo != 'image/jpeg') {
+            return false;
+          }
+        }
+        return true;
     }
 
     function agregarLibro(){ //muestra el formulario
@@ -58,13 +65,16 @@ class bibliotecaController{
 
         if(!empty($titulo) && !empty($autor)&& !empty($genero)){
 
-            $img = $_FILES["imagen"];
-            $origen = $img["tmp_name"];
-            $destino = "images/libros/" . uniqid() . $img["name"];
-            copy($origen, $destino);
+             $rutaTempImagenes = $_FILES['imagen']['tmp_name'];
+             if($this->sonJPG($_FILES['imagen']['type'])) {
+                $this->lmodel->agregarLibro($titulo, $autor, $genero, $anio, $valoracion, $resenia, $rutaTempImagenes);
+                header('Location: '.URL_libros);
+              }
+              else{
 
-            $this->lmodel->agregarLibro($titulo,$autor,$genero, $anio, $valoracion, $resenia, $destino);
-            header("Location: " . URL_libros);
+                $this->lview->showError('No es jpg ');
+                //$this->lview->errorCrear("Las imagenes tienen que ser JPG.", $titulo, $autor, $genero, $anio, $valoracion, $resenia);
+              }
         }
         else {
             $this->lview->showError('completar campos obligatorios');
@@ -78,10 +88,12 @@ class bibliotecaController{
         header("Location: " . URL_libros); 
       
     }
+
     function deleteImagen($id){
-         $this->checkLogIn();
-         $this->lmodel->eliminarImagen($id,$imagen);
-         header("Location: " . URL_libros);
+        $this->checkLogIn();
+
+        $this->lmodel->eliminarImagen($id);
+        header("Location: " . URL_libros); 
     }
 
     function cambiarLibro($id){

@@ -23,8 +23,12 @@ class librosView{
 
         $this->smarty->assign('autores', $autores);
         $this->smarty->assign('libro', $libro);
-
+        
         $this->smarty->display('templates/libro.tpl');
+    }
+//hacer bien este error
+    function showError($error){
+            echo($error);
     }
 
     function mostrarFormulario($autores){

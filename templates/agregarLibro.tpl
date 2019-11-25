@@ -36,7 +36,7 @@
                     </div>
                     <div class="form-group">
                       <label> Imagen: </label>
-                      <input value=" " name="imagen" type="file" class="form-control" placeholder="Imagen">
+                      <input value=" " name="imagen[]" id="imagenes_mult" type="file" class="form-control" multiple>
                     </div>
                     <div class="form-group">
                       <button type="submit" class="btn btn-outline-secondary">Insertar</button>
