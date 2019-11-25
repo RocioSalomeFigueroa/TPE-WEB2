@@ -68,6 +68,8 @@ class bibliotecaController{
              $rutaTempImagenes = $_FILES['imagen']['tmp_name'];
              if($this->sonJPG($_FILES['imagen']['type'])) {
                 $this->lmodel->agregarLibro($titulo, $autor, $genero, $anio, $valoracion, $resenia, $rutaTempImagenes);
+            // $idLibro = $this->lmodel->agregarLibro($titulo, $autor, $genero, $anio, $valoracion, $resenia);
+            // $this->imodel->agregarImagenes($rutaTempImagenes, $idLibro);
                 header('Location: '.URL_libros);
               }
               else{
@@ -156,7 +158,7 @@ class bibliotecaController{
          
     }
 
-    function cambiarAutor($id){//edita
+    function cambiarAutor($id){
         $this->checkLogIn();
 
         $nombre = $_POST['nombre'];

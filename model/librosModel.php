@@ -22,7 +22,7 @@ class librosModel{
         $destino_final = 'images/libros/' . uniqid() . '.jpg';
         move_uploaded_file($imagen, $destino_final);
         $rutas[]=$destino_final;
-    }
+        }
         return $rutas;
     }
 
@@ -35,8 +35,9 @@ class librosModel{
         $sentencia_imagenes = $this->db->prepare('INSERT INTO imagenes(id_libro,ruta) VALUES(?,?)');
         foreach ($rutas as $ruta) {
          $sentencia_imagenes->execute([$id_libro,$ruta]);
+        }
+    //return $id_libro
     }
-  }
 
     function eliminarLibro($id){
         $sentencia = $this->db->prepare("DELETE FROM `libros` WHERE `libros`.`id_libro` = ?");
