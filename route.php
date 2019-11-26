@@ -1,6 +1,4 @@
 <?php
-
-//require_once 'controller/bibliotecaController.php' ;
 require_once 'controller/librosController.php';
 require_once 'controller/autoresController.php';
 require_once 'controller/loginController.php' ;
@@ -84,18 +82,6 @@ if($action == ''){
         }
         elseif($partesURL[0] == "nuevoUsuario") {
             $controllerUser->nuevoUsuario();
-        }
-        elseif($partesURL[0] == "visitanteAutores"){
-            $controller->visitantesAutores();
-        }
-        elseif($partesURL[0] == "visitantesLibros"){
-            $controller->visitantesLibros();
-        }
-        elseif($partesURL[0] == "libroVisita"){
-            $controller->traerLibroVisitante($partesURL[1]);
-        }
-        elseif($partesURL[0] == "autorVisita"){
-            $controller->traerAutorVisitante($partesURL[1]);
         }
         
     }
