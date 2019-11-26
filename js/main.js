@@ -1,5 +1,4 @@
 "use strict"
-
 document.addEventListener("DOMContentLoaded", global);
 
 function global(){
@@ -97,3 +96,4 @@ function global(){
     }
 
 }
+

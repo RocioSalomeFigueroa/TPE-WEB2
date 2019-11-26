@@ -35,6 +35,11 @@ if($action == ''){
                 $controller->deleteLibro($partesURL[1]);
             }
         }
+        elseif($partesURL[0] == "borrarImagen"){
+            if(isset($partesURL[1])){
+                $controller->deleteImagen($partesURL[1]);
+            }
+        }
         elseif($partesURL[0] == "agregarLibro"){
             $controller->agregarLibro();
         }

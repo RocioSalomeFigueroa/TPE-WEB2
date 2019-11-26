@@ -29,7 +29,9 @@
     grid-area: body;
   }
   
-  .datos-bbdd { grid-area: datos-bbdd; }
+  .datos-bbdd {
+    display: inline;
+    grid-area: datos-bbdd;}
   
   .buttons { grid-area: buttons; }
 

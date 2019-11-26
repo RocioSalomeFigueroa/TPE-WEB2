@@ -26,6 +26,10 @@ class librosView{
 
         $this->smarty->display('templates/libro.tpl');
     }
+//hacer bien este error
+    function showError($error){
+            echo($error);
+    }
 
     function mostrarFormulario($autores,$user){
       //  var_dump($autores);
