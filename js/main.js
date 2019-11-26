@@ -68,8 +68,20 @@ function global(){
         .then(response => response.json())
         .then(comentarios => {
             app.comentarios = comentarios;
+          let promedio=  getPuntuacion(comentarios);
+            console.log(promedio);
         })
         .catch(error => console.log(error));
+    }
+
+    function getPuntuacion(comentarios){
+        let promedio = 0;
+        let total = comentarios.length;
+        for (let comentario of comentarios){
+            promedio =promedio + parseInt(comentario.valoracion);
+        }
+        console.log(comentarios.length);
+        return promedio/total;
     }
 
     document.getElementById("btnEdit").addEventListener("click",openForm);

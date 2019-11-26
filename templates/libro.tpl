@@ -8,7 +8,7 @@
             <p>Admin: <span id="usrAdm"></span></p>
         </div>
 
-    
+    {* agregar un if con smarty si es admn *}
         <div class="img">
             <img class="card-img" src="{$libro.imagen}"/>
           </div>
