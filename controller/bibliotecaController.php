@@ -45,10 +45,13 @@ class bibliotecaController{
     function getUser(){
         session_start();
 
-        if(!isset($_SESSION['ID_USER']) || ($_SESSION['admin'] != 1) ){
-            header("Location: " . URL_login);
-            //var_dump($_SESSION);
-            die();
+        if(!isset($_SESSION['ID_USER'])){
+            $user = [
+                "id" => "null",
+                "name" => "Visitante",
+                "admin" => "0",
+            ];
+
         }
         else{
             $user = [

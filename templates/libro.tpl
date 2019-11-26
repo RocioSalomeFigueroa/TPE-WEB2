@@ -9,6 +9,10 @@
         </div>
 
     {* agregar un if con smarty si es admn *}
+
+    {if $user.admin eq "1"}
+      	Welcome Sir.
+    {/if}
         <div class="img">
             <img class="card-img" src="{$libro.imagen}"/>
           </div>
@@ -66,8 +70,10 @@
       </div>
   </div>
 
-      <div class="buttons">
-
+  <div class="buttons">
+     {if $user.admin eq "1"}
+      	Welcome Sir.
+  
         <div class = "botonera">
           <button class="btn btn-success" id="btnEdit">Editar</button>
           {* <button class="btn btn-success" id="btnEdit">Editar</button> *}
@@ -75,5 +81,5 @@
   
         </div>    
       </div>
-
+{/if}
 {include file="footer.tpl"}
