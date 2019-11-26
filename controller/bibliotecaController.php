@@ -3,11 +3,12 @@ require_once('./view/librosView.php');
 require_once("./model/librosModel.php");
 require_once './view/autoresView.php';
 require_once "./model/autoresModel.php";
-
+require_once "./model/imagenesModel.php";
 class bibliotecaController{
     
     private $lview;
     private $lmodel;
+    private $imodel;
     private $aview;
     private $amodel;
     private $titulo;
@@ -17,6 +18,7 @@ class bibliotecaController{
         $this->lmodel = new librosModel();
         $this->aview = new autoresView();
         $this->amodel = new autoresModel();
+        $this->imodel = new imagenesModel();
         $this->titulo = "Biblioteca Virtual";
     }
 
@@ -91,10 +93,10 @@ class bibliotecaController{
       
     }
 
-    function deleteImagen($id){
+    function deleteImagen($imagen){
         $this->checkLogIn();
 
-        $this->lmodel->eliminarImagen($id);
+        $this->imodel->eliminarImagen($imagen);
         header("Location: " . URL_libros); 
     }
 

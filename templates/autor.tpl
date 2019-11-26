@@ -4,6 +4,7 @@
 
         <div class="img">
             <img class="card-img" src="{$autor.imagen}"/>
+            
           </div>
      <div class="dato-biblioteca">
         <h4 class="card-text">Nombre: {$autor.nombre}</h4>

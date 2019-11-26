@@ -24,3 +24,10 @@ class imagenesModel{
         foreach ($rutas as $ruta) {
             $sentencia_imagenes->execute([$id_libro,$ruta]);
     }
+}
+
+    function eliminarImagen($imagen){
+        $sentencia_imagenes=$this->db->prepare('DELETE FROM `imagenes` WHERE `imagenes`.`id_imagen` = ?');
+        $sentencia_imagenes->execute([$imagen]);
+    }
+}
