@@ -23,7 +23,8 @@ function global(){
         el: "#template-vue-comentarios",
         data: {
             subtitle: "Comentarios sobre el Libro",
-            comentarios: []
+            comentarios: [],
+            admin: usrAdm
         },
         methods: {
             deleteComment: function(id) {

@@ -7,7 +7,7 @@
            <span>{{comentario.valoracion}} </span>
            <span>{{comentario.comentario}} </span>
 
-        <span>
+        <span v-show="admin === 1">
         <button v-on:click="deleteComment(comentario.id_comentario)" class="btn btn-danger btn-sm">Eliminar</button>
         </span>
        </li> 
