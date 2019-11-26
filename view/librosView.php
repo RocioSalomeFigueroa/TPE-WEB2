@@ -11,8 +11,6 @@ class librosView{
     }
 
     function Mostrar($titulo, $libros,$user){ 
-    //    echo count($Libros);
-    //    var_dump($Libros);
         $this->smarty->assign('titulo', $titulo);
         $this->smarty->assign('Libros', $libros);
         $this->smarty->assign('user', $user);

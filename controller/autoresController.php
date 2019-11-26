@@ -43,7 +43,7 @@ class autoresController{
             $user = [
                 "id" => "null",
                 "name" => "Visitante",
-                "admin" => "0",
+                "admin" => "null",
             ];
         }
         else{
