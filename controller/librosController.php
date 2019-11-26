@@ -24,46 +24,45 @@ class librosController{
         }
     }
 
-    public function checkAdmin(){
-        session_start();
-
-        if(!isset($_SESSION['ID_USER']) || ($_SESSION['admin'] != 1) ){
-            header("Location: " . URL_login);
-            //var_dump($_SESSION);
-            die();
-        }
-    }
 
     function getUser(){
         session_start();
 
-        if(!isset($_SESSION['ID_USER']) || ($_SESSION['admin'] != 1) ){
-            header("Location: " . URL_login);
-            //var_dump($_SESSION);
-            die();
+        if(!isset($_SESSION['ID_USER'])){
+            $user = [
+                "id" => "null",
+                "name" => "Visitante",
+                "admin" => "0",
+            ];
         }
         else{
-            $user = $_SESSION['ID_USER'];
+            $user = [
+                "id" => $_SESSION['ID_USER'],
+                "name" => $_SESSION['USERNAME'],
+                "admin" =>  $_SESSION['admin'],
+            ];
         }
         return $user;
     }
 
     function traerLibros(){
+        $user = $this->getUser();
         $libros = $this->model->getLibros();
-        $this->view->Mostrar($this->titulo,$libros);
+        $this->view->Mostrar($this->titulo,$libros, $user);
     }
     function traerLibro($id){
-        $user = getUser();
+        $user = $this->getUser();
         $autores = $this->amodel->getAutores();
         $libro = $this->model->getLibro($id);
         $this->view->MostrarLibro($libro, $autores, $user);
     }
 
     function agregarLibro(){
-        $this->checkAdmin();
+
+        $user = $this->getUser();
 
         $autores = $this->amodel->getAutores();
-        $this->view->mostrarFormulario($autores);
+        $this->view->mostrarFormulario($autores, $user);
     }
     function addLibro(){         
 
@@ -116,3 +115,4 @@ class librosController{
         $this->model->editarLibro( $id, $titulo, $autor, $genero, $anio, $valoracion, $resenia, $destino);
         header("Location: " . URL_libros);
     }
+}

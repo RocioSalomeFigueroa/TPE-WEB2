@@ -1,6 +1,12 @@
 {include file="header.tpl"}
 
     <div class="datos-bbdd">
+      <div 
+        id="container" data-objectId="null" data-userId="{$user.id}" data-userAdmin="{$user.admin}">
+        <p>Objeto: <span id="objId"></span></p>
+        <p>Usuario: <span id="usrId"></span></p>
+        <p>Admin: <span id="usrAdm"></span></p>
+    </div>
         <h2>{$titulo}</h2>
         <h3>Libros:</h3>
 
@@ -20,10 +26,11 @@
         </div>
       </div>
       <div class="buttons">
-
+        {if $user.admin eq "1"}
         <div class = "botonera">
           <a href="agregarLibro" class="btn btn-success">Agregar</a>
-        </div>    
+        </div> 
+      {/if}   
       </div>
   </div>
 

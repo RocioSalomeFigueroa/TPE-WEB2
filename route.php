@@ -1,6 +1,8 @@
 <?php
 
-require_once 'controller/bibliotecaController.php' ;
+//require_once 'controller/bibliotecaController.php' ;
+require_once 'controller/librosController.php';
+require_once 'controller/autoresController.php';
 require_once 'controller/loginController.php' ;
 
 $action = $_GET["action"];
@@ -10,7 +12,8 @@ define("URL_autores", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_POR
 define("URL_login", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
 define("URL_logout", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
 
-$controller = new bibliotecaController();
+$controller = new  librosController();
+$controllerA = new autoresController();
 $controllerUser = new loginController();
 
 
@@ -46,26 +49,26 @@ if($action == ''){
             }
         }
         elseif($partesURL[0]=='autores'){
-            $controller->autores();
+            $controllerA->autores();
         }
         elseif($partesURL[0] == "autor"){
             if(isset($partesURL[1])){
-                $controller->traerAutor($partesURL[1]);
+                $controllerA->traerAutor($partesURL[1]);
             }
         }
         elseif($partesURL[0] == "agregarAutor"){
-            $controller->agregarAutor();
+            $controllerA->agregarAutor();
         }
         elseif($partesURL[0] == "editar"){  
             if(isset($partesURL[1])){
-                $controller->cambiarAutor($partesURL[1]);
+                $controllerA->cambiarAutor($partesURL[1]);
             }
         }
         elseif($partesURL[0] == "insertar"){
-            $controller->addAutor();
+            $controllerA->addAutor();
         }
         elseif($partesURL[0] == "borrarAutor"){
-            $controller->deleteAutor($partesURL[1]);
+            $controllerA->deleteAutor($partesURL[1]);
         }
         elseif($partesURL[0] == "login") {
             $controllerUser->showLogin();

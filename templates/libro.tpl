@@ -1,12 +1,12 @@
 {include file="header.tpl"}
 
-    <div class="datos-bbdd">
-        <div 
-            id="container" data-objectId="{$libro.id_libro}" data-userId="{$user.id}" data-userAdmin="{$user.admin}">
-            <p>Objeto: <span id="objId"></span></p>
-            <p>Usuario: <span id="usrId"></span></p>
-            <p>Admin: <span id="usrAdm"></span></p>
-        </div>
+  <div class="datos-bbdd">
+    <div 
+        id="container" data-objectId="{$libro.id_libro}" data-userId="{$user.id}" data-userAdmin="{$user.admin}">
+        <p>Objeto: <span id="objId"></span></p>
+        <p>Usuario: <span id="usrId"></span></p>
+        <p>Admin: <span id="usrAdm"></span></p>
+    </div>
 
     {* agregar un if con smarty si es admn *}
 

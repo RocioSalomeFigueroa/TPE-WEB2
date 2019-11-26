@@ -2,6 +2,13 @@
 
     <div class="datos-bbdd">
 
+    <div 
+        id="container" data-objectId="null" data-userId="{$user.id}" data-userAdmin="{$user.admin}">
+        <p>Objeto: <span id="objId"></span></p>
+        <p>Usuario: <span id="usrId"></span></p>
+        <p>Admin: <span id="usrAdm"></span></p>
+    </div>
+
         <h3>Agregar Libro</h3>
             <form id="formview" action="addLibro" method="post" enctype="multipart/form-data">
   

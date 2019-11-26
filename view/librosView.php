@@ -10,11 +10,12 @@ class librosView{
         
     }
 
-    function Mostrar($titulo, $libros){ 
+    function Mostrar($titulo, $libros,$user){ 
     //    echo count($Libros);
     //    var_dump($Libros);
-         $this->smarty->assign('titulo', $titulo);
+        $this->smarty->assign('titulo', $titulo);
         $this->smarty->assign('Libros', $libros);
+        $this->smarty->assign('user', $user);
 
         $this->smarty->display('templates/libros.tpl');
     }
@@ -28,21 +29,11 @@ class librosView{
         $this->smarty->display('templates/libro.tpl');
     }
 
-    function mostrarFormulario($autores){
+    function mostrarFormulario($autores,$user){
       //  var_dump($autores);
         $this->smarty->assign('autores', $autores);
+        $this->smarty->assign('user', $user);
         $this->smarty->display('templates/agregarLibro.tpl');
     }
 
-    function librosVisit($libros){
-    //    var_dump($libros);
-        $this->smarty->assign('libros', $libros);
-        $this->smarty->display('templates/librosVisita.tpl');
-    }
-    function libroVisitante($libro){
-
-        $this->smarty->assign('libro', $libro);
-
-        $this->smarty->display('templates/libroVisita.tpl');
-    }
 }

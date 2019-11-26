@@ -1,16 +1,19 @@
 <?php
 require_once './view/autoresView.php';
 require_once "./model/autoresModel.php";
+require_once("./model/librosModel.php");
 
 class autoresController{
 
         private $view;
         private $model;
+        private $lmodel;
         private $titulo;
 
     function __construct(){
         $this->view = new autoresView();
         $this->model = new autoresModel();
+        $this->lmodel = new librosModel();
         $this->titulo = "Biblioteca Virtual";
     }
 
@@ -36,10 +39,12 @@ class autoresController{
     function getUser(){
         session_start();
 
-        if(!isset($_SESSION['ID_USER']) || ($_SESSION['admin'] != 1) ){
-            header("Location: " . URL_login);
-            //var_dump($_SESSION);
-            die();
+        if(!isset($_SESSION['ID_USER'])){
+            $user = [
+                "id" => "null",
+                "name" => "Visitante",
+                "admin" => "0",
+            ];
         }
         else{
             $user = [
@@ -48,22 +53,27 @@ class autoresController{
                 "admin" =>  $_SESSION['admin'],
             ];
         }
+
         return $user;
     }
+
     function autores(){
-        $autores = $this->amodel->getAutores();
-        $this->aview->mostrarAutores($this->titulo,$autores);
+         $user = $this->getUser();
+        $autores = $this->model->getAutores();
+        $this->view->mostrarAutores($this->titulo,$autores,$user);
     }
 
     function traerAutor($id){
-        
-        $autor = $this->amodel->getAutor($id);
+
+         $user = $this->getUser();        
+        $autor = $this->model->getAutor($id);
         $libros =$this->lmodel->ordenar($id);
-        $this->aview->mostrarAutor($autor, $libros);
+        $this->view->mostrarAutor($autor, $libros, $user);
     }
 
     function agregarAutor(){
-        $this->aview->formAgregar();
+        $user = $this->getUser();
+        $this->view->formAgregar($user);
     }
     function addAutor(){
         $this->checkLogIn();
@@ -74,7 +84,7 @@ class autoresController{
         $biografia = $_POST['biografia'];
 
         if(!empty($nombre)&&!empty($apellido)&&!empty($fecha)){
-            $this->amodel->agregarAutor($nombre, $apellido, $fecha, $biografia);
+            $this->model->agregarAutor($nombre, $apellido, $fecha, $biografia);
             header("Location: " . URL_autores);
         }
     }
@@ -82,7 +92,7 @@ class autoresController{
     function deleteAutor($id){
         $this->checkLogIn();
 
-        $this->amodel->eliminarAutor($id);
+        $this->model->eliminarAutor($id);
         header("Location: " . URL_autores); 
         
     }
@@ -95,13 +105,13 @@ class autoresController{
         $fecha = $_POST['fecha'];
         $biografia = $_POST['biografia'];
 
-        $this->amodel->editarAutor($id, $nombre, $apellido, $fecha, $biografia);
+        $this->model->editarAutor($id, $nombre, $apellido, $fecha, $biografia);
         header("Location: " . URL_autores);
     }
 
     function consulta(){
-        $orden = $this->amodel->ordenar();
-        $this->aview->listaOrdenada($orden);
+        $orden = $this->model->ordenar();
+        $this->view->listaOrdenada($orden);
     }
 
 
