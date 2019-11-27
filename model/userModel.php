@@ -22,7 +22,20 @@ class userModel{
 
 
         return $this->db->lastInsertId();
+    }
 
+    public function getUsuarios(){
+        $query = $this->db->prepare('SELECT * FROM  usuarios');
+        $query->execute();
+        $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        return $usuarios
+    }
+
+    function editarUser($username,$name, $mail, $administrador, $id){
+        $sentencia = $this->db->prepare("UPDATE `usuarios` SET `username` =?, `nombre` =?, `mail`=?, `admin`=?, WHERE `usuarios`.`id_usuario`=?");
+        $sentencia->execute(['username'=>$username,'nombre'=>$name, 'mail'=>$mail, 'admin'=>$administrador,'id_usuario'=>$id]);
+        
     }
 
 

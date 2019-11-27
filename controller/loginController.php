@@ -76,6 +76,20 @@ class loginController{
                 $this->view->showLogin("No se pudo crear el usuario");
             }
         }
+
+        function mostrarUsuarios(){
+            $usuarios = $this->model->getUsuarios();
+            $this->view->mostrarUsuarios($usuarios);
+        }
+
+        function editarUsuario($id){
+            $username = $_POST['username'];
+            $name = $_POST['nombre'];
+            $mail = $_POST['mail'];
+            $administrador = $_POST['adminstrador'];
+
+            $this->model->editarUser($username,$name, $mail, $administrador, $id);
+        }
     
     
     }
