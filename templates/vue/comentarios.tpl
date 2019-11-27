@@ -7,13 +7,13 @@
            <span>{{comentario.valoracion}} </span>
            <span>{{comentario.comentario}} </span>
 
-        <span v-show="admin === 1">
+        <span v-show="admin == 1">
         <button v-on:click="deleteComment(comentario.id_comentario)" class="btn btn-danger btn-sm">Eliminar</button>
         </span>
        </li> 
     </ul>
 
-    <div>
+    <div v-show="admin >= 0">
         <h6>Agregar comentario</h6>
         <form  method="POST" id="form-comment" @submit.prevent="addComment">
             <div class="form-group">

@@ -42,20 +42,20 @@ class bibliotecaController{
         $this->lview->MostrarLibro($libro, $autores);
     }
 
-    private function sonJPG($imagenesTipos){
+    /*private function sonJPG($imagenesTipos){
         foreach ($imagenesTipos as $tipo) {
           if($tipo != 'image/jpeg') {
             return false;
           }
         }
         return true;
-    }
+    }*/
 
     function agregarLibro(){ //muestra el formulario
         $autores = $this->amodel->getAutores();
         $this->lview->mostrarFormulario($autores);
     }
-    function addLibro(){ //agrega a la base de datos
+    /*function addLibro(){ //agrega a la base de datos
         $this->checkLogIn();
 
         $titulo = $_POST['titulo'];
@@ -83,7 +83,7 @@ class bibliotecaController{
         else {
             $this->lview->showError('completar campos obligatorios');
         }
-    }
+    }*/
 
     function deleteLibro($id){
         $this->checkLogIn();
@@ -93,12 +93,12 @@ class bibliotecaController{
       
     }
 
-    function deleteImagen($imagen){
+    /*function deleteImagen($imagen){
         $this->checkLogIn();
 
         $this->imodel->eliminarImagen($imagen);
         header("Location: " . URL_libros); 
-    }
+    }*/
 
     function cambiarLibro($id){
         $this->checkLogIn();
@@ -182,25 +182,4 @@ class bibliotecaController{
         $this->aview->listaOrdenada($orden);
     }
 
-    function visitantesAutores(){
-        $autores = $this->amodel->getAutores();
-        $this->aview->autoresVisit($autores);
-    }
-
-    function visitantesLibros(){
-        $libros = $this->lmodel->getLibros();
-        $this->lview->librosVisit($libros);
-    }
-
-    function traerLibroVisitante($id){
-        
-        $libro = $this->lmodel->getLibro($id);
-        $this->lview->libroVisitante($libro);
-    }
-
-    function traerAutorVisitante($id){
-        $autor = $this->amodel->getAutor($id);
-        $libros =$this->lmodel->ordenar($id);
-        $this->aview->autorVisitante($autor, $libros);
-    }
 }

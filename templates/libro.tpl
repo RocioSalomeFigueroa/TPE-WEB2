@@ -14,8 +14,8 @@
       	Welcome Sir.
     {/if}
         <div class="img">
-        {foreach from=$libro.imagenes item=imagen}
-          <img src="{$imagen.ruta}">
+        {foreach from=$imagenes item=imagen}
+          <img class="card-img" src="{$imagen.ruta}">
           <a href="borrarImagen/{$imagen.id_imagen}" class="btn btn-danger btn-sm">Eliminar</a>
         {/foreach}
           </div>

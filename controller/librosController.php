@@ -2,16 +2,19 @@
 require_once('./view/librosView.php');
 require_once("./model/librosModel.php");
 require_once "./model/autoresModel.php";
+require_once "./model/imagenesModel.php";
 
 class librosController{
     
     private $view;
     private $model;
+    private $imodel;
 
     function __construct(){
         $this->view = new librosView();
         $this->model = new librosModel();
         $this->amodel = new autoresModel();
+        $this->imodel = new imagenesModel();
         $this->titulo = "Biblioteca Virtual";
     }
 
@@ -54,7 +57,9 @@ class librosController{
         $user = $this->getUser();
         $autores = $this->amodel->getAutores();
         $libro = $this->model->getLibro($id);
-        $this->view->MostrarLibro($libro, $autores, $user);
+        $imagenes= $this->imodel->getImagenes($id);
+        $this->view->MostrarLibro($libro, $autores, $user, $imagenes);
+
     }
 
     function agregarLibro(){
@@ -64,7 +69,8 @@ class librosController{
         $autores = $this->amodel->getAutores();
         $this->view->mostrarFormulario($autores, $user);
     }
-    function addLibro(){         
+    function addLibro(){ //agrega a la base de datos
+        $this->checkLogIn();
 
         $titulo = $_POST['titulo'];
         $autor = $_POST['autor'];
@@ -75,16 +81,21 @@ class librosController{
 
         if(!empty($titulo) && !empty($autor)&& !empty($genero)){
 
-            $img = $_FILES["imagen"];
-            $origen = $img["tmp_name"];
-            $destino = "images/" . uniqid() . $img["name"];
-            copy($origen, $destino);
+             $rutaTempImagenes = $_FILES['imagen']['tmp_name'];
+             if($this->sonJPG($_FILES['imagen']['type'])) {
+                //$this->model->agregarLibro($titulo, $autor, $genero, $anio, $valoracion, $resenia, $rutaTempImagenes);
+                $idLibro = $this->model->agregarLibro($titulo, $autor, $genero, $anio, $valoracion, $resenia);
+                $this->imodel->agregarImagenes($rutaTempImagenes, $idLibro);
+                header('Location: '.URL_libros);
+              }
+              else{
 
-            $this->model->agregarLibro($titulo,$autor,$genero, $anio, $valoracion, $resenia, $destino);
-            header("Location: " . URL_libros);
+                $this->lview->showError('No es jpg ');
+                //$this->lview->errorCrear("Las imagenes tienen que ser JPG.", $titulo, $autor, $genero, $anio, $valoracion, $resenia);
+              }
         }
         else {
-            $this->view->showError('completar campos obligatorios');
+            $this->lview->showError('completar campos obligatorios');
         }
     }
 
@@ -114,5 +125,20 @@ class librosController{
         
         $this->model->editarLibro( $id, $titulo, $autor, $genero, $anio, $valoracion, $resenia, $destino);
         header("Location: " . URL_libros);
+    }
+
+    private function sonJPG($imagenesTipos){
+        foreach ($imagenesTipos as $tipo) {
+          if($tipo != 'image/jpeg') {
+            return false;
+          }
+        }
+        return true;
+    }
+    function deleteImagen($imagen){
+        $this->checkLogIn();
+
+        $this->imodel->eliminarImagen($imagen);
+        header("Location: " . URL_libros); 
     }
 }
