@@ -86,7 +86,7 @@ class loginController{
             $username = $_POST['username'];
             $name = $_POST['nombre'];
             $mail = $_POST['mail'];
-            $administrador = $_POST['adminstrador'];
+            $administrador = $_POST['administrador'];
 
             $this->model->editarUser($username,$name, $mail, $administrador, $id);
         }
