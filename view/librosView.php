@@ -18,11 +18,12 @@ class librosView{
         $this->smarty->display('templates/libros.tpl');
     }
 
-    function MostrarLibro($libro, $autores, $user){
+    function MostrarLibro($libro, $autores, $user, $imagenes){
     
         $this->smarty->assign('autores', $autores);
         $this->smarty->assign('libro', $libro);
         $this->smarty->assign('user', $user);
+        $this->smarty->assign('imagenes', $imagenes);
 
         $this->smarty->display('templates/libro.tpl');
     }

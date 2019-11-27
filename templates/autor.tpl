@@ -10,7 +10,7 @@
 
         <div class="img">
             <img class="card-img" src="{$autor.imagen}"/>
-            
+            <a href="borrarImagenA/{$autor.imagen}" class="btn btn-danger btn-sm">Eliminar</a>
           </div>
      <div class="dato-biblioteca">
         <h4 class="card-text">Nombre: {$autor.nombre}</h4>

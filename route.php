@@ -67,6 +67,11 @@ if($action == ''){
                 $controllerA->cambiarAutor($partesURL[1]);
             }
         }
+        elseif($partesURL[0] == "borrarImagenA"){
+            if(isset($partesURL[1])){
+                $controllerA->deleteImagenA($partesURL[1]);
+            }
+        }
         elseif($partesURL[0] == "insertar"){
             $controllerA->addAutor();
         }

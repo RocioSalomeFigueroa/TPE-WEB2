@@ -96,6 +96,13 @@ class autoresController{
         header("Location: " . URL_autores); 
         
     }
+    function deleteImagenA($id){
+        $this->checkLogIn();
+
+        $this->model->eliminarImagenA($id);
+        header("Location: " . URL_autores); 
+        
+    }
 
     function cambiarAutor($id){//edita
         $this->checkLogIn();

@@ -8,6 +8,13 @@ class imagenesModel{
         $this->db = new PDO('mysql:host=localhost;'.'dbname=biblioteca_virtual;charset=utf8','root','');
     }
 
+    function getImagenes($id){
+        $sentencia_imagenes = $this->db->prepare( "SELECT * FROM imagenes WHERE id_libro=?");
+        $sentencia_imagenes->execute([$id]);
+        $imagenes = $sentencia_imagenes->fetchAll(PDO::FETCH_ASSOC);
+        return $imagenes;
+    }
+
     function subirImagenes($imagenes){
         $rutas = [];
         foreach ($imagenes as $imagen) {
@@ -18,11 +25,11 @@ class imagenesModel{
         return $rutas;
     }
 
-    function agregarImagenes($imagenes){
+    function agregarImagenes($imagenes, $idLibro){
         $rutas = $this->subirImagenes($imagenes);
         $sentencia_imagenes = $this->db->prepare('INSERT INTO imagenes(id_libro,ruta) VALUES(?,?)');
         foreach ($rutas as $ruta) {
-            $sentencia_imagenes->execute([$id_libro,$ruta]);
+            $sentencia_imagenes->execute([$idLibro,$ruta]);
     }
 }
 
