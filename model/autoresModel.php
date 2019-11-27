@@ -29,9 +29,11 @@ class autoresModel{
         $sentencia = $this->db->prepare("DELETE FROM `autores` WHERE `id_autor` = ?");
         $sentencia->execute(array($id_autor));
     }
+
     function eliminarImagenA($id_autor){
-        $sentencia = $this->db->prepare("UPDATE `autores` SET imagen= null WHERE id_autor=?");
+        $sentencia = $this->db->prepare("UPDATE `autores` SET `imagen`= null WHERE `id_autor`= ?");
         $sentencia->execute(array($id_autor));
+
     }
 
     function editarAutor($id_autor, $nombre, $apellido, $fecha, $biografia, $imagen){
