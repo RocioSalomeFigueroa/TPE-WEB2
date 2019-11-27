@@ -15,7 +15,7 @@
     {/if}
         <div class="img">
         {foreach from=$imagenes item=imagen}
-          <img src="{$imagen.ruta}">
+          <img class="card-img" src="{$imagen.ruta}">
           <a href="borrarImagen/{$imagen.id_imagen}" class="btn btn-danger btn-sm">Eliminar</a>
         {/foreach}
           </div>
