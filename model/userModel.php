@@ -29,7 +29,7 @@ class userModel{
         $query->execute();
         $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
 
-        return $usuarios
+        return $usuarios;
     }
 
     function editarUser($username,$name, $mail, $administrador, $id){

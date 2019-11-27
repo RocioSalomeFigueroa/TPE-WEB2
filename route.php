@@ -93,6 +93,9 @@ if($action == ''){
         elseif($partesURL[0] == "nuevoUsuario") {
             $controllerUser->nuevoUsuario();
         }
+        elseif($partesURL[0] == "usuarios"){
+            $controllerUser->mostrarUsuarios();
+        }
         
     }
 }

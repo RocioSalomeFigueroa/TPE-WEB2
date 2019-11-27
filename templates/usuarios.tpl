@@ -1,8 +1,9 @@
 {include file="header.tpl"}
+
     <div class="datos-bbdd">
          <table class="table table-bordered">
         <thead>
-          <tr>
+          <tr class="table-active">
             <th scope="col">Username</th>
             <th scope="col">Nombre</th>
             <th scope="col">Email</th>
@@ -10,19 +11,35 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Rochi92</td>
-            <td>Rocio</td>
-            <td>rocio.figuero.salome@gmail.com</td><td>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
-                    <label class="custom-control-label" for="customCheck1"></label>
-                </div>
-            </td>
-          </tr>
+        {foreach from=$usuarios item=usuario}
+            <tr>
+                <td>{$usuario.username}</td>
+                <td>{$usuario.nombre}</td>
+                <td>{$usuario.mail}</td>
+                <td><input class="delete-btn" name="administrador" data-id="{$usuario.id_usuario}" type="checkbox" value=""></td>
+            </tr>      
+          {/foreach}
+          <script>
+          let deleteBtns = document.querySelectorAll(".delete-btn");
+          for(let btn of deleteBtns){
+            btn.addEventListener('click', function(e){
+                let result = e.target.checked;
+                let user_id = e.target.dataset.id;
+                alert('fetch' + result + user_id);
+                let formData = new FormData();
+                formData.append("administrador", result);
+                formData.append("user_id", user_id);
+                fetch('url', {
+                    'method': 'POST',
+                    'body': formData
+                })
+            })
+          }
+          </script>
+          </table>
     </div>
     <div class="buttons">
        
     </div>
 
-{include file="footer.tpl"}
+    {include file="footer.tpl"}
