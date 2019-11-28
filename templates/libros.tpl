@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+{include file="header.tpl" }
 
     <div class="datos-bbdd">
       <div 
@@ -14,7 +14,7 @@
         <div class="card-group">
                     
           
-                <table class="table table-bordered">
+      <table class="table table-bordered">
         <thead>
           <tr class="table-active">
             <th scope="col">Titulo</th>

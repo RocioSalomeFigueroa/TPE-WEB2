@@ -96,6 +96,10 @@ if($action == ''){
         elseif($partesURL[0] == "usuarios"){
             $controllerUser->mostrarUsuarios();
         }
+        elseif($partesURL[0] == "editarUsuario"){
+            $controllerUser->editarUsuario();
+        }
+        
         
     }
 }

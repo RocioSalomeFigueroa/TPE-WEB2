@@ -16,26 +16,19 @@
                 <td>{$usuario.username}</td>
                 <td>{$usuario.nombre}</td>
                 <td>{$usuario.mail}</td>
-                <td><input class="delete-btn" name="administrador" data-id="{$usuario.id_usuario}" type="checkbox" value=""></td>
+                <td>
+                  <form action="editarUsuario" method="post">
+                    {if $usuario.admin == 1}
+                      <input name="administrador" type="checkbox" value="" checked>
+                    {else}
+                      <input name="administrador" type="checkbox" value="">
+                    {/if}
+                      <input type="hidden" value="{$usuario.id_usuario}" name="user">
+                      <button type="submit" class="btn btn-info btn-sm">Editar</button>
+                  </form>    
+                </td>
             </tr>      
           {/foreach}
-          <script>
-          let deleteBtns = document.querySelectorAll(".delete-btn");
-          for(let btn of deleteBtns){
-            btn.addEventListener('click', function(e){
-                let result = e.target.checked;
-                let user_id = e.target.dataset.id;
-                alert('fetch' + result + user_id);
-                let formData = new FormData();
-                formData.append("administrador", result);
-                formData.append("user_id", user_id);
-                fetch('url', {
-                    'method': 'POST',
-                    'body': formData
-                })
-            })
-          }
-          </script>
           </table>
     </div>
     <div class="buttons">

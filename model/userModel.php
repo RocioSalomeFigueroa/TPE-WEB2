@@ -16,7 +16,7 @@ class userModel{
     }
 
     public function addUsuario($user, $pass, $nombre, $fecha, $mail){
-        $sentencia = $this->db->prepare("INSERT INTO usuarios (username, pass, nombre, fecha_nac, mail) VALUES (?,?,?,?,?)");
+        $sentencia = $this->db->prepare("INSERT INTO usuarios (username, pass, nombre, fecha_nac, mail, admin) VALUES (?,?,?,?,?,0)");
         $sentencia->execute(array($user, $pass, $nombre, $fecha, $mail));
         //var_dump($user, $pass, $nombre, $fecha, $mail); die;
 
@@ -32,10 +32,9 @@ class userModel{
         return $usuarios;
     }
 
-    function editarUser($username,$name, $mail, $administrador, $id){
-        $sentencia = $this->db->prepare("UPDATE `usuarios` SET `username` =?, `nombre` =?, `mail`=?, `admin`=?, WHERE `usuarios`.`id_usuario`=?");
-        $sentencia->execute(['username'=>$username,'nombre'=>$name, 'mail'=>$mail, 'admin'=>$administrador,'id_usuario'=>$id]);
-        
+    function cambiarAdmin($administrador, $user){
+        $sentencia = $this->db->prepare("UPDATE `usuarios` SET `admin` = ? WHERE `usuarios`.`id_usuario` = ?");
+        $sentencia->execute(array($administrador,$user));
     }
 
 

@@ -9,7 +9,7 @@ class autoresModel{
     }
 
     function getAutores(){
-        $sentencia = $this->db->prepare("SELECT * FROM autores");
+        $sentencia = $this->db->prepare("SELECT * FROM autores ORDER BY apellido ASC");
         $sentencia->execute();
         $autores = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 

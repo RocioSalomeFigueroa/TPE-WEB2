@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", global);
 
 function global(){
 
+        let prom = document.getElementById("prom-valoracion");
+
         let container = document.getElementById("container");
         let objId = container.dataset.objectid;
         let usrId = container.dataset.userid;
@@ -69,6 +71,12 @@ function global(){
         .then(comentarios => {
             app.comentarios = comentarios;
           let promedio=  getPuntuacion(comentarios);
+          if(promedio >= 0){
+            prom.innerHTML = promedio;
+          } else {
+            prom.innerHTML = "0";  
+          }
+          
             console.log(promedio);
         })
         .catch(error => console.log(error));

@@ -1,20 +1,28 @@
 {literal}
    <section id="template-vue-comentarios">
-    <h5> {{ subtitle }} </h5>
+    <h4> {{ subtitle }} </h4>
 
-    <ul>
-       <li v-for="comentario in comentarios"> 
-           <span>{{comentario.valoracion}} </span>
-           <span>{{comentario.comentario}} </span>
-
-        <span v-show="admin == 1">
-        <button v-on:click="deleteComment(comentario.id_comentario)" class="btn btn-danger btn-sm">Eliminar</button>
-        </span>
-       </li> 
-    </ul>
+    <table id="tbl_comentarios" class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Valoracion</th>
+            <th>Comentarios</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody v-for="comentario in comentarios">
+            <tr>
+            <td><span>{{comentario.valoracion}} </span></td>
+            <td><span>{{comentario.comentario}} </span></td>
+            <td><span v-show="admin == 1">
+            <button v-on:click="deleteComment(comentario.id_comentario)" class="btn btn-danger btn-sm">Eliminar</button>
+            </span> </td>
+            </tr>
+        </tbody>
+    </table>
 
     <div v-show="admin >= 0">
-        <h6>Agregar comentario</h6>
+        <h5>Agregar comentario</h5>
         <form  method="POST" id="form-comment" @submit.prevent="addComment">
             <div class="form-group">
                 <label> valoracion: </label>

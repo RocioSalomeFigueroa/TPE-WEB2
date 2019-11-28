@@ -31,16 +31,10 @@
   
   .datos-bbdd {
     display: inline;
-    grid-area: datos-bbdd;}
+    grid-area: datos-bbdd;
+  }
   
-  .buttons { grid-area: buttons; }
-
-  .dato{
-    width: 23%;
-    height: 33%;
-    border: dotted;
-    border-color: rgb(205, 241, 223);
-    background-color: rgb(226, 243, 243);
+  .buttons { grid-area: buttons; 
   }
 
   .botonera{
@@ -75,3 +69,9 @@
   .ocultar{
     display: none;
   }
+  #tbl_comentarios{
+    background-color:  rgb(226, 243, 243);
+    text-align: center;
+  }
+  
+  
