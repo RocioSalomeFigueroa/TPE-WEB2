@@ -54,7 +54,8 @@ class loginController{
         }
 
         function registro(){
-            $this->view->registro();
+            $user = $this->getUser();
+            $this->view->registro($user);
         }
 
         function nuevoUsuario(){
@@ -78,17 +79,43 @@ class loginController{
         }
 
         function mostrarUsuarios(){
+            $user = $this->getUser();
             $usuarios = $this->model->getUsuarios();
-            $this->view->mostrarUsuarios($usuarios);
+            $this->view->mostrarUsuarios($usuarios, $user);
+        }
+        function getUser(){
+            session_start();
+    
+            if(!isset($_SESSION['ID_USER'])){
+                $user = [
+                    "id" => "null",
+                    "name" => "Visitante",
+                    "admin" => "null",
+                ];
+            }
+            else{
+                $user = [
+                    "id" => $_SESSION['ID_USER'],
+                    "name" => $_SESSION['USERNAME'],
+                    "admin" =>  $_SESSION['admin'],
+                ];
+            }
+    
+            return $user;
         }
 
-        function editarUsuario($id){
-            $username = $_POST['username'];
-            $name = $_POST['nombre'];
-            $mail = $_POST['mail'];
-            $administrador = $_POST['administrador'];
+        function editarUsuario(){
+           
+            $user = $_POST['user'];
+            $administrador = 0;
+            if(isset($_POST['administrador'])){
+                $administrador = 1;
+            }
 
-            $this->model->editarUser($username,$name, $mail, $administrador, $id);
+           // var_dump($user); die;
+
+            $this->model->cambiarAdmin( $administrador, $user);
+            header('Location: usuarios');
         }
     
     

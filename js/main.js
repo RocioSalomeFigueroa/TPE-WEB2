@@ -95,5 +95,25 @@ function global(){
       document.getElementById("myForm").style.display = "none";
     }
 
+/*     let deleteBtns = document.querySelectorAll(".delete-btn");
+    for(let btn of deleteBtns){
+      btn.addEventListener('click', function(e){
+          let result = e.target.checked;
+          let user_id = e.target.dataset.id;
+          alert('fetch' + result + user_id);
+          let formData = new FormData();
+          formData.append("administrador", result);
+          formData.append("user_id", user_id);
+          fetch('editarUsuario', {
+              'method': 'POST',
+              'body': formData
+          })
+          .then(response => {
+            console.log(formdata);
+        })
+        .catch(error => console.log(error));
+      })
+    } */
+
 }
 
