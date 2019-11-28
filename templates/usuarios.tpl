@@ -1,7 +1,7 @@
 {include file="header.tpl"}
 
     <div class="datos-bbdd">
-         <table class="table table-bordered">
+        <table class="table table-bordered">
         <thead>
           <tr class="table-active">
             <th scope="col">Username</th>
