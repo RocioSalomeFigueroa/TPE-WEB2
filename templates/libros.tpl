@@ -19,8 +19,7 @@
                   <a href="libro/{$libro.id_libro}"><h5 class="card-title">Titulo: {$libro.titulo}</h5></a>
                   <p class="card-text">Autor: {$libro.apellido}, {$libro.nombre}</p>
                   <p class="card-text">Genero: {$libro.genero}</p>
-                  <p class="card-text"><small class="text-muted">valoracion: {$libro.valoracion}</small></p>
-				          
+                  <p class="card-text">Año: {$libro.anio}</p>
                 </div>          
           {/foreach}
         </div>

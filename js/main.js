@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", global);
 
 function global(){
 
+        let prom = document.getElementById("prom-valoracion");
+
         let container = document.getElementById("container");
         let objId = container.dataset.objectid;
         let usrId = container.dataset.userid;
@@ -69,6 +71,12 @@ function global(){
         .then(comentarios => {
             app.comentarios = comentarios;
           let promedio=  getPuntuacion(comentarios);
+          if(promedio >= 0){
+            prom.innerHTML = promedio;
+          } else {
+            prom.innerHTML = "0";  
+          }
+          
             console.log(promedio);
         })
         .catch(error => console.log(error));
@@ -94,26 +102,6 @@ function global(){
     function closeForm() {
       document.getElementById("myForm").style.display = "none";
     }
-
-/*     let deleteBtns = document.querySelectorAll(".delete-btn");
-    for(let btn of deleteBtns){
-      btn.addEventListener('click', function(e){
-          let result = e.target.checked;
-          let user_id = e.target.dataset.id;
-          alert('fetch' + result + user_id);
-          let formData = new FormData();
-          formData.append("administrador", result);
-          formData.append("user_id", user_id);
-          fetch('editarUsuario', {
-              'method': 'POST',
-              'body': formData
-          })
-          .then(response => {
-            console.log(formdata);
-        })
-        .catch(error => console.log(error));
-      })
-    } */
 
 }
 

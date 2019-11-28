@@ -8,11 +8,6 @@
         <p>Admin: <span id="usrAdm"></span></p>
     </div>
 
-    {* agregar un if con smarty si es admn *}
-
-    {if $user.admin eq "1"}
-      	Welcome Sir.
-    {/if}
         <div class="img">
         {foreach from=$imagenes item=imagen}
           <img class="card-img" src="{$imagen.ruta}">
@@ -24,7 +19,8 @@
             <h5 class="card-text">Autor: {$libro.apellido}, {$libro.nombre}</h5>
             <p class="card-text">Genero: {$libro.genero}</p>
             <p class="card-text">Año: {$libro.anio}</p>
-            <p class="card-text">Reseña: {$libro.resenia}</p>   
+            <p class="card-text">Valoracion: <span id="prom-valoracion"></span></p
+            <p class="card-text">Reseña: {$libro.resenia}</p>
         </div>
 
             {include file="vue/comentarios.tpl"}
