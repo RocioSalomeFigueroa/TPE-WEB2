@@ -9,7 +9,7 @@ class librosModel{
     }
 
     function getLibros(){
-        $sentencia = $this->db->prepare("SELECT lib.id_libro, lib.titulo, aut.apellido, aut.nombre, lib.genero, lib.anio FROM libros lib INNER JOIN autores aut ON lib.id_autor = aut.id_autor");
+        $sentencia = $this->db->prepare("SELECT lib.id_libro, lib.titulo, aut.apellido, aut.nombre, lib.genero, lib.anio FROM libros lib INNER JOIN autores aut ON lib.id_autor = aut.id_autor ORDER BY lib.titulo ASC");
         $sentencia->execute();
         $libros = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 

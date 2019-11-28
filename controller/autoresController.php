@@ -84,7 +84,11 @@ class autoresController{
         $biografia = $_POST['biografia'];
 
         if(!empty($nombre)&&!empty($apellido)&&!empty($fecha)){
-            $this->model->agregarAutor($nombre, $apellido, $fecha, $biografia);
+            $img = $_FILES["imagen"];
+            $origen = $img["tmp_name"];
+            $destino = "images/autor/" . uniqid() . $img["name"];
+            copy($origen, $destino);
+            $this->model->agregarAutor($nombre, $apellido, $fecha, $biografia, $destino);
             header("Location: " . URL_autores);
         }
     }
@@ -98,9 +102,8 @@ class autoresController{
     }
     function deleteImagenA($id){
         $this->checkLogIn();
-
         $this->model->eliminarImagenA($id);
-        header("Location: " . URL_autores); 
+        header("Location: " . URL_autores);
         
     }
 
@@ -111,8 +114,11 @@ class autoresController{
         $apellido = $_POST['apellido'];
         $fecha = $_POST['fecha'];
         $biografia = $_POST['biografia'];
-
-        $this->model->editarAutor($id, $nombre, $apellido, $fecha, $biografia);
+        $img = $_FILES["imagen"];
+        $origen = $img["tmp_name"];
+        $destino = "images/autor/" . uniqid() . $img["name"];
+        copy($origen, $destino);
+        $this->model->editarAutor($id, $nombre, $apellido, $fecha, $biografia, $destino);
         header("Location: " . URL_autores);
     }
 

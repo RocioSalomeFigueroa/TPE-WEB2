@@ -34,10 +34,6 @@
                         <input value=" " name="anio" type="text" class="form-control" placeholder="Año de publicación">
                     </div>
                     <div class="form-group">
-                        <label> valoracion: </label>
-                        <input value=" " name="valoracion" type="text" class="form-control" placeholder="Valoracion">
-                    </div>
-                    <div class="form-group">
                       <label for="exampleFormControlTextarea1">Reseña:</label>
                       <textarea class="form-control" name="resenia" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>

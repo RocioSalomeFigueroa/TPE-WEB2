@@ -8,20 +8,21 @@
         <p>Admin: <span id="usrAdm"></span></p>
     </div>
 
+        
+          <div class="dato-biblioteca">
+            <h3 class="card-title">Titulo: {$libro.titulo}</h3>
+            <h4 class="card-text">Autor: {$libro.apellido}, {$libro.nombre}</h4>
+            <p class="card-text">Genero: {$libro.genero}</p>
+            <p class="card-text">Año: {$libro.anio}</p>
+            <p class="card-text">Valoracion: <span id="prom-valoracion"></span></p
+            <p class="card-text">Reseña: {$libro.resenia}</p>
+        </div>
         <div class="img">
         {foreach from=$imagenes item=imagen}
           <img class="card-img" src="{$imagen.ruta}">
           <a href="borrarImagen/{$imagen.id_imagen}" class="btn btn-danger btn-sm">Eliminar</a>
         {/foreach}
           </div>
-          <div class="dato-biblioteca">
-            <h4 class="card-title">Titulo: {$libro.titulo}</h4>
-            <h5 class="card-text">Autor: {$libro.apellido}, {$libro.nombre}</h5>
-            <p class="card-text">Genero: {$libro.genero}</p>
-            <p class="card-text">Año: {$libro.anio}</p>
-            <p class="card-text">Valoracion: <span id="prom-valoracion"></span></p
-            <p class="card-text">Reseña: {$libro.resenia}</p>
-        </div>
 
             {include file="vue/comentarios.tpl"}
 
@@ -71,11 +72,8 @@
 
   <div class="buttons">
      {if $user.admin eq "1"}
-      	Welcome Sir.
-  
         <div class = "botonera">
           <button class="btn btn-success" id="btnEdit">Editar</button>
-          {* <button class="btn btn-success" id="btnEdit">Editar</button> *}
           <a href="borrarLibro/{$libro.id_libro}" class="btn btn-danger btn-sm">Eliminar</a>
   
         </div>    

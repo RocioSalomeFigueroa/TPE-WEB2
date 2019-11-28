@@ -7,11 +7,12 @@
         <p>Admin: <span id="usrAdm"></span></p>
     </div>
       <h3>Autor:</h3>
-
+{if $autor.imagen != null}
         <div class="img">
             <img class="card-img" src="{$autor.imagen}"/>
-            <a href="borrarImagenA/{$autor.imagen}" class="btn btn-danger btn-sm">Eliminar</a>
+            <a href="borrarImagenA/{$autor.id_autor}" class="btn btn-danger btn-sm">Eliminar</a>
           </div>
+   {/if}
      <div class="dato-biblioteca">
         <h4 class="card-text">Nombre: {$autor.nombre}</h4>
         <h4 class="card-text">Apellido: {$autor.apellido}</h4>
@@ -21,7 +22,7 @@
     <h5>Titulos:</h5>
          <ul>
             {foreach from=$libros item=item}
-                <li>{$item.titulo}</li>   
+                <li><a href="libro/{$item.id_libro}">{$item.titulo}</a></li>
             {/foreach}
         <ul>
 
@@ -45,6 +46,10 @@
                     <textarea value="" name="biografia" type="text"> </textarea>
                 </div>
                 <div class="form-group">
+                      <label> Imagen: </label>
+                      <input value=" " name="imagen" type="file" class="form-control" placeholder="Imagen">
+                    </div>
+                    <div class="form-group">
                   <button type="submit" class="btn btn-warning btn-sm">Editar</button>
                   <button type="button" class="btn btn-danger btn-sm" id="btnClose">Close</button>
                 </div>

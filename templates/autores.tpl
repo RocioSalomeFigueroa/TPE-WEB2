@@ -11,15 +11,23 @@
         <h3>Autores:</h3>
 
         <div class="card-group">
-                    
+           <table class="table table-bordered">
+        <thead>
+          <tr class="table-active">
+            <th scope="col">Autor</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Biografia</th>
+          </tr>
+        </thead>
+        <tbody>
           {foreach from=$autores item=autor}
-                                                        
-                <div class = "dato">
-                 <a href="autor/{$autor.id_autor}"><h5 class="card-title">Nombre: {$autor.apellido}, {$autor.nombre}</h5></a>
-                  <p class="card-text">Fecha: {$autor.fecha}</p>
-                  <p class="card-text">Biografia: {$autor.biografia}</p>
-                </div>          
+            <tr>
+             <td> <a href="autor/{$autor.id_autor}">{$autor.apellido}, {$autor.nombre}</a></td>                   
+              <td>{$autor.fecha}</td>
+              <td>{$autor.biografia}</td>
           {/foreach}
+          </tbody>
+          </table>         
         </div>
       </div>
       <div class="buttons">

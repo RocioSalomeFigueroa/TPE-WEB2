@@ -12,16 +12,25 @@
 
 
         <div class="card-group">
-                    
+            <table class="table table-bordered">
+        <thead>
+          <tr class="table-active">
+            <th scope="col">Titulo</th>
+            <th scope="col">Autor</th>
+            <th scope="col">Genero</th>
+            <th scope="col">Año</th>
+          </tr>
+        </thead>
+        <tbody>
           {foreach from=$Libros item=libro}
-                                                 
-                <div class = "dato">
-                  <a href="libro/{$libro.id_libro}"><h5 class="card-title">Titulo: {$libro.titulo}</h5></a>
-                  <p class="card-text">Autor: {$libro.apellido}, {$libro.nombre}</p>
-                  <p class="card-text">Genero: {$libro.genero}</p>
-                  <p class="card-text">Año: {$libro.anio}</p>
-                </div>          
+            <tr>
+             <td><a href="libro/{$libro.id_libro}">{$libro.titulo}</a></td>                   
+              <td>{$libro.apellido}, {$libro.nombre}</td>
+              <td>{$libro.genero}</td>
+              <td>{$libro.anio}</td>
           {/foreach}
+          </tbody>
+          </table>
         </div>
       </div>
       <div class="buttons">
