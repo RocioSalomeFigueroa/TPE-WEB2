@@ -20,13 +20,14 @@ class autoresController{
     public function checkLogIn(){
         session_start();
         
-        if(!isset($_SESSION['ID_USER'])){
+        if(!isset($_SESSION['ID_USER']) || ($_SESSION['admin'] != 1) ){
             header("Location: " . URL_login);
+            //var_dump($_SESSION);
             die();
         }
     }
 
-    public function checkAdmin(){
+/*     public function checkAdmin(){
         session_start();
 
         if(!isset($_SESSION['ID_USER']) || ($_SESSION['admin'] != 1) ){
@@ -34,7 +35,7 @@ class autoresController{
             //var_dump($_SESSION);
             die();
         }
-    }
+    } */
 
     function getUser(){
         session_start();
@@ -73,7 +74,12 @@ class autoresController{
 
     function agregarAutor(){
         $user = $this->getUser();
-        $this->view->formAgregar($user);
+        if ($user['admin'] == 1) {
+            $this->view->formAgregar($user);
+        }
+        else {
+            header("Location: " . URL_login);
+        }
     }
     function addAutor(){
         $this->checkLogIn();

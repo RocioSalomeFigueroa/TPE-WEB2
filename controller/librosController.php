@@ -21,8 +21,9 @@ class librosController{
     public function checkLogIn(){
         session_start();
         
-        if(!isset($_SESSION['ID_USER'])){
+        if(!isset($_SESSION['ID_USER']) || ($_SESSION['admin'] != 1) ){
             header("Location: " . URL_login);
+            //var_dump($_SESSION);
             die();
         }
     }
@@ -63,11 +64,17 @@ class librosController{
     }
 
     function agregarLibro(){
-
         $user = $this->getUser();
+        if ($user['admin'] == 1) {
+           // var_dump($user); die;
+           $autores = $this->amodel->getAutores();
+            $this->view->mostrarFormulario($autores, $user); # code...
+        }
+        else {
+            header("Location: " . URL_login);
+        }
 
-        $autores = $this->amodel->getAutores();
-        $this->view->mostrarFormulario($autores, $user);
+        
     }
     function addLibro(){ //agrega a la base de datos
         $this->checkLogIn();

@@ -1,6 +1,7 @@
 {include file="header.tpl"}
 
   <div class="datos-bbdd">
+
     <div 
         id="container" data-objectId="{$libro.id_libro}" data-userId="{$user.id}" data-userAdmin="{$user.admin}">
         <p>Objeto: <span id="objId"></span></p>
@@ -8,7 +9,6 @@
         <p>Admin: <span id="usrAdm"></span></p>
     </div>
 
-        
           <div class="dato-biblioteca">
             <h3 class="card-title">Titulo: {$libro.titulo}</h3>
             <h4 class="card-text">Autor: {$libro.apellido}, {$libro.nombre}</h4>
@@ -26,8 +26,8 @@
 
             {include file="vue/comentarios.tpl"}
 
-      <div class="form-popup" id="myForm">
-        <form action="editarLibro/{$libro.id_libro}" method="post" class="form-container">  
+      <div class="form-popup" id="myForm" class="modal-body">
+        <form action="editarLibro/{$libro.id_libro}" method="post" class="form-container" class="container-fluid">  
                   <div class="form-group">
                       <label> Titulo: </label>
                       <input value=" " name="titulo" type="text" class="form-control" placeholder="Titulo">

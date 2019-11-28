@@ -80,9 +80,16 @@ class loginController{
 
         function mostrarUsuarios(){
             $user = $this->getUser();
-            $usuarios = $this->model->getUsuarios();
-            $this->view->mostrarUsuarios($usuarios, $user);
+
+            if ($user['admin'] == 1) {
+                $usuarios = $this->model->getUsuarios();
+                $this->view->mostrarUsuarios($usuarios, $user);
+            }
+            else {
+                header("Location: " . URL_login);
+            }
         }
+
         function getUser(){
             session_start();
     
@@ -105,18 +112,17 @@ class loginController{
         }
 
         function editarUsuario(){
+
            
             $user = $_POST['user'];
             $administrador = 0;
             if(isset($_POST['administrador'])){
                 $administrador = 1;
             }
-
-           // var_dump($user); die;
-
             $this->model->cambiarAdmin( $administrador, $user);
             header('Location: usuarios');
         }
+        
     
     
     }
