@@ -47,15 +47,9 @@
                 </div>
                 <div class="form-group">
                       <label> Imagen: </label>
-<<<<<<< HEAD
                       <input value=" " name="imagen" type="file" class="form-control">
                     </div>
                 <div class="form-group">
-=======
-                      <input value=" " name="imagen" type="file" class="form-control" placeholder="Imagen">
-                    </div>
-                    <div class="form-group">
->>>>>>> otraRama
                   <button type="submit" class="btn btn-warning btn-sm">Editar</button>
                   <button type="button" class="btn btn-danger btn-sm" id="btnClose">Close</button>
                 </div>
